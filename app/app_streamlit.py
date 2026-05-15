@@ -281,7 +281,7 @@ def hero(label, judul, deskripsi, badges=None):
         <section class="hero">
             <div class="hero-top">
                 <div class="eyebrow">{aman_teks(label)}</div>
-                <div class="pill">ig: qe.harpjtn</div>
+                <div class="pill">harpjtn</div>
             </div>
             <h1>{aman_teks(judul)}</h1>
             <p class="hero-desc">{aman_teks(deskripsi)}</p>
@@ -1498,9 +1498,9 @@ def halaman_tentang():
 
     metrik_kartu(
         [
-            {"label": "Model", "nilai": "RF V2", "catatan": "Random Forest Intelligence V2 dari hasil retraining."},
-            {"label": "Engine", "nilai": "V3", "catatan": "Gabungan model, URL intelligence, file analyzer, dan kalibrasi."},
-            {"label": "Program", "nilai": "STEP 10", "catatan": "Sudah memiliki engine, CLI, dan Streamlit interface."},
+            {"label": "Model", "nilai": "RF", "catatan": "Random Forest dari hasil retraining."},
+            {"label": "Engine", "nilai": "V1", "catatan": "Gabungan model, URL intelligence, file analyzer, dan kalibrasi."},
+            {"label": "Program", "nilai": "System", "catatan": "Sudah memiliki engine, CLI, dan Streamlit interface."},
         ],
         kolom=3,
     )
@@ -1513,7 +1513,6 @@ def halaman_tentang():
             "Model URL manual dibuat agar bisa menerima URL baru.",
             "URL intelligence ditambahkan untuk domain resmi, brand tiruan, keyword mencurigakan, dan lookalike domain.",
             "File static analyzer ditambahkan untuk membaca file tanpa menjalankannya.",
-            "Engine V3 dan CLI dibuat pada STEP 10.",
             "Streamlit ini menjadi antarmuka khusus yang berdiri sendiri dari penomoran step.",
         ],
     )
@@ -1571,19 +1570,19 @@ def halaman_sistem():
     metadata_step10 = muat_metadata(LOKASI_METADATA_STEP10)
     metadata_engine = muat_metadata(LOKASI_METADATA_ENGINE)
 
-    tab_step10, tab_engine = st.tabs(["Metadata STEP 10", "Metadata Engine V3"])
+    tab_step10, tab_engine = st.tabs(["Metadata Engine", "Metadata"])
 
     with tab_step10:
         if metadata_step10:
             st.json(metadata_step10)
         else:
-            st.info("Metadata STEP 10 belum ditemukan.")
+            st.info("Metadata belum ditemukan.")
 
     with tab_engine:
         if metadata_engine:
             st.json(metadata_engine)
         else:
-            st.info("Metadata Engine V3 belum ditemukan.")
+            st.info("Metadata belum ditemukan.")
 
 
 def halaman_batch_lab(engine):
@@ -1656,8 +1655,7 @@ def buat_sidebar():
     )
 
     st.sidebar.markdown("---")
-    st.sidebar.caption("Engine aktif: PhishRisk V3")
-    st.sidebar.caption("Interface ini berdiri sendiri dari penomoran STEP.")
+    st.sidebar.caption("PhishRisk is Active")
 
     return halaman
 
