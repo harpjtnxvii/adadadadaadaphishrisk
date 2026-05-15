@@ -1,0 +1,21 @@
+{
+    "nama_program": "PhishRisk Intelligence Engine",
+    "versi_engine": "V3",
+    "step": "STEP 9",
+    "fungsi_utama": [
+        "analisis_url",
+        "analisis_banyak_url",
+        "analisis_file",
+        "analisis_banyak_file",
+        "analisis_url_di_dalam_file"
+    ],
+    "model_digunakan": "C:\\Users\\ASUS\\PHISHING\\models\\model_terbaik_intelligence_v2.pkl",
+    "fitur_digunakan": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\daftar_fitur_intelligence_v2.json",
+    "modul_engine": "C:\\Users\\ASUS\\PHISHING\\src\\phishrisk_engine_v3.py",
+    "modul_url_intelligence": "C:\\Users\\ASUS\\PHISHING\\src\\url_intelligence.py",
+    "modul_file_static_analyzer": "C:\\Users\\ASUS\\PHISHING\\src\\file_static_analyzer.py",
+    "output_url_v3": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\hasil_uji_phishrisk_engine_v3_url.csv",
+    "output_file_v3": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\hasil_uji_phishrisk_engine_v3_file.csv",
+    "output_url_dalam_file_v3": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\hasil_uji_phishrisk_engine_v3_url_dalam_file.csv",
+    "catatan": "Engine V3 memakai model Intelligence V2 dan kalibrasi final untuk URL resmi, tiruan brand, lookalike domain, dan file statis."
+}

@@ -1,0 +1,26 @@
+ekstensi,tingkat_risiko_awal,keterangan
+.txt,rendah,TXT aman dibaca tetapi tetap perlu dicek jika berisi link
+.bat,sangat_tinggi,Script batch dapat menjalankan perintah sistem
+.cmd,sangat_tinggi,Script CMD dapat menjalankan perintah sistem
+.exe,sangat_tinggi,Executable tidak boleh dijalankan tanpa pemeriksaan
+.lnk,sangat_tinggi,Shortcut Windows dapat mengarah ke perintah berbahaya
+.msi,sangat_tinggi,Installer perlu diperiksa sebelum dijalankan
+.ps1,sangat_tinggi,PowerShell script sangat perlu diperiksa
+.vbs,sangat_tinggi,VBScript sering dipakai untuk script mencurigakan
+.7z,sedang,Arsip perlu diperiksa daftar isinya tanpa dieksekusi
+.docx,sedang,File Word modern perlu diperiksa jika mengandung link atau object
+.htm,sedang,HTML perlu diperiksa jika mengandung form login atau redirect
+.html,sedang,HTML perlu diperiksa jika mengandung form login atau redirect
+.pdf,sedang,"PDF perlu diperiksa jika mengandung link, JavaScript, atau lampiran"
+.ppt,sedang,File PowerPoint perlu diperiksa jika mengandung link atau macro
+.pptx,sedang,File PowerPoint modern perlu diperiksa jika mengandung link
+.rar,sedang,Arsip perlu diperiksa daftar isinya tanpa dieksekusi
+.xlsx,sedang,File Excel modern perlu diperiksa jika mengandung link atau object
+.zip,sedang,Arsip perlu diperiksa daftar isinya tanpa dieksekusi
+.apk,tinggi,APK perlu diperiksa karena dapat meminta izin berbahaya
+.app,tinggi,File aplikasi perlu diperiksa sebelum dijalankan
+.doc,tinggi,File Word lama perlu diperiksa karena dapat mengandung macro
+.docm,tinggi,File Word macro-enabled berisiko tinggi
+.js,tinggi,JavaScript dapat melakukan redirect atau mengambil data
+.xls,tinggi,File Excel lama perlu diperiksa karena dapat mengandung macro
+.xlsm,tinggi,File Excel macro-enabled berisiko tinggi

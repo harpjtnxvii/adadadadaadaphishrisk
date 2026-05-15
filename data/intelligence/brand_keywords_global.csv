@@ -1,0 +1,46 @@
+keyword,brand,kategori,wilayah
+cimb,CIMB,Bank,ASEAN
+dbs,DBS,Bank,ASEAN
+kasikorn,Kasikornbank,Bank,ASEAN
+maybank,Maybank,Bank,ASEAN
+ocbc,OCBC,Bank,ASEAN
+uob,UOB,Bank,ASEAN
+lazada,Lazada,E-Commerce,ASEAN
+shopee,Shopee,E-Commerce,ASEAN
+grab,Grab,Layanan Digital,ASEAN
+amazon,Amazon,E-Commerce,Amerika
+netflix,Netflix,Hiburan,Amerika
+paypal,PayPal,Keuangan Digital,Amerika
+adobe,Adobe,Teknologi,Amerika
+apple,Apple,Teknologi,Amerika
+cloudflare,Cloudflare,Teknologi,Amerika
+github,GitHub,Teknologi,Amerika
+google,Google,Teknologi,Amerika
+microsoft,Microsoft,Teknologi,Amerika
+barclays,Barclays,Bank,Eropa
+deutsche,Deutsche Bank,Bank,Eropa
+hsbc,HSBC,Bank,Eropa
+ing,ING,Bank,Eropa
+lloyds,Lloyds Bank,Bank,Eropa
+santander,Santander,Bank,Eropa
+spotify,Spotify,Hiburan,Eropa
+sap,SAP,Teknologi,Eropa
+bca,BCA,Bank,Indonesia
+klikbca,BCA,Bank,Indonesia
+bni,BNI,Bank,Indonesia
+bri,BRI,Bank,Indonesia
+bsi,BSI,Bank,Indonesia
+btn,BTN,Bank,Indonesia
+danamon,Danamon,Bank,Indonesia
+mandiri,Mandiri,Bank,Indonesia
+dana,DANA,Dompet Digital,Indonesia
+ovo,OVO,Dompet Digital,Indonesia
+blibli,Blibli,E-Commerce,Indonesia
+bukalapak,Bukalapak,E-Commerce,Indonesia
+tokopedia,Tokopedia,E-Commerce,Indonesia
+binus,BINUS,Kampus,Indonesia
+gunadarma,Gunadarma,Kampus,Indonesia
+itb,Institut Teknologi Bandung,Kampus,Indonesia
+ugm,Universitas Gadjah Mada,Kampus,Indonesia
+ui,Universitas Indonesia,Kampus,Indonesia
+gojek,Gojek,Layanan Digital,Indonesia

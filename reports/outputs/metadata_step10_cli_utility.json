@@ -1,0 +1,25 @@
+{
+    "nama_program": "PhishRisk CLI Utility",
+    "step": "STEP 10",
+    "status": "final program utility selesai",
+    "direktori_project": "C:\\Users\\ASUS\\PHISHING",
+    "file_cli": "C:\\Users\\ASUS\\PHISHING\\src\\run_phishrisk.py",
+    "file_engine": "C:\\Users\\ASUS\\PHISHING\\src\\phishrisk_engine_v3.py",
+    "model_digunakan": "C:\\Users\\ASUS\\PHISHING\\models\\model_terbaik_intelligence_v2.pkl",
+    "fitur_digunakan": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\daftar_fitur_intelligence_v2.json",
+    "contoh_input_csv": "C:\\Users\\ASUS\\PHISHING\\examples\\input_url_step10.csv",
+    "panduan_cli": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\panduan_menjalankan_phishrisk_cli.txt",
+    "output_test": {
+        "satu_url": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\hasil_test_cli_satu_url.csv",
+        "banyak_url": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\hasil_test_cli_banyak_url.csv",
+        "satu_file": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\hasil_test_cli_satu_file.csv",
+        "folder": "C:\\Users\\ASUS\\PHISHING\\reports\\outputs\\hasil_test_cli_folder.csv"
+    },
+    "fungsi_utama": [
+        "cek_satu_url",
+        "cek_banyak_url_csv",
+        "cek_satu_file",
+        "cek_folder_file",
+        "simpan_output_csv"
+    ]
+}

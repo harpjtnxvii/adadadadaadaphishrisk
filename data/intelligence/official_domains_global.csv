@@ -1,0 +1,51 @@
+domain,brand,kategori,wilayah,negara,keterangan,sumber,tingkat_kepercayaan
+cimb.com,CIMB,Bank,ASEAN,Malaysia,Website resmi CIMB Group,manual,tinggi
+dbs.com.sg,DBS,Bank,ASEAN,Singapura,Website resmi DBS,manual,tinggi
+kasikornbank.com,Kasikornbank,Bank,ASEAN,Thailand,Website resmi Kasikornbank,manual,tinggi
+maybank2u.com.my,Maybank,Bank,ASEAN,Malaysia,Website resmi Maybank2u,manual,tinggi
+ocbc.com,OCBC,Bank,ASEAN,Singapura,Website resmi OCBC,manual,tinggi
+scb.co.th,SCB,Bank,ASEAN,Thailand,Website resmi Siam Commercial Bank,manual,tinggi
+uob.com.sg,UOB,Bank,ASEAN,Singapura,Website resmi UOB Singapore,manual,tinggi
+grab.com,Grab,Layanan Digital,ASEAN,Singapura,Website resmi Grab,manual,tinggi
+amazon.com,Amazon,E-Commerce,Amerika,Amerika Serikat,Domain utama Amazon,manual,tinggi
+netflix.com,Netflix,Hiburan,Amerika,Amerika Serikat,Domain utama Netflix,manual,tinggi
+paypal.com,PayPal,Keuangan Digital,Amerika,Amerika Serikat,Domain utama PayPal,manual,tinggi
+adobe.com,Adobe,Teknologi,Amerika,Amerika Serikat,Domain utama Adobe,manual,tinggi
+apple.com,Apple,Teknologi,Amerika,Amerika Serikat,Domain utama Apple,manual,tinggi
+cloudflare.com,Cloudflare,Teknologi,Amerika,Amerika Serikat,Domain utama Cloudflare,manual,tinggi
+github.com,GitHub,Teknologi,Amerika,Amerika Serikat,Domain utama GitHub,manual,tinggi
+google.com,Google,Teknologi,Amerika,Amerika Serikat,Domain utama Google,manual,tinggi
+microsoft.com,Microsoft,Teknologi,Amerika,Amerika Serikat,Domain utama Microsoft,manual,tinggi
+barclays.co.uk,Barclays,Bank,Eropa,Inggris,Domain utama Barclays,manual,tinggi
+deutsche-bank.de,Deutsche Bank,Bank,Eropa,Jerman,Domain utama Deutsche Bank,manual,tinggi
+hsbc.com,HSBC,Bank,Eropa,Inggris,Domain utama HSBC,manual,tinggi
+ing.com,ING,Bank,Eropa,Belanda,Domain utama ING,manual,tinggi
+lloydsbank.com,Lloyds Bank,Bank,Eropa,Inggris,Domain utama Lloyds Bank,manual,tinggi
+santander.com,Santander,Bank,Eropa,Spanyol,Domain utama Santander,manual,tinggi
+spotify.com,Spotify,Hiburan,Eropa,Swedia,Domain utama Spotify,manual,tinggi
+sap.com,SAP,Teknologi,Eropa,Jerman,Domain utama SAP,manual,tinggi
+bca.co.id,BCA,Bank,Indonesia,Indonesia,Website resmi BCA,manual,tinggi
+klikbca.com,BCA,Bank,Indonesia,Indonesia,Website resmi layanan KlikBCA,manual,tinggi
+bni.co.id,BNI,Bank,Indonesia,Indonesia,Website resmi BNI,manual,tinggi
+bri.co.id,BRI,Bank,Indonesia,Indonesia,Website resmi BRI,manual,tinggi
+bankbsi.co.id,BSI,Bank,Indonesia,Indonesia,Website resmi Bank Syariah Indonesia,manual,tinggi
+btn.co.id,BTN,Bank,Indonesia,Indonesia,Website resmi BTN,manual,tinggi
+cimbniaga.co.id,CIMB Niaga,Bank,Indonesia,Indonesia,Website resmi CIMB Niaga,manual,tinggi
+danamon.co.id,Danamon,Bank,Indonesia,Indonesia,Website resmi Bank Danamon,manual,tinggi
+bankmandiri.co.id,Mandiri,Bank,Indonesia,Indonesia,Website resmi Bank Mandiri,manual,tinggi
+dana.id,DANA,Dompet Digital,Indonesia,Indonesia,Website resmi DANA,manual,tinggi
+ovo.id,OVO,Dompet Digital,Indonesia,Indonesia,Website resmi OVO,manual,tinggi
+blibli.com,Blibli,E-Commerce,Indonesia,Indonesia,Website resmi Blibli,manual,tinggi
+bukalapak.com,Bukalapak,E-Commerce,Indonesia,Indonesia,Website resmi Bukalapak,manual,tinggi
+lazada.co.id,Lazada,E-Commerce,Indonesia,Indonesia,Website resmi Lazada Indonesia,manual,tinggi
+shopee.co.id,Shopee,E-Commerce,Indonesia,Indonesia,Website resmi Shopee Indonesia,manual,tinggi
+tokopedia.com,Tokopedia,E-Commerce,Indonesia,Indonesia,Website resmi Tokopedia,manual,tinggi
+binus.ac.id,BINUS,Kampus,Indonesia,Indonesia,Domain utama BINUS University,manual,tinggi
+baak.gunadarma.ac.id,Gunadarma,Kampus,Indonesia,Indonesia,Website resmi BAAK Gunadarma,user_verified,tinggi
+gunadarma.ac.id,Gunadarma,Kampus,Indonesia,Indonesia,Domain utama Universitas Gunadarma,manual,tinggi
+praktikum.gunadarma.ac.id,Gunadarma,Kampus,Indonesia,Indonesia,Website resmi praktikum Gunadarma,user_verified,tinggi
+studentsite.gunadarma.ac.id,Gunadarma,Kampus,Indonesia,Indonesia,Website Student Site Gunadarma,manual,tinggi
+itb.ac.id,Institut Teknologi Bandung,Kampus,Indonesia,Indonesia,Domain utama ITB,manual,tinggi
+ugm.ac.id,Universitas Gadjah Mada,Kampus,Indonesia,Indonesia,Domain utama UGM,manual,tinggi
+ui.ac.id,Universitas Indonesia,Kampus,Indonesia,Indonesia,Domain utama Universitas Indonesia,manual,tinggi
+gojek.com,Gojek,Layanan Digital,Indonesia,Indonesia,Website resmi Gojek,manual,tinggi

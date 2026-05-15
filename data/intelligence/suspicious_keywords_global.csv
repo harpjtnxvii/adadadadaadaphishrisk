@@ -1,0 +1,31 @@
+keyword,bobot,kategori,keterangan
+account,2,akun,Kata account sering dipakai pada URL tiruan
+blocked,3,akun,Kata blocked sering dipakai untuk menekan pengguna
+confirm,2,akun,Kata confirm perlu diperiksa
+login,3,akun,Kata login sering dipakai pada halaman tiruan
+secure,2,akun,Kata secure sering dipakai untuk memberi kesan aman palsu
+security,2,akun,Kata security sering dipakai pada halaman tiruan
+signin,3,akun,Kata signin sering dipakai pada halaman tiruan
+suspended,3,akun,Kata suspended sering dipakai untuk menakut-nakuti pengguna
+unlock,3,akun,Kata unlock sering dipakai pada pesan akun palsu
+update,3,akun,Kata update sering dipakai untuk meminta perubahan data
+verification,3,akun,Variasi dari verify
+verify,3,akun,Kata verifikasi sering dipakai untuk memancing pengguna
+banking,3,keuangan,Kata banking sering dipakai untuk tiruan bank
+refund,3,keuangan,Kata refund sering dipakai pada penipuan
+transfer,2,keuangan,Kata transfer perlu diperiksa
+wallet,2,keuangan,Kata wallet perlu diperiksa
+otp,4,kredensial,Kata OTP sangat sensitif
+passcode,4,kredensial,Kata passcode sangat sensitif
+password,4,kredensial,Kata password sangat sensitif
+pin,3,kredensial,Kata PIN perlu diperiksa
+token,3,kredensial,Kata token sering muncul pada penipuan
+billing,3,pembayaran,Kata billing sering muncul pada halaman palsu
+invoice,2,pembayaran,Kata invoice bisa dipakai dalam penipuan pembayaran
+payment,3,pembayaran,Kata payment perlu diperiksa
+bonus,2,promo,Kata bonus sering dipakai untuk memancing klik
+claim,3,promo,Kata claim sering dipakai untuk hadiah palsu
+gratis,2,promo,Kata gratis sering dipakai untuk memancing pengguna
+hadiah,3,promo,Kata hadiah sering dipakai dalam penipuan lokal
+promo,2,promo,Kata promo perlu diperiksa
+reward,3,promo,Kata reward sering dipakai untuk penawaran palsu
