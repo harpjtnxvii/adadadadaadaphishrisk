@@ -20,3 +20,7 @@ models/*
 !models/model_terbaik_intelligence_v2.pkl
 
 *.log
+.env
+.env.*
+!.env.example
+data/threat_cache/
