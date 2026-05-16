@@ -19,7 +19,7 @@ def cari_direktori_project() -> Path:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="PhishRisk Engine V4 - Public Threat Intelligence")
+    parser = argparse.ArgumentParser(description="PhishRisk Best Engine - Public Threat Intelligence")
     parser.add_argument("--mode", choices=["url", "urls", "file"], default="url")
     parser.add_argument("--input", required=True)
     parser.add_argument("--url-column", default="url")
@@ -37,7 +37,7 @@ def main() -> None:
         output.parent.mkdir(parents=True, exist_ok=True)
         data.to_csv(output, index=False)
 
-        print("Hasil Engine V4")
+        print("Hasil Best Engine")
         print("=" * 60)
         print("URL:", hasil.get("url"))
         print("Hasil V4:", hasil.get("hasil_akhir_v4"))
@@ -59,7 +59,7 @@ def main() -> None:
         output.parent.mkdir(parents=True, exist_ok=True)
         data.to_csv(output, index=False)
 
-        print("Ringkasan Engine V4")
+        print("Ringkasan Best Engine")
         print("=" * 60)
         print(data["hasil_akhir_v4"].value_counts().to_string())
         print("Output:", output)
@@ -76,7 +76,7 @@ def main() -> None:
         if isinstance(data_url, pd.DataFrame) and not data_url.empty:
             data_url.to_csv(output_url, index=False)
 
-        print("Hasil File Engine V4")
+        print("Hasil File Best Engine")
         print("=" * 60)
         print("File:", hasil_file.get("nama_file"))
         print("Hasil:", hasil_file.get("hasil_akhir_file_v4"))

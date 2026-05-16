@@ -16,7 +16,7 @@ from public_threat_intelligence import PublicThreatIntelligence
 
 
 class PhishRiskEngineV4:
-    """Engine V4: Engine V3 + Public Threat Intelligence."""
+    """Best Engine yang menggabungkan hasil analisis dari Engine dan Public Threat Intelligence untuk memberikan penilaian risiko yang lebih komprehensif pada URL dan file."""
 
     def __init__(self, direktori_project: str | Path) -> None:
         self.direktori_project = Path(direktori_project)
