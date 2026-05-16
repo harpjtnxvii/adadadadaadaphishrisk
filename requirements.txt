@@ -7,3 +7,5 @@ joblib
 python-docx
 PyPDF2
 openpyxl
+openai
+python-dotenv
