@@ -18,8 +18,6 @@ st.set_page_config(
 
 APP_FILE = Path(__file__).resolve()
 
-# Default aman untuk struktur: C:\\Users\\ASUS\\PHISHING\\app\\app_streamlit.py
-# Jika file dipindah ke folder lain, bagian ini tetap mencoba mencari root project yang memiliki folder src dan models.
 def cari_direktori_project(file_path):
     kandidat = [file_path.parent, *file_path.parents]
     for folder in kandidat:
@@ -6183,7 +6181,7 @@ def render_dashboard_game_v14(engine):
             <div class="v14-card"><strong>Incident Sprint</strong><span>Latihan tindakan cepat saat user sudah klik link atau menerima file mencurigakan.</span></div>
             <div class="v14-card"><strong>File Triage</strong><span>Belajar membaca risiko awal PDF, ZIP, HTML, APK, TXT, DOCX, dan file lain.</span></div>
             <div class="v14-card"><strong>Public TI</strong><span>Memahami PhishTank dan URLhaus sebagai sinyal tambahan, bukan vonis tunggal.</span></div>
-            <div class="v14-card"><strong>Mini Report</strong><span>Membuat laporan singkat dari hasil Engine V4 agar bisa disalin untuk dokumentasi.</span></div>
+            <div class="v14-card"><strong>Mini Report</strong><span>Membuat laporan singkat dari hasil best engine agar bisa disalin untuk dokumentasi.</span></div>
             <div class="v14-card"><strong>Badge</strong><span>Melihat capaian latihan dan reset game jika ingin mulai dari awal.</span></div>
         </div>
         """
@@ -6700,6 +6698,3112 @@ def main():
         halaman_sistem()
 
     footer_site()
+
+
+# ============================================================
+# UPGRADE V15 - PROFESSIONAL INTERFACE POLISH
+# Fokus:
+# 1. Tampilan lebih profesional, matang, dan product-ready.
+# 2. Memperkuat visual hierarchy, navbar, hero, cards, table, button, uploader.
+# 3. Menambah command-center feel tanpa mengubah logic engine.
+# 4. Tetap selaras dengan Engine V4, Public Threat Intelligence, File Analyzer, dan Game Center.
+# ============================================================
+
+def pasang_css_v15_professional():
+    st.markdown(
+        """
+        <style>
+        :root{
+            --v15-bg:#080907;
+            --v15-bg-2:#0d0f0c;
+            --v15-surface:#12140f;
+            --v15-surface-2:#181912;
+            --v15-surface-3:#202015;
+            --v15-text:#fff8e8;
+            --v15-text-2:#e5d7be;
+            --v15-muted:#a99d88;
+            --v15-dim:#776f60;
+            --v15-gold:#d8b56d;
+            --v15-gold-2:#ffe7ad;
+            --v15-green:#9bc79f;
+            --v15-yellow:#d6bd76;
+            --v15-red:#e18478;
+            --v15-line:rgba(255,255,255,.085);
+            --v15-line-gold:rgba(216,181,109,.38);
+            --v15-radius:26px;
+            --v15-radius-lg:34px;
+            --v15-shadow:0 24px 80px rgba(0,0,0,.42);
+            --v15-shadow-soft:0 16px 46px rgba(0,0,0,.28);
+        }
+
+        [data-testid="stAppViewContainer"]{
+            background:
+                radial-gradient(circle at 12% 4%, rgba(216,181,109,.13), transparent 28%),
+                radial-gradient(circle at 90% 0%, rgba(155,199,159,.06), transparent 26%),
+                radial-gradient(circle at 78% 80%, rgba(225,132,120,.045), transparent 24%),
+                linear-gradient(140deg, #080907 0%, #0d0f0c 45%, #16130d 100%) !important;
+        }
+
+        .block-container{
+            max-width:1220px!important;
+            padding-top:.62rem!important;
+            padding-bottom:2.6rem!important;
+        }
+
+        h1{
+            font-size:clamp(2.25rem,5.6vw,5.45rem)!important;
+            line-height:.93!important;
+            letter-spacing:-.075em!important;
+        }
+        h2{
+            font-size:clamp(1.45rem,2.7vw,2.75rem)!important;
+            letter-spacing:-.055em!important;
+        }
+        h3{
+            letter-spacing:-.035em!important;
+        }
+
+        .top-nav-card{
+            border-radius:30px!important;
+            padding:.9rem!important;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)),
+                rgba(10,11,9,.88)!important;
+            border:1px solid rgba(255,255,255,.09)!important;
+            box-shadow:0 24px 90px rgba(0,0,0,.52)!important;
+            backdrop-filter:blur(22px)!important;
+        }
+        .top-nav-head{
+            padding:0 0 .72rem!important;
+            border-bottom:1px solid rgba(255,255,255,.06)!important;
+            margin-bottom:.72rem!important;
+        }
+        .brand-mark{
+            width:44px!important;
+            height:44px!important;
+            border-radius:16px!important;
+            color:#fff2c6!important;
+            background:
+                radial-gradient(circle at 35% 18%, rgba(255,231,173,.32), transparent 32%),
+                linear-gradient(145deg, rgba(216,181,109,.23), rgba(255,255,255,.035))!important;
+            box-shadow:inset 0 1px 0 rgba(255,255,255,.12), 0 14px 32px rgba(0,0,0,.26)!important;
+        }
+        .brand-title{
+            font-size:1.03rem!important;
+            letter-spacing:-.05em!important;
+        }
+        .brand-sub{
+            color:var(--v15-muted)!important;
+        }
+        .nav-badge{
+            background:linear-gradient(135deg, rgba(216,181,109,.20), rgba(255,255,255,.035))!important;
+            border-color:rgba(216,181,109,.52)!important;
+            color:#ffe7ad!important;
+            box-shadow:0 10px 26px rgba(0,0,0,.22)!important;
+        }
+        .nav-help{
+            border:1px solid rgba(255,255,255,.065)!important;
+            background:rgba(255,255,255,.026)!important;
+            border-radius:18px!important;
+            padding:.55rem .7rem!important;
+            color:var(--v15-muted)!important;
+        }
+
+        .hero{
+            border-radius:38px!important;
+            padding:clamp(1.15rem,3.4vw,2.75rem)!important;
+            min-height:clamp(280px, 34vw, 430px)!important;
+            display:flex!important;
+            flex-direction:column!important;
+            justify-content:center!important;
+            background:
+                radial-gradient(circle at 92% 12%, rgba(216,181,109,.22), transparent 30%),
+                radial-gradient(circle at 16% 0%, rgba(255,255,255,.075), transparent 24%),
+                linear-gradient(135deg, rgba(255,255,255,.058), rgba(255,255,255,.018)),
+                rgba(18,20,15,.92)!important;
+            box-shadow:var(--v15-shadow)!important;
+        }
+        .hero:after{
+            content:"";
+            position:absolute;
+            right:1.3rem;
+            bottom:1.2rem;
+            width:min(320px,40vw);
+            height:min(320px,40vw);
+            border-radius:50%;
+            background:radial-gradient(circle, rgba(216,181,109,.16), transparent 62%);
+            pointer-events:none;
+            opacity:.88;
+        }
+        .hero-desc{
+            max-width:780px!important;
+            color:var(--v15-text-2)!important;
+            font-size:clamp(.98rem,1.05vw,1.1rem)!important;
+        }
+        .eyebrow{
+            background:linear-gradient(135deg, rgba(216,181,109,.18), rgba(255,255,255,.025))!important;
+            border-color:rgba(216,181,109,.52)!important;
+            color:#ffe7ad!important;
+            box-shadow:0 10px 24px rgba(0,0,0,.18)!important;
+        }
+        .pill{
+            background:rgba(255,255,255,.042)!important;
+            border:1px solid rgba(255,255,255,.09)!important;
+            color:var(--v15-text-2)!important;
+        }
+
+        .panel{
+            border-radius:26px!important;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.047), rgba(255,255,255,.014)),
+                rgba(18,20,15,.90)!important;
+            border-color:rgba(255,255,255,.085)!important;
+            box-shadow:var(--v15-shadow-soft)!important;
+        }
+        .panel.compact{
+            min-height:124px!important;
+            display:flex!important;
+            flex-direction:column!important;
+            justify-content:center!important;
+        }
+        .panel.gold{
+            border-color:rgba(216,181,109,.42)!important;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.16), transparent 30%),
+                linear-gradient(180deg, rgba(216,181,109,.09), rgba(255,255,255,.012)),
+                rgba(18,20,15,.92)!important;
+        }
+        .panel.green{
+            border-color:rgba(155,199,159,.42)!important;
+        }
+        .panel.yellow{
+            border-color:rgba(214,189,118,.46)!important;
+        }
+        .panel.red{
+            border-color:rgba(225,132,120,.46)!important;
+        }
+        .card-title{
+            font-size:clamp(1.02rem,1.15vw,1.22rem)!important;
+            letter-spacing:-.035em!important;
+        }
+        .card-value{
+            font-size:clamp(1.48rem,2.35vw,2.35rem)!important;
+        }
+
+        .pro-command-grid{
+            display:grid;
+            grid-template-columns:1.15fr .85fr;
+            gap:.9rem;
+            margin:.9rem 0 1rem;
+        }
+        .pro-kpi-grid{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.72rem;
+            margin:.75rem 0 1rem;
+        }
+        .pro-kpi{
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:24px;
+            background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.014));
+            padding:1rem;
+            box-shadow:var(--v15-shadow-soft);
+            min-height:126px;
+        }
+        .pro-kpi small{
+            display:block;
+            color:var(--v15-muted);
+            font-size:.78rem!important;
+            line-height:1.3!important;
+            margin-bottom:.45rem;
+        }
+        .pro-kpi strong{
+            display:block;
+            color:var(--v15-text);
+            font-size:clamp(1.35rem,2.2vw,2.25rem);
+            line-height:1;
+            letter-spacing:-.055em;
+            margin-bottom:.35rem;
+        }
+        .pro-kpi span{
+            display:block;
+            color:var(--v15-muted);
+            font-size:.8rem!important;
+            line-height:1.42!important;
+        }
+        .pro-kpi.gold{border-color:rgba(216,181,109,.38);background:radial-gradient(circle at 100% 0%,rgba(216,181,109,.13),transparent 32%),rgba(18,20,15,.90)}
+        .pro-kpi.green{border-color:rgba(155,199,159,.38);}
+        .pro-kpi.red{border-color:rgba(225,132,120,.38);}
+        .pro-kpi.yellow{border-color:rgba(214,189,118,.42);}
+
+        .pro-feature-grid{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:.82rem;
+            margin:.85rem 0 1rem;
+        }
+        .pro-feature-card{
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:26px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+                rgba(18,20,15,.86);
+            box-shadow:var(--v15-shadow-soft);
+            padding:1rem;
+            min-height:154px;
+            position:relative;
+            overflow:hidden;
+        }
+        .pro-feature-card:before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:radial-gradient(circle at 100% 0%, rgba(216,181,109,.09), transparent 30%);
+            pointer-events:none;
+        }
+        .pro-feature-card b{
+            position:relative;
+            display:block;
+            color:var(--v15-text);
+            font-size:1.05rem!important;
+            line-height:1.15!important;
+            letter-spacing:-.035em;
+            margin-bottom:.42rem;
+        }
+        .pro-feature-card p{
+            position:relative;
+            margin:0!important;
+            color:var(--v15-muted);
+            font-size:.86rem!important;
+            line-height:1.52!important;
+        }
+        .pro-feature-card .tag{
+            position:relative;
+            display:inline-flex;
+            margin-top:.75rem;
+            border:1px solid rgba(216,181,109,.28);
+            background:rgba(216,181,109,.08);
+            color:#ffe7ad;
+            border-radius:999px;
+            padding:.25rem .55rem;
+            font-size:.72rem!important;
+            font-weight:850;
+        }
+
+        .pro-result{
+            border:1px solid rgba(255,255,255,.09);
+            border-radius:32px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.14), transparent 34%),
+                linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.014)),
+                rgba(18,20,15,.95);
+            box-shadow:var(--v15-shadow);
+            padding:1.2rem;
+            margin:.9rem 0 1rem;
+        }
+        .pro-result.safe{border-color:rgba(155,199,159,.45);}
+        .pro-result.review{border-color:rgba(214,189,118,.50);}
+        .pro-result.danger{border-color:rgba(225,132,120,.52);}
+        .pro-result-head{
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-start;
+            gap:.85rem;
+            margin-bottom:.85rem;
+        }
+        .pro-result-status{
+            font-size:clamp(1.55rem,3vw,3rem);
+            font-weight:950;
+            line-height:1;
+            letter-spacing:-.065em;
+            color:var(--v15-text);
+        }
+        .pro-result-score{
+            border:1px solid rgba(216,181,109,.35);
+            background:rgba(216,181,109,.09);
+            border-radius:22px;
+            padding:.75rem .9rem;
+            min-width:140px;
+            text-align:right;
+        }
+        .pro-result-score small{
+            color:var(--v15-muted);
+            display:block;
+            font-size:.72rem!important;
+        }
+        .pro-result-score b{
+            color:#ffe7ad;
+            font-size:1.85rem;
+            line-height:1;
+            letter-spacing:-.06em;
+        }
+        .pro-evidence-grid{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.62rem;
+            margin:.85rem 0;
+        }
+        .pro-evidence{
+            border:1px solid rgba(255,255,255,.07);
+            background:rgba(255,255,255,.026);
+            border-radius:18px;
+            padding:.72rem;
+            min-height:96px;
+        }
+        .pro-evidence small{
+            display:block;
+            color:var(--v15-dim);
+            font-size:.72rem!important;
+            margin-bottom:.35rem;
+        }
+        .pro-evidence b{
+            color:var(--v15-text-2);
+            font-size:.9rem!important;
+            overflow-wrap:anywhere;
+        }
+
+        .stTextInput input, .stTextArea textarea, .stSelectbox div[data-baseweb="select"]>div{
+            border-radius:18px!important;
+            min-height:50px!important;
+            background:#0f110d!important;
+            border:1px solid rgba(255,255,255,.12)!important;
+        }
+        .stTextArea textarea{
+            min-height:160px!important;
+        }
+        .stButton > button,
+        .stDownloadButton > button,
+        button[kind="primary"]{
+            border-radius:18px!important;
+            min-height:50px!important;
+            font-size:.92rem!important;
+            letter-spacing:-.01em!important;
+            background:
+                radial-gradient(circle at 25% 0%, rgba(255,231,173,.18), transparent 32%),
+                linear-gradient(145deg,#3b2e1b,#211a10)!important;
+        }
+
+        [data-testid="stFileUploaderDropzone"],
+        [data-testid="stFileUploader"] section{
+            min-height:220px!important;
+            border-radius:30px!important;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(216,181,109,.14), transparent 42%),
+                linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012)),
+                #0f110d!important;
+        }
+        [data-testid="stFileUploaderDropzone"] button{
+            min-width:250px!important;
+            min-height:62px!important;
+        }
+
+        .table-shell{
+            border-radius:24px!important;
+            border-color:rgba(255,255,255,.085)!important;
+            background:rgba(18,20,15,.75)!important;
+            box-shadow:var(--v15-shadow-soft)!important;
+        }
+        .clean-table th{
+            background:#171810!important;
+            color:#ffe7ad!important;
+        }
+
+        .site-footer{
+            border-radius:30px!important;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.15), transparent 30%),
+                linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+                rgba(18,20,15,.92)!important;
+            box-shadow:var(--v15-shadow-soft)!important;
+        }
+
+        @media(max-width:1024px){
+            .pro-command-grid{grid-template-columns:1fr;}
+            .pro-kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+            .pro-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+            .pro-evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+        }
+        @media(max-width:768px){
+            .block-container{padding-left:.52rem!important;padding-right:.52rem!important;}
+            .top-nav-card{border-radius:22px!important;}
+            .hero{border-radius:26px!important;min-height:auto!important;}
+            .pro-kpi-grid,.pro-feature-grid,.pro-evidence-grid{grid-template-columns:1fr;}
+            .pro-result{border-radius:24px;padding:.9rem;}
+            .pro-result-head{flex-direction:column;}
+            .pro-result-score{text-align:left;width:100%;}
+            [data-testid="stFileUploaderDropzone"],
+            [data-testid="stFileUploader"] section{min-height:230px!important;}
+        }
+        @media(max-width:520px){
+            h1{font-size:2.18rem!important;}
+            .brand-mark{width:38px!important;height:38px!important;}
+            .pro-kpi{min-height:112px;}
+            .pro-feature-card{min-height:128px;}
+            .top-nav-head{align-items:center!important;}
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def v15_badges(items):
+    return "".join([f'<span class="pill">{aman_teks(item)}</span>' for item in items])
+
+
+def v15_kpi_grid(items):
+    html(
+        "<div class='pro-kpi-grid'>"
+        + "".join([
+            f"""
+            <div class="pro-kpi {aman_teks(item.get('warna',''))}">
+                <small>{aman_teks(item.get('label',''))}</small>
+                <strong>{aman_teks(item.get('nilai',''))}</strong>
+                <span>{aman_teks(item.get('catatan',''))}</span>
+            </div>
+            """
+            for item in items
+        ])
+        + "</div>"
+    )
+
+
+def v15_feature_grid(items):
+    html(
+        "<div class='pro-feature-grid'>"
+        + "".join([
+            f"""
+            <div class="pro-feature-card">
+                <b>{aman_teks(item.get('judul',''))}</b>
+                <p>{aman_teks(item.get('isi',''))}</p>
+                <span class="tag">{aman_teks(item.get('tag','PhishRisk'))}</span>
+            </div>
+            """
+            for item in items
+        ])
+        + "</div>"
+    )
+
+
+def hero(label, judul, deskripsi, badges=None):
+    badges = badges or []
+    html(
+        f"""
+        <section class="hero">
+            <div class="hero-top">
+                <div class="eyebrow">{aman_teks(label)}</div>
+                <div class="pill">Professional Dashboard</div>
+            </div>
+            <h1>{aman_teks(judul)}</h1>
+            <p class="hero-desc">{aman_teks(deskripsi)}</p>
+            <div class="hero-actions">{v15_badges(badges)}</div>
+        </section>
+        """
+    )
+
+
+def v15_analisis_url(engine, url):
+    url = str(url).strip()
+    if not url:
+        return None
+    try:
+        if "normalisasi_url_input" in globals():
+            url = normalisasi_url_input(url)
+    except Exception:
+        if not re.match(r"^https?://", url, flags=re.I):
+            url = "https://" + url
+    hasil = engine.analisis_url(url)
+    try:
+        if "selaraskan_hasil_url" in globals():
+            hasil = selaraskan_hasil_url(hasil)
+    except Exception:
+        pass
+    return hasil
+
+
+def v15_status_class(hasil_akhir):
+    teks = str(hasil_akhir).lower()
+    if "aman" in teks:
+        return "safe"
+    if "tinjauan" in teks:
+        return "review"
+    return "danger"
+
+
+def v15_safe_score_width(skor):
+    try:
+        nilai = float(skor)
+    except Exception:
+        nilai = 0
+    return max(0, min(100, nilai))
+
+
+def v15_result_card(hasil):
+    if not hasil:
+        st.info("Belum ada hasil.")
+        return
+    status = hasil.get("hasil_akhir", hasil.get("hasil_akhir_v4", "-"))
+    kategori = hasil.get("kategori_risiko", hasil.get("kategori_risiko_v4", "-"))
+    skor = hasil.get("skor_final", hasil.get("skor_final_v4", 0))
+    kelas = v15_status_class(status)
+    rekomendasi = hasil.get("rekomendasi", hasil.get("rekomendasi_v4", "-"))
+    width = v15_safe_score_width(skor)
+
+    html(
+        f"""
+        <section class="pro-result {kelas}">
+            <div class="pro-result-head">
+                <div>
+                    <div class="eyebrow">Executive Risk Result</div>
+                    <div class="pro-result-status">{aman_teks(status)}</div>
+                    <div class="muted">{aman_teks(rekomendasi)}</div>
+                </div>
+                <div class="pro-result-score">
+                    <small>Skor Risiko</small>
+                    <b>{aman_teks(skor)}</b>
+                    <small>{aman_teks(kategori)}</small>
+                </div>
+            </div>
+            <div class="score-line"><div class="score-fill" style="width:{width}%;"></div></div>
+        </section>
+        """
+    )
+
+    html(
+        "<div class='pro-evidence-grid'>"
+        + f"""
+        <div class="pro-evidence"><small>Domain</small><b>{aman_teks(hasil.get('domain','-'))}</b></div>
+        <div class="pro-evidence"><small>Sinyal Engine</small><b>{aman_teks(hasil.get('intelligence_status','-'))}</b></div>
+        <div class="pro-evidence"><small>Brand</small><b>{aman_teks(hasil.get('brand_detected') or hasil.get('official_brand') or '-')}</b></div>
+        <div class="pro-evidence"><small>Public TI</small><b>{aman_teks(hasil.get('public_ti_status','tidak tersedia'))}</b></div>
+        """
+        + "</div>"
+    )
+
+
+def buat_navigasi():
+    if "halaman_aktif" not in st.session_state:
+        st.session_state.halaman_aktif = "Beranda"
+
+    default = st.session_state.halaman_aktif if st.session_state.halaman_aktif in MENU_UTAMA else "Beranda"
+
+    html(
+        """
+        <div class="top-nav-card">
+            <div class="top-nav-head">
+                <div class="brand-block">
+                    <div class="brand-mark">PR</div>
+                    <div>
+                        <div class="brand-title">PhishRisk</div>
+                        <div class="brand-sub">Defensive Intelligence Command Center</div>
+                    </div>
+                </div>
+                <div class="nav-badge">The Best Engine Ready</div>
+            </div>
+        """
+    )
+
+    pilihan = st.selectbox(
+        "Pilih halaman",
+        MENU_UTAMA,
+        index=MENU_UTAMA.index(default),
+        label_visibility="collapsed",
+        key="navigasi_utama_dropdown_v15",
+    )
+
+    html(
+        f"""
+            <div class="nav-help">
+                Halaman aktif: <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b> · URL, File, Public TI, Report, Checklist, dan Training Lab.
+            </div>
+        </div>
+        """
+    )
+
+    st.session_state.halaman_aktif = pilihan
+    return MENU_MAP.get(pilihan, "Beranda")
+
+
+def buat_sidebar():
+    return buat_navigasi()
+
+
+def halaman_beranda(engine):
+    hero(
+        "PhishRisk Intelligence System",
+        "Security Command Center",
+        "Dashboard profesional untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan cyber security secara defensif.",
+        ["The Best Engine", "Public TI", "Static Analyzer", "AI Fallback", "Report Ready", "Mobile Friendly"],
+    )
+
+    v15_kpi_grid([
+        {"label": "Core Engine", "nilai": "The Best Engine", "catatan": "Model lokal + intelligence + Public TI.", "warna": "gold"},
+        {"label": "Input Utama", "nilai": "URL/File", "catatan": "Link bebas, batch CSV, dan upload file.", "warna": "green"},
+        {"label": "Output", "nilai": "CSV/Report", "catatan": "Hasil bisa dibaca dan diunduh.", "warna": "yellow"},
+        {"label": "Mode", "nilai": "Defensive", "catatan": "Tidak menjalankan file dan tidak membuat phishing.", "warna": "red"},
+    ])
+
+    section_title("Aksi cepat", "Mulai dari URL atau file. Interface ini dibuat seperti command center, bukan brosur startup yang tersesat.")
+    col1, col2 = st.columns([1.15, .85])
+    with col1:
+        html('<div class="input-lab">')
+        url = st.text_input(
+            "Masukkan URL untuk analisis cepat",
+            value="http://bca-login-update.test",
+            key="v15_home_url",
+        )
+        if st.button("Analisis cepat dengan Best Engine", key="v15_home_check"):
+            with st.spinner("Menganalisis URL dengan Best Engine..."):
+                hasil = v15_analisis_url(engine, url)
+            if hasil:
+                tambah_riwayat_url(hasil)
+                st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+                v15_result_card(hasil)
+        html("</div>")
+
+    with col2:
+        bullet_panel(
+            "Cara baca hasil",
+            [
+                "Terlihat Aman: rendah risiko, tetap cek sumber link.",
+                "Perlu Tinjauan: jangan login sebelum validasi manual.",
+                "Berisiko: jangan buka, jangan isi data, laporkan.",
+                "Public TI hanya sinyal tambahan, bukan keputusan tunggal.",
+            ],
+            "gold",
+        )
+
+    section_title("Fitur inti", "Semua fitur dibuat selaras dengan The Best Engine dan kebutuhan user nyata.")
+    v15_feature_grid([
+        {"judul": "URL Risk Checker", "isi": "Periksa satu alamat, lihat skor, status, alasan, sinyal brand, dan rekomendasi.", "tag": "URL"},
+        {"judul": "File Static Analyzer", "isi": "Upload TXT, HTML, PDF, DOCX, ZIP, APK, lalu baca URL dan indikator berisiko tanpa menjalankan file.", "tag": "File"},
+        {"judul": "Public Threat Intelligence", "isi": "Tampilkan sinyal tambahan dari PhishTank dan URLhaus jika tersedia.", "tag": "Public TI"},
+        {"judul": "Engine Lab", "isi": "Uji banyak URL lewat teks atau CSV, lalu unduh hasil pemeriksaan.", "tag": "Batch"},
+        {"judul": "Report Center", "isi": "Buat ringkasan defensif dari hasil URL, file, atau batch.", "tag": "Report"},
+        {"judul": "Training Lab", "isi": "Game edukasi untuk membaca domain tiruan, file berisiko, dan respons insiden.", "tag": "Game"},
+    ])
+
+    section_title("Alur kerja", "Dibuat pendek supaya manusia tidak perlu membaca manifesto keamanan sepanjang skripsi.")
+    c1, c2, c3, c4 = st.columns(4)
+    with c1:
+        step_card("01", "Input", "Masukkan URL, banyak URL, CSV, atau file.")
+    with c2:
+        step_card("02", "Engine", "Model dan URL Intelligence membaca pola risiko.")
+    with c3:
+        step_card("03", "Evidence", "Public TI dan File Analyzer menambah konteks.")
+    with c4:
+        step_card("04", "Action", "User mendapat rekomendasi dan laporan.")
+
+
+def halaman_periksa_url(engine):
+    hero(
+        "URL Risk Analysis",
+        "Periksa Alamat Link",
+        "Masukkan URL bebas. Sistem akan membaca pola domain, skor model, Public TI, alasan, dan rekomendasi tindakan.",
+        ["Best Engine", "Risk Score", "Public TI", "Download CSV"],
+    )
+
+    col1, col2 = st.columns([1.2, .8])
+    with col1:
+        html('<div class="input-lab">')
+        contoh = st.selectbox("Pilih contoh URL", CONTOH_URL, index=8, key="v15_url_sample")
+        url = st.text_input("Atau masukkan URL sendiri", value=contoh, key="v15_url_custom")
+        periksa = st.button("Periksa URL", key="v15_url_check")
+        html("</div>")
+    with col2:
+        bullet_panel(
+            "Prioritas pemeriksaan",
+            [
+                "Cek domain utama dan root domain.",
+                "Cari kata login, verify, update, secure, account.",
+                "Bandingkan brand dengan domain resmi.",
+                "Lihat Public TI sebagai sinyal tambahan.",
+            ],
+            "gold",
+        )
+
+    if periksa:
+        with st.spinner("Memeriksa URL dengan Best Engine..."):
+            hasil = v15_analisis_url(engine, url)
+        if hasil:
+            tambah_riwayat_url(hasil)
+            st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+            v15_result_card(hasil)
+
+            tab1, tab2, tab3, tab4 = st.tabs(["Ringkasan", "Evidence", "Rekomendasi", "Detail"])
+            with tab1:
+                tabel_rapi(pd.DataFrame([
+                    {"Bagian": "URL", "Nilai": hasil.get("url", "-")},
+                    {"Bagian": "Domain", "Nilai": hasil.get("domain", "-")},
+                    {"Bagian": "Hasil", "Nilai": hasil.get("hasil_akhir", "-")},
+                    {"Bagian": "Kategori", "Nilai": hasil.get("kategori_risiko", "-")},
+                    {"Bagian": "Skor", "Nilai": hasil.get("skor_final", "-")},
+                ]), max_rows=20, caption="Ringkasan hasil pemeriksaan.")
+            with tab2:
+                tabel_rapi(pd.DataFrame([
+                    {"Sinyal": "Intelligence Status", "Nilai": hasil.get("intelligence_status", "-")},
+                    {"Sinyal": "Official Brand", "Nilai": hasil.get("official_brand", "-") or "-"},
+                    {"Sinyal": "Brand Detected", "Nilai": hasil.get("brand_detected", "-") or "-"},
+                    {"Sinyal": "Suspicious Keywords", "Nilai": hasil.get("suspicious_keywords", "-") or "-"},
+                    {"Sinyal": "Lookalike Brand", "Nilai": hasil.get("lookalike_brand", "-") or "-"},
+                    {"Sinyal": "Public TI", "Nilai": hasil.get("public_ti_status", "-")},
+                ]), max_rows=40, caption="Evidence teknis yang dibuat lebih bisa dibaca.")
+            with tab3:
+                bullet_panel("Tindakan yang disarankan", saran_berdasarkan_hasil_url(hasil), "gold")
+            with tab4:
+                tabel_rapi(pd.DataFrame([hasil]), max_rows=5, caption="Detail lengkap hasil engine.")
+                st.download_button(
+                    "Unduh hasil URL",
+                    data=pd.DataFrame([hasil]).to_csv(index=False).encode("utf-8"),
+                    file_name="hasil_url_phishrisk_v15.csv",
+                    mime="text/csv",
+                    key=widget_key("v15_download_url"),
+                )
+
+
+def footer_site():
+    html(
+        f"""
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-name">Harbangan Panjaitan</div>
+                    <div class="footer-note">Data Science, Machine Learning, Software Engineering, dan Cyber Security defensif.</div>
+                </div>
+                <div class="footer-links">
+                    <a class="footer-link" href="https://wa.me/628158883565" target="_blank">WhatsApp</a>
+                    <a class="footer-link" href="{aman_teks(AUTHOR_INFO.get('Instagram', '#'))}" target="_blank">Instagram</a>
+                    <a class="footer-link" href="{aman_teks(AUTHOR_INFO.get('LinkedIn', '#'))}" target="_blank">LinkedIn</a>
+                    <a class="footer-link" href="{aman_teks(AUTHOR_INFO.get('GitHub', '#'))}" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-line">
+                PhishRisk membantu menilai risiko awal URL dan file. Sistem ini defensif, tidak menjalankan file, tidak membuat phishing, dan tidak menggantikan audit keamanan penuh.
+            </div>
+        </footer>
+        """
+    )
+
+
+def main():
+    """Main final V15: professional interface polish tanpa mengubah core engine."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        hero(
+            "Aplikasi gagal dimuat",
+            "Engine Belum Siap",
+            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            ["Cek src", "Cek model", "Cek output", "Cek validasi", "Cek metadata"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
+
+
+
+# ============================================================
+# UPGRADE V16 - PROFESSIONAL WEBSITE X VIDEO EXPERIENCE
+# Fokus:
+# 1. Integrasi video profesional tanpa mengubah core engine.
+# 2. Hero video, workflow video, training video, dan placeholder elegan.
+# 3. Tetap aman jika video belum tersedia.
+# 4. Video pendek, muted, loop, playsinline, dan mobile friendly.
+# ============================================================
+
+import base64
+
+
+# Simpan referensi halaman lama agar fitur yang sudah ada tidak hilang.
+HALAMAN_GAME_CYBER_BASE_V16 = globals().get("halaman_game_cyber")
+HALAMAN_PANDUAN_BASE_V16 = globals().get("halaman_panduan")
+
+
+DIREKTORI_APP = APP_FILE.parent
+DIREKTORI_ASSETS = DIREKTORI_APP / "assets"
+DIREKTORI_VIDEOS = DIREKTORI_ASSETS / "videos"
+DIREKTORI_VIDEOS.mkdir(parents=True, exist_ok=True)
+
+
+VIDEO_LIBRARY_V16 = {
+    "hero": {
+        "file": "phishrisk_hero.mp4",
+        "title": "Security Command Preview",
+        "subtitle": "Visual alur URL masuk, engine membaca sinyal, lalu sistem memberi skor risiko dan rekomendasi.",
+        "label": "Hero Loop",
+    },
+    "workflow": {
+        "file": "cara_kerja_engine.mp4",
+        "title": "Cara Kerja Engine",
+        "subtitle": "Input URL atau file diproses oleh The Best Engine, URL Intelligence, Public TI, dan Recommendation Layer.",
+        "label": "Workflow",
+    },
+    "training": {
+        "file": "game_training.mp4",
+        "title": "Quick Training Preview",
+        "subtitle": "Latihan membaca domain tiruan, sinyal phishing, tindakan insiden, dan file triage.",
+        "label": "Training",
+    },
+    "education": {
+        "file": "edukasi_phishing.mp4",
+        "title": "Edukasi Phishing",
+        "subtitle": "Contoh sederhana cara membedakan domain resmi, domain tiruan, dan link berisiko.",
+        "label": "Education",
+    },
+}
+
+
+@st.cache_data(show_spinner=False)
+def v16_video_data_uri(lokasi_video_str):
+    lokasi_video = Path(lokasi_video_str)
+    if not lokasi_video.exists():
+        return ""
+    ukuran_mb = lokasi_video.stat().st_size / (1024 * 1024)
+    # Batas aman agar HTML Streamlit tidak terlalu berat.
+    if ukuran_mb > 24:
+        return ""
+    encoded = base64.b64encode(lokasi_video.read_bytes()).decode("utf-8")
+    return f"data:video/mp4;base64,{encoded}"
+
+
+def v16_video_path(nama_file):
+    kandidat = [
+        DIREKTORI_VIDEOS / nama_file,
+        DIREKTORI_ASSETS / nama_file,
+        DIREKTORI_PROJECT / "assets" / "videos" / nama_file,
+        DIREKTORI_PROJECT / "videos" / nama_file,
+    ]
+    for lokasi in kandidat:
+        if lokasi.exists():
+            return lokasi
+    return kandidat[0]
+
+
+def v16_video_markup(nama_file, title, subtitle, label="Video", variant="card"):
+    lokasi_video = v16_video_path(nama_file)
+    video_src = v16_video_data_uri(str(lokasi_video)) if lokasi_video.exists() else ""
+
+    kelas = "v16-video-card"
+    if variant == "hero":
+        kelas += " hero-video"
+    elif variant == "mini":
+        kelas += " mini-video"
+
+    if video_src:
+        return f"""
+        <div class="{kelas}">
+            <video autoplay muted loop playsinline preload="metadata">
+                <source src="{video_src}" type="video/mp4">
+            </video>
+            <div class="v16-video-shade"></div>
+            <div class="v16-video-meta">
+                <span>{aman_teks(label)}</span>
+                <b>{aman_teks(title)}</b>
+                <p>{aman_teks(subtitle)}</p>
+            </div>
+        </div>
+        """
+
+    return f"""
+    <div class="{kelas} v16-video-placeholder">
+        <div class="v16-scan-grid"></div>
+        <div class="v16-orbit"></div>
+        <div class="v16-video-meta">
+            <span>{aman_teks(label)} · Video belum tersedia</span>
+            <b>{aman_teks(title)}</b>
+            <p>{aman_teks(subtitle)}</p>
+            <small>Letakkan file di app/assets/videos/{aman_teks(nama_file)}</small>
+        </div>
+    </div>
+    """
+
+
+def v16_video_component(key, variant="card"):
+    data = VIDEO_LIBRARY_V16.get(key, VIDEO_LIBRARY_V16["hero"])
+    html(v16_video_markup(
+        data["file"],
+        data["title"],
+        data["subtitle"],
+        data["label"],
+        variant=variant,
+    ))
+
+
+def pasang_css_v16_video_professional():
+    st.markdown(
+        """
+        <style>
+        :root{
+            --v16-bg:#080907;
+            --v16-panel:#12140f;
+            --v16-panel-2:#181912;
+            --v16-text:#fff8e8;
+            --v16-muted:#c8bda9;
+            --v16-dim:#8f8677;
+            --v16-gold:#d8b56d;
+            --v16-gold-2:#ffe7ad;
+            --v16-green:#9bc79f;
+            --v16-red:#e18478;
+            --v16-line:rgba(255,255,255,.085);
+            --v16-gold-line:rgba(216,181,109,.38);
+            --v16-shadow:0 24px 88px rgba(0,0,0,.48);
+            --v16-soft-shadow:0 16px 52px rgba(0,0,0,.30);
+        }
+
+        .v16-hero-grid{
+            display:grid;
+            grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+            gap:1rem;
+            align-items:stretch;
+            margin:.35rem 0 1rem;
+        }
+
+        .v16-hero-copy{
+            border:1px solid rgba(255,255,255,.085);
+            border-radius:38px;
+            background:
+                radial-gradient(circle at 92% 10%, rgba(216,181,109,.17), transparent 32%),
+                linear-gradient(135deg, rgba(255,255,255,.058), rgba(255,255,255,.014)),
+                rgba(18,20,15,.93);
+            box-shadow:var(--v16-shadow);
+            padding:clamp(1rem,3vw,2.45rem);
+            min-height:430px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            position:relative;
+            overflow:hidden;
+        }
+        .v16-hero-copy:before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.024) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.017) 1px, transparent 1px);
+            background-size:42px 42px;
+            opacity:.20;
+            pointer-events:none;
+        }
+        .v16-hero-copy>*{position:relative;z-index:2;}
+        .v16-hero-copy h1{
+            font-size:clamp(2.28rem,5.4vw,5.4rem)!important;
+            line-height:.92!important;
+            letter-spacing:-.078em!important;
+            margin:.7rem 0 .75rem!important;
+        }
+        .v16-hero-desc{
+            max-width:720px;
+            color:var(--v16-muted);
+            font-size:clamp(.98rem,1.05vw,1.1rem)!important;
+            line-height:1.6!important;
+            margin:0!important;
+        }
+        .v16-hero-actions{
+            display:flex;
+            flex-wrap:wrap;
+            gap:.42rem;
+            margin-top:1rem;
+        }
+
+        .v16-video-card{
+            position:relative;
+            min-height:320px;
+            border:1px solid rgba(255,255,255,.09);
+            border-radius:34px;
+            overflow:hidden;
+            background:
+                radial-gradient(circle at 80% 12%, rgba(216,181,109,.18), transparent 34%),
+                linear-gradient(145deg, rgba(255,255,255,.048), rgba(255,255,255,.012)),
+                #0f110d;
+            box-shadow:var(--v16-shadow);
+            isolation:isolate;
+        }
+        .v16-video-card.hero-video{
+            height:100%;
+            min-height:430px;
+        }
+        .v16-video-card.mini-video{
+            min-height:230px;
+            border-radius:28px;
+            box-shadow:var(--v16-soft-shadow);
+        }
+        .v16-video-card video{
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transform:scale(1.01);
+            filter:saturate(.95) contrast(1.08) brightness(.74);
+        }
+        .v16-video-shade{
+            position:absolute;
+            inset:0;
+            background:
+                linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.54)),
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.26), transparent 34%);
+            z-index:2;
+        }
+        .v16-video-meta{
+            position:absolute;
+            z-index:3;
+            left:1.15rem;
+            right:1.15rem;
+            bottom:1.15rem;
+            padding:1rem;
+            border:1px solid rgba(255,255,255,.10);
+            border-radius:24px;
+            background:rgba(8,9,7,.62);
+            backdrop-filter:blur(18px);
+            -webkit-backdrop-filter:blur(18px);
+            box-shadow:0 18px 52px rgba(0,0,0,.38);
+        }
+        .v16-video-meta span{
+            display:inline-flex;
+            width:fit-content;
+            border:1px solid rgba(216,181,109,.42);
+            background:rgba(216,181,109,.12);
+            color:#ffe7ad;
+            border-radius:999px;
+            padding:.22rem .52rem;
+            font-size:.72rem!important;
+            line-height:1!important;
+            font-weight:900;
+            margin-bottom:.55rem;
+        }
+        .v16-video-meta b{
+            display:block;
+            color:var(--v16-text);
+            font-size:clamp(1.05rem,1.6vw,1.5rem)!important;
+            line-height:1.08!important;
+            letter-spacing:-.045em;
+            margin-bottom:.35rem;
+        }
+        .v16-video-meta p{
+            color:var(--v16-muted);
+            margin:0!important;
+            font-size:.86rem!important;
+            line-height:1.48!important;
+        }
+        .v16-video-meta small{
+            display:block;
+            margin-top:.55rem;
+            color:var(--v16-dim);
+            font-size:.72rem!important;
+            line-height:1.35!important;
+            overflow-wrap:anywhere;
+        }
+
+        .v16-video-placeholder{
+            overflow:hidden;
+        }
+        .v16-scan-grid{
+            position:absolute;
+            inset:0;
+            background-image:
+                linear-gradient(rgba(216,181,109,.09) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(216,181,109,.07) 1px, transparent 1px);
+            background-size:38px 38px;
+            opacity:.42;
+            transform:perspective(620px) rotateX(54deg) scale(1.35);
+            transform-origin:center bottom;
+            animation:v16GridMove 6s linear infinite;
+        }
+        .v16-orbit{
+            position:absolute;
+            width:260px;
+            height:260px;
+            border:1px solid rgba(216,181,109,.28);
+            border-radius:999px;
+            right:-70px;
+            top:-70px;
+            box-shadow:0 0 90px rgba(216,181,109,.10);
+            animation:v16Pulse 3.8s ease-in-out infinite;
+        }
+        .v16-orbit:before,
+        .v16-orbit:after{
+            content:"";
+            position:absolute;
+            inset:42px;
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:999px;
+        }
+        .v16-orbit:after{
+            inset:88px;
+            background:rgba(216,181,109,.12);
+        }
+        @keyframes v16GridMove{
+            from{background-position:0 0,0 0;}
+            to{background-position:0 76px,76px 0;}
+        }
+        @keyframes v16Pulse{
+            0%,100%{transform:scale(1);opacity:.82;}
+            50%{transform:scale(1.07);opacity:1;}
+        }
+
+        .v16-video-row{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:.85rem;
+            margin:.85rem 0 1rem;
+        }
+        .v16-video-note{
+            border:1px solid rgba(216,181,109,.26);
+            border-radius:24px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.12), transparent 34%),
+                linear-gradient(145deg, rgba(216,181,109,.08), rgba(255,255,255,.012)),
+                rgba(18,20,15,.86);
+            padding:1rem;
+            box-shadow:var(--v16-soft-shadow);
+            margin:.75rem 0 1rem;
+        }
+        .v16-video-note b{
+            color:var(--v16-text);
+            font-size:1rem!important;
+            letter-spacing:-.03em;
+        }
+        .v16-video-note p{
+            color:var(--v16-muted);
+            margin:.35rem 0 0!important;
+            font-size:.86rem!important;
+            line-height:1.55!important;
+        }
+        .v16-video-note code{
+            background:rgba(0,0,0,.30);
+            border:1px solid rgba(255,255,255,.08);
+            color:#ffe7ad;
+            border-radius:10px;
+            padding:.12rem .34rem;
+            white-space:normal;
+        }
+
+        .v16-command-strip{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.75rem;
+            margin:.85rem 0 1.05rem;
+        }
+        .v16-command-card{
+            min-height:136px;
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:26px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.044), rgba(255,255,255,.012)),
+                rgba(18,20,15,.90);
+            box-shadow:var(--v16-soft-shadow);
+            padding:1rem;
+        }
+        .v16-command-card small{
+            display:block;
+            color:var(--v16-dim);
+            font-size:.74rem!important;
+            margin-bottom:.45rem;
+        }
+        .v16-command-card b{
+            display:block;
+            color:var(--v16-text);
+            font-size:clamp(1.28rem,2.1vw,2.2rem)!important;
+            line-height:1!important;
+            letter-spacing:-.06em;
+            margin-bottom:.42rem;
+        }
+        .v16-command-card span{
+            color:var(--v16-muted);
+            font-size:.81rem!important;
+            line-height:1.42!important;
+        }
+
+        @media(max-width:1080px){
+            .v16-hero-grid{grid-template-columns:1fr;}
+            .v16-video-card.hero-video{min-height:360px;}
+            .v16-command-strip{grid-template-columns:repeat(2,minmax(0,1fr));}
+            .v16-video-row{grid-template-columns:1fr;}
+        }
+        @media(max-width:768px){
+            .v16-hero-copy{
+                min-height:auto;
+                border-radius:26px;
+                padding:1rem;
+            }
+            .v16-hero-copy h1{
+                font-size:clamp(2.05rem,9vw,3rem)!important;
+            }
+            .v16-video-card,
+            .v16-video-card.hero-video{
+                min-height:300px;
+                border-radius:26px;
+            }
+            .v16-video-meta{
+                left:.75rem;
+                right:.75rem;
+                bottom:.75rem;
+                border-radius:20px;
+                padding:.8rem;
+            }
+            .v16-command-strip{grid-template-columns:1fr;}
+        }
+        @media(max-width:520px){
+            .v16-video-card,
+            .v16-video-card.hero-video{
+                min-height:270px;
+                border-radius:22px;
+            }
+            .v16-video-meta b{
+                font-size:1.05rem!important;
+            }
+            .v16-video-meta p{
+                font-size:.78rem!important;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def hero(label, judul, deskripsi, badges=None, video_key=None):
+    badges = badges or []
+    badge_html = "".join([f'<span class="pill">{aman_teks(item)}</span>' for item in badges])
+
+    copy_html = f"""
+    <section class="v16-hero-copy">
+        <div class="hero-top">
+            <div class="eyebrow">{aman_teks(label)}</div>
+            <div class="pill">Professional Website × Video</div>
+        </div>
+        <h1>{aman_teks(judul)}</h1>
+        <p class="v16-hero-desc">{aman_teks(deskripsi)}</p>
+        <div class="v16-hero-actions">{badge_html}</div>
+    </section>
+    """
+
+    if video_key:
+        data = VIDEO_LIBRARY_V16.get(video_key, VIDEO_LIBRARY_V16["hero"])
+        video_html = v16_video_markup(
+            data["file"],
+            data["title"],
+            data["subtitle"],
+            data["label"],
+            variant="hero",
+        )
+        html(f'<div class="v16-hero-grid">{copy_html}{video_html}</div>')
+        return
+
+    html(
+        f"""
+        <section class="hero">
+            <div class="hero-top">
+                <div class="eyebrow">{aman_teks(label)}</div>
+                <div class="pill">Professional Dashboard</div>
+            </div>
+            <h1>{aman_teks(judul)}</h1>
+            <p class="hero-desc">{aman_teks(deskripsi)}</p>
+            <div class="hero-actions">{badge_html}</div>
+        </section>
+        """
+    )
+
+
+def v16_command_strip(items):
+    html(
+        "<div class='v16-command-strip'>"
+        + "".join([
+            f"""
+            <div class="v16-command-card">
+                <small>{aman_teks(item.get("label",""))}</small>
+                <b>{aman_teks(item.get("value",""))}</b>
+                <span>{aman_teks(item.get("note",""))}</span>
+            </div>
+            """
+            for item in items
+        ])
+        + "</div>"
+    )
+
+
+def v16_video_showcase():
+    section_title("Video intelligence layer", "Video dipakai sebagai visual pendukung. Fitur inti tetap URL, file, Public TI, laporan, dan training.")
+    html(
+        """
+        <div class="v16-video-note">
+            <b>Struktur video yang disarankan</b>
+            <p>
+                Letakkan video pendek di <code>app/assets/videos/</code>.
+                Gunakan MP4, durasi 6-12 detik, muted, loop, H.264, dan ukuran kecil agar website tetap ringan.
+            </p>
+        </div>
+        """
+    )
+    html(
+        "<div class='v16-video-row'>"
+        + v16_video_markup("cara_kerja_engine.mp4", "Cara Kerja Engine", "Input diproses oleh The Best Engine, URL Intelligence, Public TI, dan Recommendation Layer.", "Workflow", "mini")
+        + v16_video_markup("edukasi_phishing.mp4", "Edukasi Phishing", "Visual contoh domain resmi, domain tiruan, kata mencurigakan, dan tindakan aman.", "Education", "mini")
+        + v16_video_markup("game_training.mp4", "Training Lab", "Preview game untuk Tebak Risiko, Domain Surgery, File Triage, dan Public TI Drill.", "Training", "mini")
+        + "</div>"
+    )
+
+
+def halaman_beranda(engine):
+    hero(
+        "PhishRisk Intelligence System",
+        "Security Video Command Center",
+        "Dashboard profesional untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan cyber security dengan visual video yang tetap ringan.",
+        ["The Best Engine", "Public TI", "Static Analyzer", "AI Fallback", "Video Ready", "Mobile Friendly"],
+        video_key="hero",
+    )
+
+    v16_command_strip([
+        {"label": "Core Engine", "value": "The Best Engine", "note": "Model lokal, URL Intelligence, dan Public Threat Intelligence."},
+        {"label": "Input", "value": "URL/File", "note": "Cek link bebas, batch CSV, upload file, dan URL dalam file."},
+        {"label": "Output", "value": "CSV/Report", "note": "Hasil dapat dibaca, disimpan, dan diunduh."},
+        {"label": "Mode", "value": "Defensive", "note": "Tidak menjalankan file dan tidak membuat phishing."},
+    ])
+
+    section_title("Aksi cepat", "Mulai dari URL atau file. Video hanya memperkuat visual, bukan menggantikan fungsi utama.")
+    col1, col2 = st.columns([1.12, .88])
+    with col1:
+        html('<div class="input-lab">')
+        url = st.text_input(
+            "Masukkan URL untuk analisis cepat",
+            value="http://bca-login-update.test",
+            key="v16_home_url",
+        )
+        if st.button("Analisis cepat dengan Best Engine", key="v16_home_check"):
+            with st.spinner("Menganalisis URL dengan Best Engine..."):
+                hasil = v15_analisis_url(engine, url) if "v15_analisis_url" in globals() else engine.analisis_url(url)
+            if hasil:
+                try:
+                    tambah_riwayat_url(hasil)
+                except Exception:
+                    pass
+                st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+                if "v15_result_card" in globals():
+                    v15_result_card(hasil)
+                else:
+                    tampilkan_status_url(hasil)
+        html("</div>")
+
+    with col2:
+        bullet_panel(
+            "Quick decision",
+            [
+                "Terlihat Aman: tetap cek sumber link.",
+                "Perlu Tinjauan: validasi manual sebelum login.",
+                "Berisiko: jangan buka dan jangan isi data.",
+                "Public TI adalah sinyal tambahan, bukan keputusan tunggal.",
+            ],
+            "gold",
+        )
+
+    section_title("Fitur inti", "Dibuat seperti dashboard produk sungguhan, bukan landing page cyber generik yang memakai kata AI lalu merasa selesai.")
+    v15_feature_grid([
+        {"judul": "URL Risk Checker", "isi": "Periksa satu alamat, lihat skor, status, alasan, sinyal brand, Public TI, dan rekomendasi.", "tag": "URL"},
+        {"judul": "File Static Analyzer", "isi": "Upload TXT, HTML, PDF, DOCX, ZIP, APK, lalu baca URL dan indikator berisiko tanpa menjalankan file.", "tag": "File"},
+        {"judul": "Video Guidance", "isi": "Tambahkan video pendek untuk hero, cara kerja engine, edukasi phishing, dan training game.", "tag": "Video"},
+        {"judul": "Public Threat Intelligence", "isi": "Tampilkan sinyal tambahan dari PhishTank dan URLhaus jika tersedia.", "tag": "Public TI"},
+        {"judul": "Report Center", "isi": "Buat ringkasan defensif dari hasil URL, file, atau batch.", "tag": "Report"},
+        {"judul": "Training Lab", "isi": "Game edukasi untuk membaca domain tiruan, file berisiko, dan respons insiden.", "tag": "Game"},
+    ])
+
+    v16_video_showcase()
+
+    section_title("Alur kerja", "Ringkas, rapi, dan mudah dijelaskan.")
+    c1, c2, c3, c4 = st.columns(4)
+    with c1:
+        step_card("01", "Input", "Masukkan URL, banyak URL, CSV, atau file.")
+    with c2:
+        step_card("02", "Engine", "Model dan URL Intelligence membaca pola risiko.")
+    with c3:
+        step_card("03", "Evidence", "Public TI dan File Analyzer menambah konteks.")
+    with c4:
+        step_card("04", "Action", "User mendapat rekomendasi dan laporan.")
+
+
+def halaman_panduan():
+    hero(
+        "Video Guide",
+        "Panduan Penggunaan",
+        "Pelajari alur pemeriksaan PhishRisk dengan ringkas. Video membantu user memahami proses tanpa membaca teks panjang.",
+        ["URL", "File", "Public TI", "Report", "Checklist", "Video"],
+        video_key="workflow",
+    )
+
+    v16_video_showcase()
+
+    section_title("Cara memakai PhishRisk", "Langkah dibuat pendek agar user tidak tersesat di hutan menu.")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        step_card("01", "Masukkan input", "Isi URL bebas, upload file, atau masukkan banyak URL.")
+    with c2:
+        step_card("02", "Jalankan pemeriksaan", "Klik tombol pemeriksaan. Engine akan membaca sinyal risiko.")
+    with c3:
+        step_card("03", "Ambil tindakan", "Baca skor, alasan, rekomendasi, lalu unduh laporan jika perlu.")
+
+    section_title("Arti hasil", "Tiga status utama yang harus dipahami user.")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        panel("Terlihat Aman", "Risiko rendah. Tetap cek sumber link sebelum login.", "green")
+    with col2:
+        panel("Perlu Tinjauan", "Ada sinyal yang perlu dicek ulang secara manual.", "yellow")
+    with col3:
+        panel("Berisiko", "Jangan login, jangan isi data pribadi, dan cek sumber resmi.", "red")
+
+    bullet_panel(
+        "Catatan penting",
+        [
+            "Video adalah pendukung visual, bukan pengganti hasil engine.",
+            "File diperiksa secara statis tanpa dijalankan.",
+            "Public TI adalah sinyal tambahan.",
+            "Hasil sistem adalah bantuan awal dan tetap perlu validasi manual untuk kasus penting.",
+        ],
+        "gold",
+    )
+
+
+def halaman_game_cyber(engine):
+    hero(
+        "Training Video Lab",
+        "Quick PhishRisk Training",
+        "Latihan membaca URL, file, Public TI, dan tindakan insiden dengan pengalaman visual yang lebih profesional.",
+        ["Tebak Risiko", "Domain Surgery", "File Triage", "Public TI", "Badge"],
+        video_key="training",
+    )
+
+    section_title("Video training context", "Gunakan video pendek sebagai pembuka agar game terasa seperti security training, bukan kuis dadakan.")
+    html(
+        "<div class='v16-video-row'>"
+        + v16_video_markup("game_training.mp4", "Game Training Preview", "Latihan membaca domain tiruan, sinyal phishing, file berisiko, dan status Public TI.", "Game", "mini")
+        + v16_video_markup("edukasi_phishing.mp4", "Signal Education", "Visual contoh login/update, domain mirip brand, punycode, dan tindakan aman.", "Signals", "mini")
+        + v16_video_markup("cara_kerja_engine.mp4", "Engine Feedback", "Hasil game dapat dikaitkan dengan cara The Best Engine membaca risiko.", "Engine", "mini")
+        + "</div>"
+    )
+
+    if callable(HALAMAN_GAME_CYBER_BASE_V16):
+        HALAMAN_GAME_CYBER_BASE_V16(engine)
+    else:
+        st.warning("Game base belum tersedia pada file ini.")
+
+
+def halaman_tentang():
+    hero(
+        "About PhishRisk",
+        "Tentang Project",
+        "PhishRisk adalah project Data Science, Machine Learning, dan Cyber Security defensif untuk pemeriksaan phishing berbasis URL dan file.",
+        ["Defensive", "Machine Learning", "Threat Intelligence", "Video Ready"],
+        video_key="education",
+    )
+
+    section_title("Identitas project", "Ringkas, jelas, dan tidak menjual mimpi palsu.")
+    v15_feature_grid([
+        {"judul": "Tujuan", "isi": "Membantu user menilai risiko awal dari URL dan file sebelum login, mengunduh, atau memasukkan data pribadi.", "tag": "Purpose"},
+        {"judul": "Engine", "isi": "Memakai The Best Engine, URL Intelligence, File Static Analyzer, Public TI, dan AI fallback lokal.", "tag": "System"},
+        {"judul": "Batasan", "isi": "Sistem tidak menggantikan audit keamanan penuh dan tidak membuktikan kepemilikan domain secara mutlak.", "tag": "Limit"},
+    ])
+
+    section_title("Author", "Informasi pembuat program dan website.")
+    col1, col2 = st.columns([.9, 1.1])
+    with col1:
+        panel("Harbangan Panjaitan", "Data Science, Machine Learning, Software Engineering, dan Cyber Security defensif.", "gold")
+    with col2:
+        bullet_panel(
+            "Kontak",
+            [
+                "WhatsApp: 08158883565",
+                "Instagram: https://www.instagram.com/qe.harpjtn/",
+                "LinkedIn: https://www.linkedin.com/in/harbanganpjtn/",
+                "GitHub: https://github.com/harpjtnxvii",
+            ],
+            "flat",
+        )
+
+    bullet_panel(
+        "Penggunaan yang benar",
+        [
+            "Deteksi phishing dan edukasi keamanan.",
+            "Analisis URL dan file secara defensif.",
+            "Membuat laporan pencegahan.",
+            "Bukan untuk membuat phishing, malware, atau serangan.",
+        ],
+        "gold",
+    )
+
+
+def main():
+    """Main final V16: professional website x video tanpa mengubah core engine."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+        "pasang_css_v16_video_professional",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        hero(
+            "Aplikasi gagal dimuat",
+            "Engine Belum Siap",
+            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            ["Cek src", "Cek model", "Cek output", "Cek validasi"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
+
+
+
+# ============================================================
+# UPGRADE V17 - PROFESSIONAL MEDIA EXPERIENCE
+# Fokus:
+# 1. Menghapus teks "Video intelligence layer" dan judul berbasis video yang kurang berguna.
+# 2. Video dipakai sebagai visual pendukung senyap, bukan konten utama yang memakan ruang.
+# 3. Tampilan dibuat lebih profesional, informatif, ringkas, dan selaras dengan PhishRisk Engine V4.
+# 4. Mendukung file video lokal app/assets/videos/*.mp4 dengan batas ukuran lebih longgar.
+# ============================================================
+
+# Perbarui label media agar tidak memakai wording "video intelligence" / "video ready".
+try:
+    VIDEO_LIBRARY_V16.update({
+        "hero": {
+            "file": "phishrisk_hero.mp4",
+            "title": "Risk Command Preview",
+            "subtitle": "URL dan file diproses menjadi skor risiko, alasan, dan rekomendasi tindakan.",
+            "label": "Engine View",
+        },
+        "workflow": {
+            "file": "cara_kerja_engine.mp4",
+            "title": "Alur Pemeriksaan",
+            "subtitle": "Input dibaca oleh model, URL Intelligence, Public TI, dan recommendation layer.",
+            "label": "Workflow",
+        },
+        "training": {
+            "file": "game_training.mp4",
+            "title": "Training Lab",
+            "subtitle": "Latihan membaca domain tiruan, sinyal mencurigakan, dan tindakan aman.",
+            "label": "Practice",
+        },
+        "education": {
+            "file": "edukasi_phishing.mp4",
+            "title": "Edukasi Sinyal",
+            "subtitle": "Ringkasan pola domain tiruan, kata mendesak, dan file berisiko.",
+            "label": "Awareness",
+        },
+    })
+except Exception:
+    pass
+
+
+@st.cache_data(show_spinner=False)
+def v16_video_data_uri(lokasi_video_str):
+    """Membaca video lokal sebagai data URI.
+
+    Batas dibuat lebih longgar karena user sudah compress video.
+    Jika video terlalu besar, sistem tetap tampil dengan placeholder profesional.
+    """
+    lokasi_video = Path(lokasi_video_str)
+    if not lokasi_video.exists():
+        return ""
+
+    ukuran_mb = lokasi_video.stat().st_size / (1024 * 1024)
+
+    # Batas aman Streamlit + browser. Kalau lebih besar, jangan dipaksa,
+    # karena website keamanan yang loading 2 menit itu komedi gelap.
+    if ukuran_mb > 70:
+        return ""
+
+    encoded = base64.b64encode(lokasi_video.read_bytes()).decode("utf-8")
+    return f"data:video/mp4;base64,{encoded}"
+
+
+def v16_video_markup(nama_file, title, subtitle, label="Media", variant="card"):
+    """Markup media profesional.
+
+    Tidak memakai wording "video intelligence layer".
+    Overlay dibuat ringkas agar fungsi utama tetap URL/File/Public TI.
+    """
+    lokasi_video = v16_video_path(nama_file)
+    video_src = v16_video_data_uri(str(lokasi_video)) if lokasi_video.exists() else ""
+
+    kelas = "v16-video-card v17-media-card"
+    if variant == "hero":
+        kelas += " hero-video v17-hero-media"
+    elif variant == "mini":
+        kelas += " mini-video v17-mini-media"
+
+    if video_src:
+        return f"""
+        <div class="{kelas}">
+            <video autoplay muted loop playsinline preload="metadata">
+                <source src="{video_src}" type="video/mp4">
+            </video>
+            <div class="v16-video-shade v17-media-shade"></div>
+            <div class="v16-video-meta v17-media-meta">
+                <span>{aman_teks(label)}</span>
+                <b>{aman_teks(title)}</b>
+                <p>{aman_teks(subtitle)}</p>
+            </div>
+        </div>
+        """
+
+    return f"""
+    <div class="{kelas} v16-video-placeholder v17-media-placeholder">
+        <div class="v16-scan-grid"></div>
+        <div class="v16-orbit"></div>
+        <div class="v16-video-meta v17-media-meta">
+            <span>{aman_teks(label)} · Media belum tersedia</span>
+            <b>{aman_teks(title)}</b>
+            <p>{aman_teks(subtitle)}</p>
+            <small>Simpan file: app/assets/videos/{aman_teks(nama_file)}</small>
+        </div>
+    </div>
+    """
+
+
+def pasang_css_v17_professional_media():
+    st.markdown(
+        """
+        <style>
+        :root{
+            --v17-bg:#070806;
+            --v17-card:#12140f;
+            --v17-card-2:#191911;
+            --v17-text:#fff9ec;
+            --v17-muted:#c8bda9;
+            --v17-dim:#8f8677;
+            --v17-gold:#d8b56d;
+            --v17-gold-2:#ffe7ad;
+            --v17-line:rgba(255,255,255,.085);
+            --v17-gold-line:rgba(216,181,109,.40);
+            --v17-shadow:0 28px 94px rgba(0,0,0,.50);
+            --v17-soft-shadow:0 16px 48px rgba(0,0,0,.30);
+        }
+
+        /* Lebih rapi: hilangkan kesan section video sebagai konten utama */
+        .v16-video-note{
+            display:none!important;
+        }
+
+        .v16-hero-grid{
+            grid-template-columns:minmax(0,1.05fr) minmax(350px,.95fr)!important;
+            gap:1rem!important;
+            align-items:stretch!important;
+            margin:.35rem 0 1rem!important;
+        }
+
+        .v16-hero-copy{
+            border-radius:36px!important;
+            min-height:420px!important;
+            padding:clamp(1rem,3.2vw,2.55rem)!important;
+            background:
+                radial-gradient(circle at 94% 10%, rgba(216,181,109,.16), transparent 32%),
+                radial-gradient(circle at 0% 0%, rgba(255,255,255,.060), transparent 28%),
+                linear-gradient(135deg, rgba(255,255,255,.056), rgba(255,255,255,.012)),
+                rgba(18,20,15,.95)!important;
+            box-shadow:var(--v17-shadow)!important;
+        }
+
+        .v16-hero-copy h1{
+            font-size:clamp(2.35rem,5.2vw,5.25rem)!important;
+            letter-spacing:-.082em!important;
+            line-height:.91!important;
+            max-width:850px!important;
+        }
+
+        .v16-hero-desc{
+            max-width:720px!important;
+            color:var(--v17-muted)!important;
+            font-size:clamp(.96rem,1.02vw,1.08rem)!important;
+            line-height:1.58!important;
+        }
+
+        .v16-video-card.v17-media-card{
+            border-radius:34px!important;
+            border:1px solid rgba(255,255,255,.09)!important;
+            box-shadow:var(--v17-shadow)!important;
+            background:
+                radial-gradient(circle at 88% 5%, rgba(216,181,109,.18), transparent 34%),
+                linear-gradient(145deg, rgba(255,255,255,.050), rgba(255,255,255,.012)),
+                #0d0f0b!important;
+        }
+
+        .v17-hero-media{
+            min-height:420px!important;
+        }
+
+        .v16-video-card video{
+            filter:saturate(.92) contrast(1.08) brightness(.68)!important;
+            transform:scale(1.015)!important;
+        }
+
+        .v17-media-shade{
+            background:
+                linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.64)),
+                radial-gradient(circle at 95% 5%, rgba(216,181,109,.28), transparent 34%)!important;
+        }
+
+        .v17-media-meta{
+            left:1rem!important;
+            right:1rem!important;
+            bottom:1rem!important;
+            border-radius:22px!important;
+            padding:.95rem!important;
+            background:rgba(10,11,9,.64)!important;
+            border:1px solid rgba(255,255,255,.09)!important;
+            backdrop-filter:blur(16px)!important;
+        }
+
+        .v17-media-meta span{
+            width:fit-content!important;
+            border-radius:999px!important;
+            padding:.24rem .55rem!important;
+            border:1px solid rgba(216,181,109,.38)!important;
+            background:rgba(216,181,109,.12)!important;
+            color:#ffe7ad!important;
+            font-size:.70rem!important;
+            font-weight:900!important;
+            line-height:1!important;
+        }
+
+        .v17-media-meta b{
+            display:block!important;
+            margin-top:.58rem!important;
+            color:#fff9ec!important;
+            font-size:clamp(1.15rem,1.6vw,1.65rem)!important;
+            letter-spacing:-.055em!important;
+            line-height:1.05!important;
+        }
+
+        .v17-media-meta p{
+            color:var(--v17-muted)!important;
+            font-size:.82rem!important;
+            line-height:1.42!important;
+            margin:.35rem 0 0!important;
+        }
+
+        .v17-mini-media{
+            min-height:245px!important;
+        }
+
+        .v16-video-row{
+            display:grid!important;
+            grid-template-columns:repeat(3,minmax(0,1fr))!important;
+            gap:.78rem!important;
+            margin:.72rem 0 1rem!important;
+        }
+
+        .v17-command-board{
+            display:grid;
+            grid-template-columns:1.12fr .88fr;
+            gap:.85rem;
+            margin:.85rem 0 1rem;
+        }
+
+        .v17-summary-panel{
+            border:1px solid rgba(255,255,255,.085);
+            border-radius:30px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.12), transparent 34%),
+                linear-gradient(145deg, rgba(255,255,255,.044), rgba(255,255,255,.012)),
+                rgba(18,20,15,.92);
+            box-shadow:var(--v17-soft-shadow);
+            padding:1rem;
+        }
+
+        .v17-summary-title{
+            color:var(--v17-text);
+            font-weight:950;
+            letter-spacing:-.04em;
+            font-size:1.15rem!important;
+            line-height:1.1!important;
+            margin-bottom:.35rem;
+        }
+
+        .v17-summary-text{
+            color:var(--v17-muted);
+            font-size:.86rem!important;
+            line-height:1.48!important;
+            margin:0!important;
+        }
+
+        .v17-signal-grid{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.62rem;
+            margin:.7rem 0 .1rem;
+        }
+
+        .v17-signal-card{
+            border:1px solid rgba(255,255,255,.075);
+            border-radius:20px;
+            background:rgba(255,255,255,.026);
+            padding:.78rem;
+            min-height:112px;
+        }
+
+        .v17-signal-card small{
+            display:block;
+            color:var(--v17-dim);
+            font-size:.70rem!important;
+            margin-bottom:.32rem;
+            line-height:1.2!important;
+        }
+
+        .v17-signal-card b{
+            display:block;
+            color:var(--v17-text);
+            font-size:1.16rem!important;
+            letter-spacing:-.045em;
+            line-height:1!important;
+            margin-bottom:.25rem;
+        }
+
+        .v17-signal-card span{
+            display:block;
+            color:var(--v17-muted);
+            font-size:.75rem!important;
+            line-height:1.36!important;
+        }
+
+        .v17-flow{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.68rem;
+            margin:.78rem 0 1rem;
+        }
+
+        .v17-flow-item{
+            position:relative;
+            border:1px solid rgba(216,181,109,.26);
+            border-radius:22px;
+            background:linear-gradient(145deg, rgba(216,181,109,.08), rgba(255,255,255,.012));
+            padding:.86rem;
+            min-height:126px;
+        }
+
+        .v17-flow-item small{
+            color:#ffe7ad;
+            font-weight:900!important;
+            font-size:.72rem!important;
+        }
+
+        .v17-flow-item b{
+            display:block;
+            color:#fff9ec;
+            font-size:1rem!important;
+            letter-spacing:-.03em;
+            margin:.35rem 0 .25rem;
+        }
+
+        .v17-flow-item span{
+            display:block;
+            color:var(--v17-muted);
+            font-size:.78rem!important;
+            line-height:1.42!important;
+        }
+
+        .v17-compact-note{
+            border:1px solid rgba(255,255,255,.075);
+            border-radius:22px;
+            background:rgba(255,255,255,.024);
+            padding:.85rem;
+            color:var(--v17-muted);
+            font-size:.82rem!important;
+            line-height:1.48!important;
+        }
+
+        @media(max-width:1080px){
+            .v16-hero-grid,.v17-command-board{grid-template-columns:1fr!important;}
+            .v16-video-row{grid-template-columns:1fr!important;}
+            .v17-signal-grid,.v17-flow{grid-template-columns:repeat(2,minmax(0,1fr));}
+            .v17-hero-media{min-height:340px!important;}
+        }
+
+        @media(max-width:768px){
+            .v16-hero-copy{min-height:auto!important;border-radius:26px!important;padding:1rem!important;}
+            .v16-hero-copy h1{font-size:clamp(2.05rem,9vw,3rem)!important;}
+            .v17-media-meta{left:.72rem!important;right:.72rem!important;bottom:.72rem!important;border-radius:18px!important;padding:.75rem!important;}
+            .v16-video-card.v17-media-card,.v17-hero-media,.v17-mini-media{border-radius:24px!important;min-height:270px!important;}
+            .v17-signal-grid,.v17-flow{grid-template-columns:1fr;}
+        }
+
+        @media(max-width:520px){
+            .v16-video-card.v17-media-card,.v17-hero-media,.v17-mini-media{min-height:250px!important;border-radius:20px!important;}
+            .v17-media-meta b{font-size:1.05rem!important;}
+            .v17-media-meta p{font-size:.76rem!important;}
+            .v17-signal-card,.v17-flow-item{min-height:auto;}
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def hero(label, judul, deskripsi, badges=None, video_key=None):
+    """Hero final V17: tidak memakai narasi 'Professional Website x Video'."""
+    badges = badges or []
+    badge_html = "".join([f'<span class="pill">{aman_teks(item)}</span>' for item in badges])
+
+    copy_html = f"""
+    <section class="v16-hero-copy">
+        <div class="hero-top">
+            <div class="eyebrow">{aman_teks(label)}</div>
+            <div class="pill">Best Engine</div>
+        </div>
+        <h1>{aman_teks(judul)}</h1>
+        <p class="v16-hero-desc">{aman_teks(deskripsi)}</p>
+        <div class="v16-hero-actions">{badge_html}</div>
+    </section>
+    """
+
+    if video_key:
+        data = VIDEO_LIBRARY_V16.get(video_key, VIDEO_LIBRARY_V16["hero"])
+        video_html = v16_video_markup(
+            data["file"],
+            data["title"],
+            data["subtitle"],
+            data["label"],
+            variant="hero",
+        )
+        html(f'<div class="v16-hero-grid">{copy_html}{video_html}</div>')
+        return
+
+    html(
+        f"""
+        <section class="hero">
+            <div class="hero-top">
+                <div class="eyebrow">{aman_teks(label)}</div>
+                <div class="pill">Best Engine</div>
+            </div>
+            <h1>{aman_teks(judul)}</h1>
+            <p class="hero-desc">{aman_teks(deskripsi)}</p>
+            <div class="hero-actions">{badge_html}</div>
+        </section>
+        """
+    )
+
+
+def v17_signal_grid(items):
+    html(
+        "<div class='v17-signal-grid'>"
+        + "".join([
+            f"""
+            <div class="v17-signal-card">
+                <small>{aman_teks(item.get("label",""))}</small>
+                <b>{aman_teks(item.get("value",""))}</b>
+                <span>{aman_teks(item.get("note",""))}</span>
+            </div>
+            """
+            for item in items
+        ])
+        + "</div>"
+    )
+
+
+def v17_flow(items):
+    html(
+        "<div class='v17-flow'>"
+        + "".join([
+            f"""
+            <div class="v17-flow-item">
+                <small>{aman_teks(item.get("no",""))}</small>
+                <b>{aman_teks(item.get("title",""))}</b>
+                <span>{aman_teks(item.get("note",""))}</span>
+            </div>
+            """
+            for item in items
+        ])
+        + "</div>"
+    )
+
+
+def v16_video_showcase():
+    """Ganti section lama 'Video intelligence layer' dengan section alur sistem yang berguna."""
+    section_title("Alur PhishRisk", "Visual pendukung dipakai secukupnya. Fokus utama tetap pemeriksaan URL, file, Public TI, laporan, dan training.")
+    html(
+        "<div class='v16-video-row'>"
+        + v16_video_markup("cara_kerja_engine.mp4", "Alur The Best Engine", "Input diproses menjadi skor, kategori, alasan, dan rekomendasi.", "Workflow", "mini")
+        + v16_video_markup("edukasi_phishing.mp4", "Sinyal Berisiko", "Contoh domain tiruan, kata mendesak, punycode, dan file mencurigakan.", "Awareness", "mini")
+        + v16_video_markup("game_training.mp4", "Training Lab", "Latihan membaca risiko, memilih tindakan, dan memahami evidence.", "Practice", "mini")
+        + "</div>"
+    )
+
+
+def halaman_beranda(engine):
+    hero(
+        "PhishRisk Intelligence System",
+        "PhishRisk Command Center",
+        "Dashboard defensif untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan keamanan secara ringkas.",
+        ["The Best Engine", "URL/File", "Public TI", "Static Analyzer", "Report", "Training"],
+        video_key="hero",
+    )
+
+    v16_command_strip([
+        {"label": "Engine", "value": "Best", "note": "Model lokal, URL Intelligence, Public TI."},
+        {"label": "Input", "value": "URL/File", "note": "Cek link bebas, batch CSV, dan upload file."},
+        {"label": "Output", "value": "CSV/Report", "note": "Hasil bisa dibaca, disimpan, dan diunduh."},
+        {"label": "Mode", "value": "Defensive", "note": "Tidak menjalankan file dan tidak membuat phishing."},
+    ])
+
+    section_title("Pemeriksaan cepat", "Masukkan URL untuk melihat skor, alasan, dan rekomendasi tindakan.")
+    col1, col2 = st.columns([1.12, .88])
+    with col1:
+        html('<div class="input-lab">')
+        url = st.text_input(
+            "URL untuk diperiksa",
+            value="http://bca-login-update.test",
+            key="v17_home_url",
+        )
+        if st.button("Analisis dengan The Best Engine", key="v17_home_check"):
+            with st.spinner("Menganalisis URL dengan The Best Engine..."):
+                hasil = v15_analisis_url(engine, url) if "v15_analisis_url" in globals() else engine.analisis_url(url)
+            if hasil:
+                try:
+                    tambah_riwayat_url(hasil)
+                except Exception:
+                    pass
+                st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+                if "v15_result_card" in globals():
+                    v15_result_card(hasil)
+                else:
+                    tampilkan_status_url(hasil)
+        html("</div>")
+
+    with col2:
+        html(
+            """
+            <section class="v17-summary-panel">
+                <div class="v17-summary-title">Keputusan cepat</div>
+                <p class="v17-summary-text">
+                    Baca status akhir, skor, sinyal brand, kata mencurigakan, dan Public TI. Jangan login jika hasilnya berisiko.
+                </p>
+            </section>
+            """
+        )
+        v17_signal_grid([
+            {"label": "Aman", "value": "Rendah", "note": "Tetap cek sumber link."},
+            {"label": "Tinjauan", "value": "Cek ulang", "note": "Validasi manual dulu."},
+            {"label": "Risiko", "value": "Hindari", "note": "Jangan isi data."},
+            {"label": "Public TI", "value": "Tambahan", "note": "Bukan keputusan tunggal."},
+        ])
+
+    section_title("Fitur utama", "Container dibuat lebih ringkas agar halaman terasa profesional dan tidak numpuk.")
+    v15_feature_grid([
+        {"judul": "URL Risk Checker", "isi": "Skor, kategori, alasan, brand signal, Public TI, dan rekomendasi.", "tag": "URL"},
+        {"judul": "File Static Analyzer", "isi": "Baca URL dan indikator dari TXT, HTML, PDF, DOCX, ZIP, APK tanpa menjalankan file.", "tag": "File"},
+        {"judul": "Public Threat Intelligence", "isi": "Tambahkan sinyal dari PhishTank dan URLhaus jika tersedia.", "tag": "Public TI"},
+        {"judul": "Engine Lab", "isi": "Uji banyak URL dari teks bebas atau CSV, lalu unduh hasil.", "tag": "Batch"},
+        {"judul": "Report Center", "isi": "Buat ringkasan defensif untuk dokumentasi atau laporan.", "tag": "Report"},
+        {"judul": "Training Lab", "isi": "Latihan membaca domain tiruan, sinyal file, dan respons insiden.", "tag": "Training"},
+    ])
+
+    v16_video_showcase()
+
+    section_title("Alur kerja", "Empat langkah utama yang mudah dijelaskan.")
+    v17_flow([
+        {"no": "01", "title": "Input", "note": "URL, CSV, atau file dimasukkan oleh user."},
+        {"no": "02", "title": "Engine", "note": "Model dan intelligence membaca pola risiko."},
+        {"no": "03", "title": "Evidence", "note": "Public TI dan file analyzer menambah konteks."},
+        {"no": "04", "title": "Action", "note": "User mendapat rekomendasi dan laporan."},
+    ])
+
+
+def halaman_panduan():
+    hero(
+        "Panduan Penggunaan",
+        "Cara Memakai PhishRisk",
+        "Ikuti alur singkat untuk memeriksa URL, file, batch, Public TI, dan membaca hasil dengan benar.",
+        ["URL", "File", "Batch", "Public TI", "Report", "Checklist"],
+        video_key="workflow",
+    )
+
+    section_title("Langkah utama", "Tidak perlu membaca terlalu panjang. Jalankan, baca hasil, ambil tindakan.")
+    v17_flow([
+        {"no": "01", "title": "Masukkan input", "note": "Isi URL, upload file, atau pakai batch CSV."},
+        {"no": "02", "title": "Periksa", "note": "Engine membaca skor, sinyal, dan intelligence."},
+        {"no": "03", "title": "Baca hasil", "note": "Lihat status, kategori, alasan, dan rekomendasi."},
+        {"no": "04", "title": "Simpan", "note": "Unduh CSV atau laporan jika perlu dokumentasi."},
+    ])
+
+    v16_video_showcase()
+
+    section_title("Arti hasil", "Tiga status utama yang dipakai di aplikasi.")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        panel("Terlihat Aman", "Risiko rendah. Tetap cek sumber link sebelum login.", "green")
+    with col2:
+        panel("Perlu Tinjauan", "Ada sinyal yang perlu dicek ulang secara manual.", "yellow")
+    with col3:
+        panel("Berisiko", "Jangan login, jangan isi data pribadi, dan cek sumber resmi.", "red")
+
+    bullet_panel(
+        "Catatan penting",
+        [
+            "File diperiksa secara statis tanpa dijalankan.",
+            "Public TI adalah sinyal tambahan.",
+            "Skor rendah bukan jaminan aman mutlak.",
+            "Untuk akun penting, validasi domain dari sumber resmi.",
+        ],
+        "gold",
+    )
+
+
+def halaman_game_cyber(engine):
+    hero(
+        "Quick PhishRisk Training",
+        "Security Training Lab",
+        "Latihan membaca URL, file, Public TI, dan tindakan insiden dengan alur yang selaras dengan The Best Engine.",
+        ["Tebak Risiko", "Cari Sinyal", "Domain Surgery", "File Triage", "Public TI", "Badge"],
+        video_key="training",
+    )
+
+    section_title("Konteks latihan", "Mode latihan dibuat untuk membantu user memahami evidence, bukan sekadar tebak-tebakan.")
+    html(
+        "<div class='v16-video-row'>"
+        + v16_video_markup("game_training.mp4", "Risk Practice", "Latihan memilih status risiko dan memahami alasan sistem.", "Practice", "mini")
+        + v16_video_markup("edukasi_phishing.mp4", "Signal Reading", "Kenali login/update, domain mirip brand, punycode, dan IP langsung.", "Signals", "mini")
+        + v16_video_markup("cara_kerja_engine.mp4", "Engine Feedback", "Bandingkan jawaban user dengan cara The Best Engine membaca pola URL.", "Engine", "mini")
+        + "</div>"
+    )
+
+    if callable(HALAMAN_GAME_CYBER_BASE_V16):
+        HALAMAN_GAME_CYBER_BASE_V16(engine)
+    else:
+        st.warning("Game base belum tersedia pada file ini.")
+
+
+def halaman_tentang():
+    hero(
+        "Tentang Project",
+        "PhishRisk Intelligence System",
+        "Project Data Science dan Cyber Security defensif untuk pemeriksaan phishing berbasis URL, file, intelligence, dan laporan.",
+        ["Defensive", "Machine Learning", "Threat Intelligence", "Static Analyzer", "Report"],
+        video_key="education",
+    )
+
+    section_title("Ringkasan project", "Fokus pada manfaat, komponen, dan batasan sistem.")
+    v15_feature_grid([
+        {"judul": "Tujuan", "isi": "Membantu user menilai risiko awal dari URL dan file sebelum login, mengunduh, atau memasukkan data pribadi.", "tag": "Purpose"},
+        {"judul": "Engine", "isi": "Memakai The Best Engine, URL Intelligence, File Static Analyzer, Public TI, dan AI fallback lokal.", "tag": "System"},
+        {"judul": "Batasan", "isi": "Sistem tidak menggantikan audit keamanan penuh dan tidak membuktikan kepemilikan domain secara mutlak.", "tag": "Limit"},
+    ])
+
+    section_title("Author", "Informasi pembuat program dan website.")
+    col1, col2 = st.columns([.9, 1.1])
+    with col1:
+        panel("Harbangan Panjaitan", "Data Science, Machine Learning, Software Engineering, dan Cyber Security defensif.", "gold")
+    with col2:
+        bullet_panel(
+            "Kontak",
+            [
+                "WhatsApp: 08158883565",
+                "Instagram: https://www.instagram.com/qe.harpjtn/",
+                "LinkedIn: https://www.linkedin.com/in/harbanganpjtn/",
+                "GitHub: https://github.com/harpjtnxvii",
+            ],
+            "flat",
+        )
+
+    bullet_panel(
+        "Penggunaan yang benar",
+        [
+            "Deteksi phishing dan edukasi keamanan.",
+            "Analisis URL dan file secara defensif.",
+            "Membuat laporan pencegahan.",
+            "Bukan untuk membuat phishing, malware, atau serangan.",
+        ],
+        "gold",
+    )
+
+
+def main():
+    """Main final V17: professional media experience tanpa mengubah core engine."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+        "pasang_css_v16_video_professional",
+        "pasang_css_v17_professional_media",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        hero(
+            "Aplikasi gagal dimuat",
+            "Engine Belum Siap",
+            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            ["Cek src", "Cek model", "Cek output", "Cek validasi"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
+
+import textwrap
+import base64
+
+
+DIREKTORI_VIDEOS_OPTIMIZED = DIREKTORI_PROJECT / "app" / "assets" / "videos" / "optimized"
+DIREKTORI_VIDEOS_OPTIMIZED.mkdir(parents=True, exist_ok=True)
+
+
+def html(teks):
+    """Render HTML tanpa indentation yang membuat Streamlit menampilkannya sebagai blok putih code."""
+    isi = str(teks)
+    isi = textwrap.dedent(isi).strip()
+    isi = "\n".join(baris.strip() for baris in isi.splitlines() if baris.strip())
+    st.markdown(isi, unsafe_allow_html=True)
+
+
+def v18_css_video_frame_fix():
+    st.markdown(
+        """
+        <style>
+        :root{
+            --v18-bg:#080907;
+            --v18-surface:#12140f;
+            --v18-surface-2:#1a1b13;
+            --v18-text:#fff8e8;
+            --v18-muted:#d6c6aa;
+            --v18-dim:#9c927f;
+            --v18-gold:#d8b56d;
+            --v18-gold-soft:rgba(216,181,109,.14);
+            --v18-line:rgba(255,255,255,.085);
+            --v18-line-gold:rgba(216,181,109,.42);
+            --v18-shadow:0 28px 92px rgba(0,0,0,.48);
+            --v18-shadow-soft:0 18px 55px rgba(0,0,0,.32);
+        }
+
+        .block-container{
+            max-width:1320px!important;
+        }
+
+        /* Bersihkan tampilan code putih yang muncul dari raw HTML */
+        pre, code, .stCode, [data-testid="stCodeBlock"]{
+            background:#10110d!important;
+            color:#f5e7c8!important;
+            border:1px solid rgba(216,181,109,.25)!important;
+            border-radius:18px!important;
+            box-shadow:0 18px 46px rgba(0,0,0,.30)!important;
+            white-space:pre-wrap!important;
+            overflow-wrap:anywhere!important;
+        }
+
+        /* Layout hero: video lebih lebar dan tidak sempit */
+        .v16-hero-grid{
+            display:grid!important;
+            grid-template-columns:minmax(340px,.82fr) minmax(560px,1.18fr)!important;
+            gap:1.15rem!important;
+            align-items:stretch!important;
+            margin:.35rem 0 1.1rem!important;
+        }
+
+        .v16-hero-copy{
+            min-height:clamp(430px,38vw,560px)!important;
+            border-radius:38px!important;
+            padding:clamp(1.2rem,3.2vw,3rem)!important;
+            background:
+                radial-gradient(circle at 94% 12%, rgba(216,181,109,.16), transparent 34%),
+                radial-gradient(circle at 0% 0%, rgba(255,255,255,.060), transparent 28%),
+                linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.012)),
+                rgba(18,20,15,.96)!important;
+            box-shadow:var(--v18-shadow)!important;
+        }
+
+        .v16-hero-copy h1{
+            font-size:clamp(2.7rem,5.2vw,5.8rem)!important;
+            letter-spacing:-.086em!important;
+            line-height:.90!important;
+            max-width:820px!important;
+        }
+
+        .v16-hero-desc{
+            color:var(--v18-muted)!important;
+            font-size:clamp(1rem,1.04vw,1.12rem)!important;
+            line-height:1.58!important;
+            max-width:680px!important;
+        }
+
+        .v16-video-card,
+        .v16-video-card.v17-media-card,
+        .v18-video-card{
+            position:relative!important;
+            width:100%!important;
+            overflow:hidden!important;
+            border-radius:38px!important;
+            border:1px solid rgba(255,255,255,.095)!important;
+            background:
+                radial-gradient(circle at 80% 0%, rgba(216,181,109,.18), transparent 32%),
+                linear-gradient(145deg, rgba(255,255,255,.048), rgba(255,255,255,.012)),
+                #0d0f0b!important;
+            box-shadow:var(--v18-shadow)!important;
+            isolation:isolate!important;
+        }
+
+        .v16-video-card.hero-video,
+        .v17-hero-media,
+        .v18-hero-media{
+            min-height:clamp(430px,38vw,560px)!important;
+            aspect-ratio:16/9!important;
+        }
+
+        .v16-video-card.mini-video,
+        .v17-mini-media,
+        .v18-mini-media{
+            min-height:clamp(260px,22vw,350px)!important;
+            aspect-ratio:16/9!important;
+            border-radius:30px!important;
+        }
+
+        .v16-video-card video,
+        .v18-video-card video{
+            position:absolute!important;
+            inset:0!important;
+            width:100%!important;
+            height:100%!important;
+            object-fit:cover!important;
+            object-position:center!important;
+            transform:scale(1.005)!important;
+            filter:saturate(.92) contrast(1.08) brightness(.70)!important;
+            z-index:1!important;
+        }
+
+        .v16-video-shade,
+        .v17-media-shade,
+        .v18-video-shade{
+            position:absolute!important;
+            inset:0!important;
+            z-index:2!important;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,.40), rgba(0,0,0,.08) 52%, rgba(0,0,0,.52)),
+                linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.72)),
+                radial-gradient(circle at 92% 8%, rgba(216,181,109,.32), transparent 36%)!important;
+            pointer-events:none!important;
+        }
+
+        .v16-video-meta,
+        .v17-media-meta,
+        .v18-video-meta{
+            position:absolute!important;
+            z-index:3!important;
+            left:1.1rem!important;
+            right:1.1rem!important;
+            bottom:1.1rem!important;
+            border-radius:24px!important;
+            padding:1rem!important;
+            background:rgba(8,9,7,.64)!important;
+            border:1px solid rgba(255,255,255,.10)!important;
+            backdrop-filter:blur(18px)!important;
+            -webkit-backdrop-filter:blur(18px)!important;
+            box-shadow:0 22px 64px rgba(0,0,0,.42)!important;
+        }
+
+        .v16-video-meta span,
+        .v17-media-meta span,
+        .v18-video-meta span{
+            display:inline-flex!important;
+            width:fit-content!important;
+            max-width:100%!important;
+            border-radius:999px!important;
+            border:1px solid rgba(216,181,109,.48)!important;
+            background:rgba(216,181,109,.13)!important;
+            color:#ffe7ad!important;
+            padding:.24rem .58rem!important;
+            font-size:.72rem!important;
+            line-height:1!important;
+            font-weight:950!important;
+            margin-bottom:.55rem!important;
+        }
+
+        .v16-video-meta b,
+        .v17-media-meta b,
+        .v18-video-meta b{
+            display:block!important;
+            color:var(--v18-text)!important;
+            font-size:clamp(1.1rem,1.6vw,1.65rem)!important;
+            line-height:1.05!important;
+            letter-spacing:-.052em!important;
+            margin-bottom:.34rem!important;
+        }
+
+        .v16-video-meta p,
+        .v17-media-meta p,
+        .v18-video-meta p{
+            color:var(--v18-muted)!important;
+            margin:0!important;
+            font-size:.86rem!important;
+            line-height:1.48!important;
+        }
+
+        .v16-video-placeholder,
+        .v18-video-placeholder{
+            background:
+                radial-gradient(circle at 50% 20%, rgba(216,181,109,.14), transparent 28%),
+                linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.010)),
+                #0c0e0b!important;
+        }
+
+        .v18-media-status{
+            position:absolute;
+            top:1rem;
+            right:1rem;
+            z-index:4;
+            border:1px solid rgba(255,255,255,.10);
+            background:rgba(8,9,7,.58);
+            color:#ffe7ad;
+            border-radius:999px;
+            padding:.28rem .62rem;
+            font-size:.72rem!important;
+            font-weight:900;
+            backdrop-filter:blur(12px);
+        }
+
+        .v16-command-strip{
+            display:grid!important;
+            grid-template-columns:repeat(4,minmax(0,1fr))!important;
+            gap:.82rem!important;
+            margin:1rem 0 1.05rem!important;
+        }
+
+        .v16-command-card,
+        .pro-kpi,
+        .pro-feature-card,
+        .v17-signal-card,
+        .v17-flow-item{
+            border-radius:26px!important;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.085), transparent 28%),
+                linear-gradient(180deg, rgba(255,255,255,.046), rgba(255,255,255,.012)),
+                rgba(18,20,15,.92)!important;
+            border:1px solid rgba(255,255,255,.085)!important;
+            box-shadow:var(--v18-shadow-soft)!important;
+        }
+
+        .v16-video-row{
+            display:grid!important;
+            grid-template-columns:repeat(3,minmax(0,1fr))!important;
+            gap:.95rem!important;
+            margin:.85rem 0 1.1rem!important;
+        }
+
+        .v18-media-panel{
+            border:1px solid var(--v18-line);
+            border-radius:34px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.13), transparent 32%),
+                linear-gradient(145deg, rgba(255,255,255,.046), rgba(255,255,255,.012)),
+                rgba(18,20,15,.92);
+            box-shadow:var(--v18-shadow-soft);
+            padding:1rem;
+            margin:.9rem 0 1.05rem;
+        }
+
+        .v18-media-panel-head{
+            display:flex;
+            justify-content:space-between;
+            gap:.8rem;
+            align-items:flex-start;
+            padding:.15rem .15rem .85rem;
+            border-bottom:1px solid rgba(255,255,255,.07);
+            margin-bottom:.9rem;
+        }
+
+        .v18-media-panel-title{
+            font-size:clamp(1.1rem,1.7vw,1.75rem)!important;
+            color:var(--v18-text);
+            font-weight:950;
+            letter-spacing:-.055em;
+            line-height:1.08!important;
+        }
+
+        .v18-media-panel-note{
+            color:var(--v18-dim);
+            font-size:.84rem!important;
+            line-height:1.5!important;
+            max-width:720px;
+        }
+
+        .v18-mini-grid{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:.85rem;
+        }
+
+        @media(max-width:1180px){
+            .v16-hero-grid{
+                grid-template-columns:1fr!important;
+            }
+            .v16-video-card.hero-video,
+            .v17-hero-media,
+            .v18-hero-media{
+                min-height:clamp(330px,54vw,560px)!important;
+            }
+            .v16-command-strip{
+                grid-template-columns:repeat(2,minmax(0,1fr))!important;
+            }
+        }
+
+        @media(max-width:900px){
+            .v16-video-row,
+            .v18-mini-grid{
+                grid-template-columns:1fr!important;
+            }
+            .v16-video-card.mini-video,
+            .v17-mini-media,
+            .v18-mini-media{
+                min-height:clamp(260px,54vw,420px)!important;
+            }
+        }
+
+        @media(max-width:768px){
+            .block-container{
+                padding-left:.55rem!important;
+                padding-right:.55rem!important;
+            }
+            .v16-hero-copy{
+                min-height:auto!important;
+                border-radius:28px!important;
+                padding:1.05rem!important;
+            }
+            .v16-hero-copy h1{
+                font-size:clamp(2.25rem,10vw,3.35rem)!important;
+            }
+            .v16-video-card,
+            .v16-video-card.hero-video,
+            .v17-hero-media,
+            .v18-hero-media{
+                border-radius:26px!important;
+                min-height:clamp(245px,56vw,380px)!important;
+            }
+            .v16-video-meta,
+            .v17-media-meta,
+            .v18-video-meta{
+                left:.72rem!important;
+                right:.72rem!important;
+                bottom:.72rem!important;
+                padding:.78rem!important;
+                border-radius:18px!important;
+            }
+            .v16-command-strip{
+                grid-template-columns:1fr!important;
+            }
+            .v18-media-panel{
+                border-radius:26px;
+                padding:.82rem;
+            }
+            .v18-media-panel-head{
+                flex-direction:column;
+            }
+        }
+
+        @media(max-width:520px){
+            .v16-video-card.hero-video,
+            .v17-hero-media,
+            .v18-hero-media{
+                min-height:235px!important;
+            }
+            .v16-video-card.mini-video,
+            .v17-mini-media,
+            .v18-mini-media{
+                min-height:235px!important;
+                border-radius:22px!important;
+            }
+            .v16-video-meta b,
+            .v17-media-meta b,
+            .v18-video-meta b{
+                font-size:1.02rem!important;
+            }
+            .v16-video-meta p,
+            .v17-media-meta p,
+            .v18-video-meta p{
+                font-size:.75rem!important;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+@st.cache_data(show_spinner=False)
+def v16_video_data_uri(lokasi_video_str):
+    """Membaca video lokal. Batas dinaikkan, tetapi tetap aman agar browser tidak tersiksa."""
+    lokasi_video = Path(lokasi_video_str)
+    if not lokasi_video.exists():
+        return ""
+    ukuran_mb = lokasi_video.stat().st_size / (1024 * 1024)
+    if ukuran_mb > 70:
+        return ""
+    encoded = base64.b64encode(lokasi_video.read_bytes()).decode("utf-8")
+    return f"data:video/mp4;base64,{encoded}"
+
+
+def v16_video_path(nama_file):
+    """Prioritas ke video optimized agar website lebih ringan."""
+    kandidat = [
+        DIREKTORI_VIDEOS_OPTIMIZED / nama_file,
+        DIREKTORI_PROJECT / "app" / "assets" / "videos" / "optimized" / nama_file,
+        DIREKTORI_PROJECT / "app" / "assets" / "videos" / nama_file,
+        DIREKTORI_PROJECT / "assets" / "videos" / nama_file,
+        DIREKTORI_PROJECT / "videos" / nama_file,
+    ]
+    for lokasi in kandidat:
+        if lokasi.exists():
+            return lokasi
+    return kandidat[2]
+
+
+def v16_video_markup(nama_file, title, subtitle, label="Media", variant="card"):
+    """Markup video V18: lebar, dark, tidak putih, dan pakai optimized asset jika ada."""
+    lokasi_video = v16_video_path(nama_file)
+    video_src = v16_video_data_uri(str(lokasi_video)) if lokasi_video.exists() else ""
+
+    kelas = "v16-video-card v17-media-card v18-video-card"
+    if variant == "hero":
+        kelas += " hero-video v17-hero-media v18-hero-media"
+    elif variant == "mini":
+        kelas += " mini-video v17-mini-media v18-mini-media"
+
+    ukuran_info = ""
+    if lokasi_video.exists():
+        ukuran_info = f"{lokasi_video.stat().st_size / (1024 * 1024):.1f} MB"
+    else:
+        ukuran_info = "belum tersedia"
+
+    if video_src:
+        return f"""
+        <div class="{kelas}">
+            <div class="v18-media-status">MP4 · {aman_teks(ukuran_info)}</div>
+            <video autoplay muted loop playsinline preload="metadata">
+                <source src="{video_src}" type="video/mp4">
+            </video>
+            <div class="v16-video-shade v17-media-shade v18-video-shade"></div>
+            <div class="v16-video-meta v17-media-meta v18-video-meta">
+                <span>{aman_teks(label)}</span>
+                <b>{aman_teks(title)}</b>
+                <p>{aman_teks(subtitle)}</p>
+            </div>
+        </div>
+        """
+
+    return f"""
+    <div class="{kelas} v16-video-placeholder v18-video-placeholder">
+        <div class="v16-scan-grid"></div>
+        <div class="v16-orbit"></div>
+        <div class="v18-media-status">Video belum tersedia</div>
+        <div class="v16-video-meta v17-media-meta v18-video-meta">
+            <span>{aman_teks(label)}</span>
+            <b>{aman_teks(title)}</b>
+            <p>{aman_teks(subtitle)}</p>
+            <p>Letakkan file di app/assets/videos/{aman_teks(nama_file)}</p>
+        </div>
+    </div>
+    """
+
+
+def hero(label, judul, deskripsi, badges=None, video_key=None):
+    """Hero final V18: frame video lebih besar dan teks lebih selaras dengan program."""
+    badges = badges or []
+    badge_html = "".join([f'<span class="pill">{aman_teks(item)}</span>' for item in badges])
+
+    copy_html = f"""
+    <section class="v16-hero-copy">
+        <div class="hero-top">
+            <div class="eyebrow">{aman_teks(label)}</div>
+            <div class="pill">Best Engine</div>
+        </div>
+        <h1>{aman_teks(judul)}</h1>
+        <p class="v16-hero-desc">{aman_teks(deskripsi)}</p>
+        <div class="v16-hero-actions">{badge_html}</div>
+    </section>
+    """
+
+    if video_key:
+        data = VIDEO_LIBRARY_V16.get(video_key, VIDEO_LIBRARY_V16["hero"])
+        video_html = v16_video_markup(
+            data["file"],
+            data["title"],
+            data["subtitle"],
+            data["label"],
+            variant="hero",
+        )
+        html(f'<div class="v16-hero-grid">{copy_html}{video_html}</div>')
+        return
+
+    html(
+        f"""
+        <section class="hero">
+            <div class="hero-top">
+                <div class="eyebrow">{aman_teks(label)}</div>
+                <div class="pill">PhishRisk</div>
+            </div>
+            <h1>{aman_teks(judul)}</h1>
+            <p class="hero-desc">{aman_teks(deskripsi)}</p>
+            <div class="hero-actions">{badge_html}</div>
+        </section>
+        """
+    )
+
+
+def v16_video_showcase():
+    """Section media dibuat informatif, ringkas, dan tidak memakai wording video yang tidak berguna."""
+    html(
+        """
+        <section class="v18-media-panel">
+            <div class="v18-media-panel-head">
+                <div>
+                    <div class="eyebrow">Visual Workflow</div>
+                    <div class="v18-media-panel-title">Alur kerja PhishRisk</div>
+                </div>
+                <div class="v18-media-panel-note">
+                    Visual ini hanya pendukung. Fungsi utama tetap pemeriksaan URL, file, Public TI, laporan, dan training defensif.
+                </div>
+            </div>
+            <div class="v18-mini-grid">
+        """
+        + v16_video_markup("cara_kerja_engine.mp4", "Alur The Best Engine", "Input dibaca menjadi skor, kategori, alasan, dan rekomendasi.", "Workflow", "mini")
+        + v16_video_markup("edukasi_phishing.mp4", "Sinyal Berisiko", "Contoh domain tiruan, kata mendesak, punycode, dan file mencurigakan.", "Awareness", "mini")
+        + v16_video_markup("game_training.mp4", "Training Lab", "Latihan membaca risiko, memilih tindakan, dan memahami evidence.", "Practice", "mini")
+        + """
+            </div>
+        </section>
+        """
+    )
+
+
+def halaman_beranda(engine):
+    hero(
+        "PhishRisk Intelligence System",
+        "PhishRisk Command Center",
+        "Dashboard defensif untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan keamanan secara ringkas.",
+        ["The Best Engine", "URL/File", "Public TI", "Static Analyzer", "Report", "Training"],
+        video_key="hero",
+    )
+
+    v16_command_strip([
+        {"label": "Engine", "value": "The Best Engine", "note": "Model lokal, URL Intelligence, Public TI."},
+        {"label": "Input", "value": "URL/File", "note": "Cek link bebas, batch CSV, dan upload file."},
+        {"label": "Output", "value": "CSV/Report", "note": "Hasil bisa dibaca, disimpan, dan diunduh."},
+        {"label": "Mode", "value": "Defensive", "note": "Tidak menjalankan file dan tidak membuat phishing."},
+    ])
+
+    section_title("Pemeriksaan cepat", "Masukkan URL untuk melihat skor, alasan, dan rekomendasi tindakan.")
+    col1, col2 = st.columns([1.18, .82])
+    with col1:
+        html('<div class="input-lab">')
+        url = st.text_input(
+            "URL untuk diperiksa",
+            value="http://bca-login-update.test",
+            key="v18_home_url",
+        )
+        if st.button("Analisis dengan The Best Engine", key="v18_home_check"):
+            with st.spinner("Menganalisis URL dengan The Best Engine..."):
+                hasil = v15_analisis_url(engine, url) if "v15_analisis_url" in globals() else engine.analisis_url(url)
+            if hasil:
+                try:
+                    tambah_riwayat_url(hasil)
+                except Exception:
+                    pass
+                st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+                if "v15_result_card" in globals():
+                    v15_result_card(hasil)
+                else:
+                    tampilkan_status_url(hasil)
+        html("</div>")
+
+    with col2:
+        html(
+            """
+            <section class="v17-summary-panel">
+                <div class="v17-summary-title">Keputusan cepat</div>
+                <p class="v17-summary-text">
+                    Baca status akhir, skor, sinyal brand, kata mencurigakan, dan Public TI. Jangan login jika hasilnya berisiko.
+                </p>
+            </section>
+            """
+        )
+        v17_signal_grid([
+            {"label": "Rendah", "value": "Aman", "note": "Tetap cek sumber link."},
+            {"label": "Sedang", "value": "Tinjau", "note": "Validasi manual dulu."},
+            {"label": "Tinggi", "value": "Hindari", "note": "Jangan isi data."},
+        ])
+
+    section_title("Fitur utama", "Container dibuat ringkas agar halaman terasa profesional dan tidak menumpuk.")
+    v15_feature_grid([
+        {"judul": "URL Risk Checker", "isi": "Skor, kategori, alasan, brand signal, Public TI, dan rekomendasi.", "tag": "URL"},
+        {"judul": "File Static Analyzer", "isi": "Baca URL dan indikator dari TXT, HTML, PDF, DOCX, ZIP, dan APK tanpa menjalankan file.", "tag": "File"},
+        {"judul": "Public Threat Intelligence", "isi": "Tambahkan sinyal dari PhishTank dan URLhaus sebagai pembanding eksternal.", "tag": "Public TI"},
+        {"judul": "Engine Lab", "isi": "Uji banyak URL dari teks bebas atau CSV lalu unduh hasilnya.", "tag": "Batch"},
+        {"judul": "Report Center", "isi": "Buat ringkasan defensif untuk hasil pemeriksaan.", "tag": "Report"},
+        {"judul": "Training Lab", "isi": "Latihan membaca domain tiruan, file berisiko, dan evidence.", "tag": "Training"},
+    ])
+
+    v16_video_showcase()
+
+    section_title("Alur kerja", "Ringkas, rapi, dan mudah dijelaskan.")
+    v17_flow([
+        {"no": "01", "title": "Input", "note": "Masukkan URL, batch URL, CSV, atau file."},
+        {"no": "02", "title": "Engine", "note": "Model dan intelligence membaca sinyal risiko."},
+        {"no": "03", "title": "Evidence", "note": "Public TI dan static analyzer menambah konteks."},
+        {"no": "04", "title": "Action", "note": "User mendapat saran tindakan dan laporan."},
+    ])
+
+
+def main():
+    """Main final V18: professional video frame fix dan render HTML gelap."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+        "pasang_css_v16_video_professional",
+        "pasang_css_v17_media_polish",
+        "v18_css_video_frame_fix",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        hero(
+            "Aplikasi gagal dimuat",
+            "Engine Belum Siap",
+            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            ["Cek src", "Cek model", "Cek output"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
+
 
 if __name__ == "__main__":
     main()
