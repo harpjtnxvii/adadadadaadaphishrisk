@@ -1838,7 +1838,7 @@ def halaman_periksa_file(engine):
             "Unggah file",
             accept_multiple_files=True,
             type=None,
-            help="Sistem tidak menjalankan file. Aman untuk pemeriksaan awal.",
+            help="Sistem tidak menjalankan file. Aman untuk pemeriksaan.",
             key="uploader_file_bebas_final",
         )
 
@@ -3359,7 +3359,7 @@ def halaman_periksa_file(engine):
             "Unggah file",
             accept_multiple_files=True,
             type=None,
-            help="Sistem tidak menjalankan file. Aman untuk pemeriksaan awal.",
+            help="Sistem tidak menjalankan file. Aman untuk pemeriksaan.",
             key="uploader_file_engine_v4",
         )
 
@@ -5340,7 +5340,7 @@ def tampilkan_validasi_visual_v13(df):
         [
             {"label": "Komponen", "nilai": f"{tersedia}/{total}", "catatan": "Jumlah file yang berhasil ditemukan.", "warna": "gold"},
             {"label": "File wajib", "nilai": f"{wajib_ok}/{len(wajib)}", "catatan": "Komponen utama aplikasi.", "warna": "green" if wajib_ok == len(wajib) else "yellow"},
-            {"label": "Engine aktif", "nilai": "V4", "catatan": "Engine terbaru untuk URL, file, dan Public TI.", "warna": "gold"},
+            {"label": "Engine aktif", "nilai": "The Best Engine", "catatan": "Engine terbaru untuk URL, file, dan Public TI.", "warna": "gold"},
             {"label": "Output", "nilai": "CSV", "catatan": "Hasil bisa diunduh user.", "warna": "normal"},
         ],
         kolom=4,
@@ -5545,7 +5545,7 @@ def halaman_domain_watch_v13(engine):
     metrik_kartu(
         [
             {"label": "Terdeteksi", "nilai": len(daftar), "catatan": "Jumlah alamat yang siap dicek.", "warna": "gold"},
-            {"label": "Mode", "nilai": "Batch", "catatan": "Memakai engine aktif website.", "warna": "normal"},
+            {"label": "Mode", "nilai": "Batch", "catatan": "Memakai best engine website.", "warna": "normal"},
             {"label": "Output", "nilai": "CSV", "catatan": "Hasil bisa diunduh.", "warna": "green"},
         ],
         kolom=3,
@@ -7295,10 +7295,10 @@ def buat_navigasi():
                     <div class="brand-mark">PR</div>
                     <div>
                         <div class="brand-title">PhishRisk</div>
-                        <div class="brand-sub">Defensive Intelligence Command Center</div>
+                        <div class="brand-sub">Made for your security needs</div>
                     </div>
                 </div>
-                <div class="nav-badge">The Best Engine Ready</div>
+                <div class="nav-badge">The Best Engine is Ready</div>
             </div>
         """
     )
