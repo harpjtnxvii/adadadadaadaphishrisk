@@ -8371,17 +8371,6 @@ def main():
     footer_site()
 
 
-
-# ============================================================
-# UPGRADE V17 - PROFESSIONAL MEDIA EXPERIENCE
-# Fokus:
-# 1. Menghapus teks "Video intelligence layer" dan judul berbasis video yang kurang berguna.
-# 2. Video dipakai sebagai visual pendukung senyap, bukan konten utama yang memakan ruang.
-# 3. Tampilan dibuat lebih profesional, informatif, ringkas, dan selaras dengan PhishRisk Engine V4.
-# 4. Mendukung file video lokal app/assets/videos/*.mp4 dengan batas ukuran lebih longgar.
-# ============================================================
-
-# Perbarui label media agar tidak memakai wording "video intelligence" / "video ready".
 try:
     VIDEO_LIBRARY_V16.update({
         "hero": {
