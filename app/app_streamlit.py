@@ -8425,9 +8425,7 @@ def v16_video_data_uri(lokasi_video_str):
         return ""
 
     ukuran_mb = lokasi_video.stat().st_size / (1024 * 1024)
-
-    # Batas aman Streamlit + browser. Kalau lebih besar, jangan dipaksa,
-    # karena website keamanan yang loading 2 menit itu komedi gelap.
+    
     if ukuran_mb > 70:
         return ""
 
