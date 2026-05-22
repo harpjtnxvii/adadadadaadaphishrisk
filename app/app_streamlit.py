@@ -2568,7 +2568,7 @@ def buat_navigasi():
 
     html(
         f"""
-            <div class="nav-help">Halaman aktif: <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b></div>
+            <div class="nav-help">ACTIVE : <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b></div>
         </div>
         """
     )
@@ -2650,14 +2650,6 @@ def main():
 
 
     footer_site()
-
-
-
-# ============================================================
-# OVERRIDE UPGRADE STREAMLIT - ENGINE V4 + PUBLIC THREAT INTEL
-# Bagian ini sengaja diletakkan di akhir file agar mengganti
-# fungsi lama tanpa merusak utility yang sudah ada.
-# ============================================================
 
 LOKASI_METADATA_ENGINE_V4 = DIREKTORI_OUTPUT / "metadata_step13_public_threat_intelligence.json"
 LOKASI_LAPORAN_STEP13 = DIREKTORI_OUTPUT / "laporan_step13_public_threat_intelligence.md"
@@ -3913,7 +3905,7 @@ def buat_navigasi():
 
     html(
         f"""
-            <div class="nav-help">Halaman aktif: <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b>. Gunakan dropdown ini agar nyaman di mobile.</div>
+            <div class="nav-help">ACTIVE : <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b>. Gunakan dropdown ini agar nyaman di mobile.</div>
         </div>
         """
     )
@@ -3999,12 +3991,6 @@ def main():
         halaman_sistem()
 
     footer_site()
-
-# ============================================================
-# UPGRADE V12 - GAME CENTER + STREAMLIT FEATURE EXPANSION
-# Ditambahkan setelah versi Engine V4 agar website lebih kaya,
-# tetap defensif, dan tetap selaras dengan PhishRisk Engine V4.
-# ============================================================
 
 GAME_URL_BANK = [
     {
@@ -4997,7 +4983,7 @@ def buat_navigasi():
 
     html(
         f"""
-            <div class="nav-help">Halaman aktif: <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b> · URL, File, Threat Intel, Insight, Playbook, dan Game Center.</div>
+            <div class="nav-help">ACTIVE : <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b> · URL, File, Threat Intel, Insight, Playbook, dan Game Center.</div>
         </div>
         """
     )
@@ -5069,17 +5055,6 @@ def main():
         halaman_sistem()
 
     footer_site()
-
-
-
-# ============================================================
-# UPGRADE V13 - SYSTEM PAGE FIX + FEATURE EXPANSION
-# Fokus:
-# 1. Menghapus tampilan metadata mentah putih yang mengganggu.
-# 2. Mengubah metadata menjadi ringkasan visual yang mudah dibaca.
-# 3. Menambah Checklist, Domain Watch, dan Report Center.
-# 4. Memperkaya Game Center agar selaras dengan Engine V4.
-# ============================================================
 
 def pasang_css_v13_polish():
     st.markdown(
@@ -5866,7 +5841,7 @@ def buat_navigasi():
 
     html(
         f"""
-            <div class="nav-help">Halaman aktif: <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b> · URL, File, Threat Intel, Watch, Report, Checklist, dan Game Center.</div>
+            <div class="nav-help">ACTIVE : <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b> · URL, File, Threat Intel, Watch, Report, Checklist, dan Game Center.</div>
         </div>
         """
     )
@@ -5945,16 +5920,6 @@ def main():
         halaman_sistem()
 
     footer_site()
-
-
-# ============================================================
-# HOTFIX V14 - GAME ENGINE ARGUMENT FIX + TRAINING LAB EXPANSION
-# Fokus:
-# 1. Memperbaiki error render_cari_sinyal_v12() missing engine.
-# 2. Memperkaya halaman game tanpa menghapus fitur lama.
-# 3. Menambah container latihan yang selaras dengan Engine V4 dan Public Threat Intelligence.
-# 4. Menambah CSS responsif agar game lebih aman di mobile/tablet/laptop.
-# ============================================================
 
 def pasang_css_v14_game_fix():
     st.markdown(
@@ -6699,16 +6664,6 @@ def main():
 
     footer_site()
 
-
-# ============================================================
-# UPGRADE V15 - PROFESSIONAL INTERFACE POLISH
-# Fokus:
-# 1. Tampilan lebih profesional, matang, dan product-ready.
-# 2. Memperkuat visual hierarchy, navbar, hero, cards, table, button, uploader.
-# 3. Menambah command-center feel tanpa mengubah logic engine.
-# 4. Tetap selaras dengan Engine V4, Public Threat Intelligence, File Analyzer, dan Game Center.
-# ============================================================
-
 def pasang_css_v15_professional():
     st.markdown(
         """
@@ -7314,7 +7269,7 @@ def buat_navigasi():
     html(
         f"""
             <div class="nav-help">
-                Halaman aktif: <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b> · URL, File, Public TI, Report, Checklist, dan Training Lab.
+                ACTIVE : <b>{aman_teks(MENU_MAP.get(pilihan, pilihan))}</b> · URL, File, Public TI, Report, Checklist, dan Training Lab.
             </div>
         </div>
         """
@@ -7562,21 +7517,8 @@ def main():
 
     footer_site()
 
-
-
-# ============================================================
-# UPGRADE V16 - PROFESSIONAL WEBSITE X VIDEO EXPERIENCE
-# Fokus:
-# 1. Integrasi video profesional tanpa mengubah core engine.
-# 2. Hero video, workflow video, training video, dan placeholder elegan.
-# 3. Tetap aman jika video belum tersedia.
-# 4. Video pendek, muted, loop, playsinline, dan mobile friendly.
-# ============================================================
-
 import base64
 
-
-# Simpan referensi halaman lama agar fitur yang sudah ada tidak hilang.
 HALAMAN_GAME_CYBER_BASE_V16 = globals().get("halaman_game_cyber")
 HALAMAN_PANDUAN_BASE_V16 = globals().get("halaman_panduan")
 
@@ -9615,7 +9557,6 @@ def v16_video_showcase():
             <div class="v18-media-panel-head">
                 <div>
                     <div class="eyebrow">Visual Workflow</div>
-                    <div class="v18-media-panel-title">Alur kerja PhishRisk</div>
                 </div>
                 <div class="v18-media-panel-note">
                     Visual ini hanya pendukung. Fungsi utama tetap pemeriksaan URL, file, Public TI, laporan, dan training defensif.
@@ -9791,6 +9732,1696 @@ def main():
 
     footer_site()
 
+LOKASI_METADATA_ENGINE_V5 = DIREKTORI_OUTPUT / "metadata_step16_integrasi_engine_v5.json"
+LOKASI_STATUS_ENGINE_V5 = DIREKTORI_OUTPUT / "status_kesiapan_engine_v5_step17.csv"
+LOKASI_STATUS_FP_V5 = DIREKTORI_OUTPUT / "status_fix_huggingface_false_positive_engine_v5_step17b.csv"
+LOKASI_TRUSTED_SAFE = DIREKTORI_PROJECT / "data" / "intelligence" / "trusted_safe_domains_global.csv"
+
+
+def pasang_css_v19_engine_v5():
+    st.markdown(
+        """
+        <style>
+        :root{
+            --v19-bg:#080907;
+            --v19-card:#12140f;
+            --v19-card-2:#181912;
+            --v19-text:#fff8e8;
+            --v19-muted:#d7c7aa;
+            --v19-dim:#9d927e;
+            --v19-gold:#d8b56d;
+            --v19-gold-2:#ffe7ad;
+            --v19-green:#9bc79f;
+            --v19-yellow:#d6bd76;
+            --v19-red:#e18478;
+            --v19-line:rgba(255,255,255,.085);
+            --v19-gold-line:rgba(216,181,109,.44);
+        }
+
+        [data-testid="stAppViewContainer"]{
+            background:
+                radial-gradient(circle at 10% 0%,rgba(216,181,109,.14),transparent 30%),
+                radial-gradient(circle at 90% 12%,rgba(155,199,159,.07),transparent 28%),
+                linear-gradient(140deg,#080907 0%,#0e100c 48%,#17130c 100%)!important;
+        }
+
+        .block-container{
+            max-width:1240px!important;
+            padding-top:.62rem!important;
+            padding-bottom:2.3rem!important;
+        }
+
+        .top-nav-card{
+            border-radius:28px!important;
+            background:rgba(11,12,10,.92)!important;
+            border:1px solid rgba(255,255,255,.09)!important;
+            box-shadow:0 24px 86px rgba(0,0,0,.50)!important;
+            padding:.85rem!important;
+            margin-bottom:1rem!important;
+        }
+
+        .nav-badge{
+            background:rgba(216,181,109,.12)!important;
+            color:#ffe7ad!important;
+            border:1px solid rgba(216,181,109,.42)!important;
+        }
+
+        .v19-hero{
+            border:1px solid rgba(255,255,255,.09);
+            border-radius:36px;
+            padding:clamp(1rem,3vw,2.35rem);
+            background:
+                radial-gradient(circle at 100% 0%,rgba(216,181,109,.18),transparent 34%),
+                linear-gradient(145deg,rgba(255,255,255,.058),rgba(255,255,255,.014)),
+                rgba(18,20,15,.96);
+            box-shadow:0 28px 92px rgba(0,0,0,.48);
+            margin:.45rem 0 1rem;
+        }
+
+        .v19-eyebrow{
+            display:inline-flex;
+            width:fit-content;
+            border:1px solid rgba(216,181,109,.44);
+            border-radius:999px;
+            color:#ffe7ad;
+            background:rgba(216,181,109,.11);
+            padding:.28rem .68rem;
+            font-weight:900;
+            font-size:.76rem!important;
+            margin-bottom:.8rem;
+        }
+
+        .v19-title{
+            color:#fff8e8;
+            font-size:clamp(2.15rem,5.3vw,5.35rem)!important;
+            line-height:.92!important;
+            letter-spacing:-.075em!important;
+            margin:0 0 .7rem!important;
+            max-width:980px;
+        }
+
+        .v19-desc{
+            max-width:820px;
+            color:#d7c7aa!important;
+            font-size:clamp(.95rem,1.05vw,1.09rem)!important;
+            line-height:1.58!important;
+            margin:0!important;
+        }
+
+        .v19-badges{
+            display:flex;
+            flex-wrap:wrap;
+            gap:.45rem;
+            margin-top:1rem;
+        }
+
+        .v19-badges span{
+            border:1px solid rgba(255,255,255,.09);
+            border-radius:999px;
+            background:rgba(255,255,255,.035);
+            color:#d7c7aa;
+            padding:.32rem .7rem;
+            font-size:.78rem!important;
+            font-weight:820;
+        }
+
+        .v19-grid{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.75rem;
+            margin:.75rem 0 1rem;
+        }
+
+        .v19-grid.three{
+            grid-template-columns:repeat(3,minmax(0,1fr));
+        }
+
+        .v19-card{
+            border:1px solid rgba(255,255,255,.085);
+            border-radius:24px;
+            background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),rgba(18,20,15,.86);
+            padding:1rem;
+            box-shadow:0 18px 55px rgba(0,0,0,.30);
+            min-height:112px;
+        }
+
+        .v19-card.gold{border-color:rgba(216,181,109,.40);background:linear-gradient(145deg,rgba(216,181,109,.13),rgba(255,255,255,.014)),rgba(18,20,15,.90)}
+        .v19-card.green{border-color:rgba(155,199,159,.38);background:linear-gradient(145deg,rgba(155,199,159,.12),rgba(255,255,255,.014)),rgba(18,20,15,.90)}
+        .v19-card.yellow{border-color:rgba(214,189,118,.40);background:linear-gradient(145deg,rgba(214,189,118,.13),rgba(255,255,255,.014)),rgba(18,20,15,.90)}
+        .v19-card.red{border-color:rgba(225,132,120,.40);background:linear-gradient(145deg,rgba(225,132,120,.13),rgba(255,255,255,.014)),rgba(18,20,15,.90)}
+
+        .v19-label{
+            color:#9d927e;
+            font-size:.78rem!important;
+            line-height:1.35!important;
+            font-weight:820;
+            margin-bottom:.28rem;
+        }
+
+        .v19-value{
+            color:#fff8e8;
+            font-size:clamp(1.26rem,2vw,2rem)!important;
+            font-weight:950;
+            letter-spacing:-.045em;
+            line-height:1.05!important;
+            margin-bottom:.28rem;
+            overflow-wrap:anywhere;
+        }
+
+        .v19-note{
+            color:#d7c7aa;
+            font-size:.84rem!important;
+            line-height:1.48!important;
+        }
+
+        .v19-result{
+            border-radius:30px;
+            border:1px solid rgba(255,255,255,.09);
+            background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.014)),rgba(18,20,15,.92);
+            padding:1.1rem;
+            box-shadow:0 22px 70px rgba(0,0,0,.38);
+            margin:.75rem 0;
+        }
+
+        .v19-result.safe{border-color:rgba(155,199,159,.46)}
+        .v19-result.review{border-color:rgba(214,189,118,.48)}
+        .v19-result.danger{border-color:rgba(225,132,120,.52)}
+
+        .v19-result-top{
+            display:grid;
+            grid-template-columns:1fr 180px;
+            gap:1rem;
+            align-items:start;
+        }
+
+        .v19-status{
+            font-size:clamp(1.6rem,3vw,3rem)!important;
+            font-weight:950;
+            letter-spacing:-.065em;
+            color:#fff8e8;
+            line-height:.96!important;
+        }
+
+        .v19-score-box{
+            border:1px solid rgba(216,181,109,.35);
+            border-radius:22px;
+            background:rgba(216,181,109,.09);
+            padding:.85rem;
+            text-align:center;
+        }
+
+        .v19-score-box b{
+            display:block;
+            font-size:2rem!important;
+            color:#ffe7ad;
+            line-height:1!important;
+            letter-spacing:-.05em;
+        }
+
+        .v19-evidence{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.62rem;
+            margin-top:.75rem;
+        }
+
+        .v19-evidence div{
+            border:1px solid rgba(255,255,255,.075);
+            border-radius:18px;
+            background:rgba(255,255,255,.028);
+            padding:.72rem;
+        }
+
+        .v19-evidence small{
+            display:block;
+            color:#9d927e;
+            font-size:.72rem!important;
+            margin-bottom:.16rem;
+            font-weight:820;
+        }
+
+        .v19-evidence b{
+            color:#fff8e8;
+            font-size:.9rem!important;
+            overflow-wrap:anywhere;
+        }
+
+        .v19-flow{
+            display:grid;
+            grid-template-columns:repeat(4,minmax(0,1fr));
+            gap:.7rem;
+            margin:.75rem 0 1rem;
+        }
+
+        .v19-flow-card{
+            border:1px solid rgba(255,255,255,.075);
+            border-radius:22px;
+            padding:.9rem;
+            background:rgba(255,255,255,.026);
+        }
+
+        .v19-flow-card span{
+            color:#ffe7ad;
+            font-size:.78rem!important;
+            font-weight:950;
+        }
+
+        .v19-flow-card b{
+            display:block;
+            color:#fff8e8;
+            font-size:1rem!important;
+            margin:.22rem 0;
+        }
+
+        .v19-flow-card p{
+            color:#d7c7aa!important;
+            font-size:.84rem!important;
+            line-height:1.45!important;
+            margin:0!important;
+        }
+
+        .v19-mini-copy{
+            color:#d7c7aa!important;
+            font-size:.9rem!important;
+            line-height:1.55!important;
+        }
+
+        .v19-section{
+            margin:1.05rem 0 .55rem;
+        }
+
+        .v19-section h2{
+            margin:0 0 .2rem!important;
+            color:#fff8e8!important;
+            letter-spacing:-.055em!important;
+        }
+
+        .v19-section p{
+            color:#9d927e!important;
+            margin:0!important;
+            font-size:.86rem!important;
+        }
+
+        @media(max-width:1024px){
+            .v19-grid,.v19-grid.three,.v19-flow,.v19-evidence{grid-template-columns:repeat(2,minmax(0,1fr))}
+            .v19-result-top{grid-template-columns:1fr}
+            .v19-score-box{text-align:left}
+        }
+
+        @media(max-width:640px){
+            .block-container{padding-left:.5rem!important;padding-right:.5rem!important}
+            .v19-hero{border-radius:22px;padding:1rem}
+            .v19-title{font-size:clamp(2rem,9vw,2.9rem)!important}
+            .v19-grid,.v19-grid.three,.v19-flow,.v19-evidence{grid-template-columns:1fr}
+            .v19-card,.v19-result{border-radius:20px}
+            .v19-badges span{font-size:.72rem!important}
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def v19_engine_label(engine=None):
+    if engine is None:
+        return "Engine"
+    nama = engine.__class__.__name__
+    if "V5" in nama:
+        return "Best Engine V5"
+    if "V4" in nama:
+        return "Best Engine V4"
+    if "V3" in nama:
+        return "Best Engine V3"
+    return nama or "Engine"
+
+
+def v19_safe_float(nilai, default=0):
+    try:
+        return float(nilai)
+    except Exception:
+        return default
+
+
+def v19_status_class(status):
+    teks = str(status).lower()
+    if "aman" in teks:
+        return "safe"
+    if "tinjauan" in teks:
+        return "review"
+    return "danger"
+
+
+def v19_hero(label, judul, deskripsi, badges=None):
+    badges = badges or []
+    badge_html = "".join([f"<span>{aman_teks(item)}</span>" for item in badges])
+    html(
+        f"""
+        <section class="v19-hero">
+            <div class="v19-eyebrow">{aman_teks(label)}</div>
+            <h1 class="v19-title">{aman_teks(judul)}</h1>
+            <p class="v19-desc">{aman_teks(deskripsi)}</p>
+            <div class="v19-badges">{badge_html}</div>
+        </section>
+        """
+    )
+
+
+def v19_section(judul, deskripsi=""):
+    html(
+        f"""
+        <div class="v19-section">
+            <h2>{aman_teks(judul)}</h2>
+            <p>{aman_teks(deskripsi)}</p>
+        </div>
+        """
+    )
+
+
+def v19_cards(items, kolom=4):
+    grid_class = "v19-grid three" if kolom == 3 else "v19-grid"
+    isi = []
+    for item in items:
+        warna = item.get("warna", "")
+        isi.append(
+            f"""
+            <div class="v19-card {aman_teks(warna)}">
+                <div class="v19-label">{aman_teks(item.get("label", ""))}</div>
+                <div class="v19-value">{aman_teks(item.get("nilai", ""))}</div>
+                <div class="v19-note">{aman_teks(item.get("catatan", ""))}</div>
+            </div>
+            """
+        )
+    html(f"<div class='{grid_class}'>{''.join(isi)}</div>")
+
+
+def v19_flow(items):
+    html(
+        "<div class='v19-flow'>"
+        + "".join([
+            f"""
+            <div class="v19-flow-card">
+                <span>{aman_teks(item.get("no", ""))}</span>
+                <b>{aman_teks(item.get("judul", ""))}</b>
+                <p>{aman_teks(item.get("isi", ""))}</p>
+            </div>
+            """
+            for item in items
+        ])
+        + "</div>"
+    )
+
+
+def selaraskan_hasil_url(hasil):
+    if hasil is None:
+        return {}
+
+    data = dict(hasil)
+
+    if "hasil_akhir_v5" in data:
+        data["hasil_akhir_lokal"] = data.get("hasil_akhir", "-")
+        data["kategori_risiko_lokal"] = data.get("kategori_risiko", "-")
+        data["skor_final_lokal"] = data.get("skor_final", "-")
+        data["rekomendasi_lokal"] = data.get("rekomendasi", "-")
+        data["hasil_akhir"] = data.get("hasil_akhir_v5", data.get("hasil_akhir", "-"))
+        data["kategori_risiko"] = data.get("kategori_risiko_v5", data.get("kategori_risiko", "-"))
+        data["skor_final"] = data.get("skor_final_v5", data.get("skor_final", 0))
+        data["rekomendasi"] = data.get("rekomendasi_v5", data.get("rekomendasi", "-"))
+        data["intelligence_reason"] = data.get("alasan_v5", data.get("intelligence_reason", "-"))
+        data["skor_model"] = data.get("skor_model_v5", data.get("skor_model", "-"))
+        data["label_model"] = data.get("label_model_v5", data.get("label_model", "-"))
+
+    elif "hasil_akhir_v4" in data:
+        data["hasil_akhir_lokal"] = data.get("hasil_akhir", "-")
+        data["kategori_risiko_lokal"] = data.get("kategori_risiko", "-")
+        data["skor_final_lokal"] = data.get("skor_final", "-")
+        data["rekomendasi_lokal"] = data.get("rekomendasi", "-")
+        data["hasil_akhir"] = data.get("hasil_akhir_v4", data.get("hasil_akhir", "-"))
+        data["kategori_risiko"] = data.get("kategori_risiko_v4", data.get("kategori_risiko", "-"))
+        data["skor_final"] = data.get("skor_final_v4", data.get("skor_final", 0))
+        data["rekomendasi"] = data.get("rekomendasi_v4", data.get("rekomendasi", "-"))
+
+    data["public_ti_status"] = data.get("public_ti_status", "tidak_dicek")
+    data["public_ti_sources"] = data.get("public_ti_sources", "-") or "-"
+    data["public_ti_reason"] = data.get("public_ti_reason", "-") or "-"
+    data["public_ti_score"] = data.get("public_ti_score", 0)
+    data["trusted_safe_domain"] = data.get("trusted_safe_domain", 0)
+    data["engine_version"] = data.get("engine_version", "V5" if "hasil_akhir_v5" in data else data.get("engine_version", "-"))
+
+    return data
+
+
+def selaraskan_dataframe_url(data):
+    if data is None:
+        return pd.DataFrame()
+
+    df = pd.DataFrame(data).copy()
+    if df.empty:
+        return df
+
+    pasangan = [
+        ("hasil_akhir_v5", "hasil_akhir"),
+        ("kategori_risiko_v5", "kategori_risiko"),
+        ("skor_final_v5", "skor_final"),
+        ("rekomendasi_v5", "rekomendasi"),
+        ("alasan_v5", "intelligence_reason"),
+        ("skor_model_v5", "skor_model"),
+        ("label_model_v5", "label_model"),
+        ("hasil_akhir_v4", "hasil_akhir"),
+        ("kategori_risiko_v4", "kategori_risiko"),
+        ("skor_final_v4", "skor_final"),
+        ("rekomendasi_v4", "rekomendasi"),
+    ]
+
+    for sumber, tujuan in pasangan:
+        if sumber in df.columns:
+            if tujuan in df.columns:
+                df[tujuan + "_lokal"] = df[tujuan]
+            df[tujuan] = df[sumber]
+
+    for kolom, default in [
+        ("hasil_akhir", "-"),
+        ("kategori_risiko", "-"),
+        ("skor_final", 0),
+        ("rekomendasi", "-"),
+        ("public_ti_status", "tidak_dicek"),
+        ("public_ti_sources", "-"),
+        ("public_ti_reason", "-"),
+        ("public_ti_score", 0),
+        ("phishtank_status", "-"),
+        ("urlhaus_query_status", "-"),
+        ("trusted_safe_domain", 0),
+        ("engine_version", "-"),
+    ]:
+        if kolom not in df.columns:
+            df[kolom] = default
+
+    return df
+
+
+def selaraskan_dataframe_file(data_file):
+    df = pd.DataFrame(data_file).copy()
+    if df.empty:
+        return df
+
+    pasangan = [
+        ("hasil_akhir_file_v5", "hasil_akhir_file_v3"),
+        ("kategori_final_file_v5", "kategori_final_file_v3"),
+        ("skor_final_file_v5", "skor_final_file_v3"),
+        ("rekomendasi_final_file_v5", "rekomendasi_final_file_v3"),
+        ("hasil_akhir_file_v4", "hasil_akhir_file_v3"),
+        ("kategori_final_file_v4", "kategori_final_file_v3"),
+        ("skor_final_file_v4", "skor_final_file_v3"),
+        ("rekomendasi_final_file_v4", "rekomendasi_final_file_v3"),
+    ]
+
+    for sumber, tujuan in pasangan:
+        if sumber in df.columns:
+            if tujuan in df.columns:
+                df[tujuan + "_lokal"] = df[tujuan]
+            df[tujuan] = df[sumber]
+
+    for kolom, default in [
+        ("hasil_akhir_file_v3", "-"),
+        ("kategori_final_file_v3", "-"),
+        ("skor_final_file_v3", 0),
+        ("rekomendasi_final_file_v3", "-"),
+        ("jumlah_url_terdeteksi_public_ti", 0),
+        ("skor_public_ti_maks_file", 0),
+        ("engine_version", "-"),
+    ]:
+        if kolom not in df.columns:
+            df[kolom] = default
+
+    return df
+
+
+@st.cache_resource
+def muat_engine():
+    """Memakai Engine V5 final. Fallback tetap tersedia agar app tidak mati mendadak seperti proyek minggu malam."""
+    try:
+        import phishrisk_engine_v5
+        return phishrisk_engine_v5.PhishRiskEngineV5(
+            direktori_project=DIREKTORI_PROJECT,
+            prefer_model="best",
+        )
+    except Exception:
+        try:
+            import phishrisk_engine_v4
+            return phishrisk_engine_v4.PhishRiskEngineV4(DIREKTORI_PROJECT)
+        except Exception:
+            import phishrisk_engine_v3
+            return phishrisk_engine_v3.buat_engine(DIREKTORI_PROJECT)
+
+
+def v19_analisis_url(engine, url):
+    url = str(url).strip()
+    if not url:
+        return None
+
+    if "normalisasi_url_input" in globals():
+        try:
+            url = normalisasi_url_input(url)
+        except Exception:
+            pass
+
+    hasil = engine.analisis_url(url)
+    return selaraskan_hasil_url(hasil)
+
+
+def v15_analisis_url(engine, url):
+    return v19_analisis_url(engine, url)
+
+
+def tambah_riwayat_url(hasil):
+    hasil = selaraskan_hasil_url(hasil)
+    item = {
+        "waktu": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "jenis": "URL",
+        "input": hasil.get("url", "-"),
+        "domain": hasil.get("domain", "-"),
+        "hasil": hasil.get("hasil_akhir", "-"),
+        "skor": hasil.get("skor_final", "-"),
+        "kategori": hasil.get("kategori_risiko", "-"),
+        "catatan": hasil.get("engine_version", "-"),
+    }
+    st.session_state.riwayat.insert(0, item)
+    st.session_state.riwayat = st.session_state.riwayat[:500]
+    simpan_riwayat()
+
+
+def tambah_riwayat_file(hasil):
+    hasil_df = selaraskan_dataframe_file(pd.DataFrame([hasil]))
+    hasil = hasil_df.iloc[0].to_dict() if not hasil_df.empty else dict(hasil)
+    item = {
+        "waktu": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "jenis": "FILE",
+        "input": hasil.get("nama_file", "-"),
+        "domain": "-",
+        "hasil": hasil.get("hasil_akhir_file_v3", "-"),
+        "skor": hasil.get("skor_final_file_v3", "-"),
+        "kategori": hasil.get("kategori_final_file_v3", "-"),
+        "catatan": hasil.get("engine_version", hasil.get("ekstensi", "-")),
+    }
+    st.session_state.riwayat.insert(0, item)
+    st.session_state.riwayat = st.session_state.riwayat[:500]
+    simpan_riwayat()
+
+
+def v19_result_card(hasil):
+    hasil = selaraskan_hasil_url(hasil)
+    status = hasil.get("hasil_akhir", "-")
+    kategori = hasil.get("kategori_risiko", "-")
+    skor = v19_safe_float(hasil.get("skor_final", 0), 0)
+    kelas = v19_status_class(status)
+    rekomendasi = hasil.get("rekomendasi", "-")
+    width = max(0, min(100, skor))
+
+    html(
+        f"""
+        <section class="v19-result {kelas}">
+            <div class="v19-result-top">
+                <div>
+                    <div class="v19-eyebrow">Engine V5 Result</div>
+                    <div class="v19-status">{aman_teks(status)}</div>
+                    <p class="v19-mini-copy">{aman_teks(rekomendasi)}</p>
+                </div>
+                <div class="v19-score-box">
+                    <small>Skor Final</small>
+                    <b>{skor:.2f}</b>
+                    <small>{aman_teks(kategori)}</small>
+                </div>
+            </div>
+            <div class="score-line"><div class="score-fill" style="width:{width}%;"></div></div>
+            <div class="v19-evidence">
+                <div><small>Domain</small><b>{aman_teks(hasil.get("domain", "-"))}</b></div>
+                <div><small>Engine</small><b>{aman_teks(hasil.get("engine_version", "V5"))}</b></div>
+                <div><small>Trusted Safe</small><b>{aman_teks(hasil.get("trusted_safe_domain", 0))}</b></div>
+                <div><small>Public TI</small><b>{aman_teks(hasil.get("public_ti_status", "tidak_dicek"))}</b></div>
+            </div>
+        </section>
+        """
+    )
+
+
+def v15_result_card(hasil):
+    v19_result_card(hasil)
+
+
+def tampilkan_status_url(hasil):
+    hasil = selaraskan_hasil_url(hasil)
+    v19_result_card(hasil)
+
+    tab_ringkas, tab_alasan, tab_saran, tab_teknis = st.tabs(
+        ["Ringkasan", "Alasan", "Tindakan", "Detail"]
+    )
+
+    with tab_ringkas:
+        data = pd.DataFrame([
+            {"Bagian": "URL", "Nilai": hasil.get("url", "-")},
+            {"Bagian": "Domain", "Nilai": hasil.get("domain", "-")},
+            {"Bagian": "Hasil", "Nilai": hasil.get("hasil_akhir", "-")},
+            {"Bagian": "Kategori", "Nilai": hasil.get("kategori_risiko", "-")},
+            {"Bagian": "Skor final", "Nilai": hasil.get("skor_final", "-")},
+            {"Bagian": "Skor model V5", "Nilai": hasil.get("skor_model_v5", hasil.get("skor_model", "-"))},
+            {"Bagian": "Trusted safe", "Nilai": hasil.get("trusted_safe_domain", 0)},
+            {"Bagian": "Public TI", "Nilai": hasil.get("public_ti_status", "-")},
+        ])
+        tabel_rapi(data, max_rows=80)
+
+    with tab_alasan:
+        panel("Alasan singkat", hasil.get("alasan_v5", hasil.get("intelligence_reason", "-")), "gold")
+        data_alasan = pd.DataFrame([
+            {"Sinyal": "Intelligence", "Nilai": hasil.get("intelligence_status", "-")},
+            {"Sinyal": "Brand", "Nilai": hasil.get("brand_detected_v5", hasil.get("brand_detected", "-")) or "-"},
+            {"Sinyal": "Lookalike", "Nilai": hasil.get("lookalike_brand_v5", hasil.get("lookalike_brand", "-")) or "-"},
+            {"Sinyal": "Kata mencurigakan", "Nilai": hasil.get("suspicious_keywords_v5", hasil.get("suspicious_keywords", "-")) or "-"},
+            {"Sinyal": "Punycode", "Nilai": hasil.get("uses_punycode", 0)},
+            {"Sinyal": "Public TI score", "Nilai": hasil.get("public_ti_score", 0)},
+        ])
+        tabel_rapi(data_alasan, max_rows=80)
+
+    with tab_saran:
+        bullet_panel(
+            "Tindakan cepat",
+            saran_berdasarkan_hasil_url(hasil),
+            "gold",
+        )
+
+    with tab_teknis:
+        tabel_rapi(pd.DataFrame([hasil]), max_rows=80)
+
+
+def tampilkan_tabel_url(data):
+    data = selaraskan_dataframe_url(data)
+
+    if data.empty:
+        st.info("Belum ada hasil pemeriksaan.")
+        return
+
+    kolom = [
+        "url",
+        "domain",
+        "hasil_akhir",
+        "kategori_risiko",
+        "skor_final",
+        "skor_model_v5",
+        "trusted_safe_domain",
+        "public_ti_status",
+        "intelligence_status",
+        "engine_version",
+        "rekomendasi",
+    ]
+    kolom = [item for item in kolom if item in data.columns]
+
+    tabel_rapi(data[kolom], max_rows=80)
+
+    st.download_button(
+        "Unduh hasil URL",
+        data=data.to_csv(index=False).encode("utf-8"),
+        file_name="hasil_url_phishrisk_engine_v5.csv",
+        mime="text/csv",
+        key=widget_key("download_hasil_url_v19"),
+    )
+
+
+def tampilkan_tabel_file(data_file, data_url):
+    data_file = selaraskan_dataframe_file(data_file)
+    data_url = selaraskan_dataframe_url(data_url)
+
+    if data_file.empty:
+        st.info("Belum ada hasil pemeriksaan file.")
+        return
+
+    kolom_file = [
+        "nama_file",
+        "ekstensi",
+        "ukuran_kb",
+        "jumlah_url",
+        "hasil_akhir_file_v3",
+        "kategori_final_file_v3",
+        "skor_final_file_v3",
+        "engine_version",
+        "rekomendasi_final_file_v3",
+        "sha256_upload",
+    ]
+    kolom_file = [item for item in kolom_file if item in data_file.columns]
+
+    st.subheader("Hasil file")
+    tabel_rapi(data_file[kolom_file], max_rows=80)
+
+    st.download_button(
+        "Unduh hasil file",
+        data=data_file.to_csv(index=False).encode("utf-8"),
+        file_name="hasil_file_phishrisk_engine_v5.csv",
+        mime="text/csv",
+        key=widget_key("download_hasil_file_v19"),
+    )
+
+    if not data_url.empty:
+        st.subheader("URL di dalam file")
+        tampilkan_tabel_url(data_url)
+
+
+def v19_ringkasan_url(data):
+    data = selaraskan_dataframe_url(data)
+    if data.empty:
+        return
+
+    total = len(data)
+    aman = int((data["hasil_akhir"] == "Terlihat Aman").sum())
+    tinjau = int((data["hasil_akhir"] == "Perlu Tinjauan").sum())
+    risiko = int((data["hasil_akhir"] == "Berisiko").sum())
+
+    v19_cards([
+        {"label": "Total URL", "nilai": total, "catatan": "Jumlah alamat yang diperiksa.", "warna": "gold"},
+        {"label": "Aman", "nilai": aman, "catatan": "Rendah risiko.", "warna": "green"},
+        {"label": "Tinjau", "nilai": tinjau, "catatan": "Validasi manual.", "warna": "yellow"},
+        {"label": "Berisiko", "nilai": risiko, "catatan": "Jangan dipakai login.", "warna": "red"},
+    ])
+
+
+def tampilkan_ringkasan_url(data):
+    v19_ringkasan_url(data)
+
+
+def v19_analisis_banyak(engine, daftar_url):
+    daftar_url = [str(item).strip() for item in daftar_url if str(item).strip()]
+    if not daftar_url:
+        return pd.DataFrame()
+
+    hasil = engine.analisis_banyak_url(daftar_url)
+    return selaraskan_dataframe_url(hasil)
+
+
+def v19_analisis_file(engine, lokasi_file):
+    hasil_file = pd.DataFrame()
+    hasil_url = pd.DataFrame()
+
+    try:
+        hasil = engine.analisis_file(lokasi_file)
+    except Exception as error:
+        hasil = {"nama_file": Path(lokasi_file).name, "hasil_akhir_file_v5": "Perlu Tinjauan", "alasan_file": str(error)[:240]}
+
+    if isinstance(hasil, tuple) and len(hasil) >= 2:
+        hasil_file = pd.DataFrame(hasil[0])
+        hasil_url = pd.DataFrame(hasil[1])
+    elif isinstance(hasil, pd.DataFrame):
+        hasil_file = hasil.copy()
+    elif isinstance(hasil, dict):
+        hasil_file = pd.DataFrame([hasil])
+    else:
+        try:
+            hasil_file = pd.DataFrame(list(hasil))
+        except Exception:
+            hasil_file = pd.DataFrame([{"nama_file": Path(lokasi_file).name}])
+
+    try:
+        if hasattr(engine, "analisis_url_di_dalam_file"):
+            data_url = engine.analisis_url_di_dalam_file(lokasi_file)
+            hasil_url = pd.DataFrame(data_url)
+    except Exception:
+        pass
+
+    return selaraskan_dataframe_file(hasil_file), selaraskan_dataframe_url(hasil_url)
+
+
+def halaman_beranda(engine):
+    v19_hero(
+        "PhishRisk Engine V5",
+        "Security Command Center",
+        "Dashboard defensif untuk memeriksa URL, file, threat intelligence, dan laporan dengan bahasa singkat yang mudah dipresentasikan.",
+        ["Engine V5", "Multi Dataset", "Public TI", "Trusted Safe", "File Analyzer", "Report Ready"],
+    )
+
+    v19_cards([
+        {"label": "Engine", "nilai": v19_engine_label(engine), "catatan": "Model Best Engine V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "Data", "nilai": "975K", "catatan": "Multi-dataset training untuk generalisasi.", "warna": "green"},
+        {"label": "Input", "nilai": "URL/File", "catatan": "Cek link, CSV, dan file statis.", "warna": "yellow"},
+        {"label": "Output", "nilai": "Action", "catatan": "Skor, alasan, dan tindakan aman.", "warna": "red"},
+    ])
+
+    v19_section("Pemeriksaan cepat", "Satu URL, satu keputusan, satu rekomendasi.")
+    col1, col2 = st.columns([1.16, .84])
+    with col1:
+        html('<div class="input-lab">')
+        url = st.text_input(
+            "URL untuk diperiksa",
+            value="http://bca-login-update.test",
+            key="v19_home_url",
+        )
+        if st.button("Analisis dengan Engine V5", key="v19_home_check"):
+            with st.spinner("Menganalisis dengan Engine V5..."):
+                hasil = v19_analisis_url(engine, url)
+            if hasil:
+                tambah_riwayat_url(hasil)
+                st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+                v19_result_card(hasil)
+        html("</div>")
+
+    with col2:
+        bullet_panel(
+            "Cara baca cepat",
+            [
+                "Aman: rendah risiko, tetap cek sumber.",
+                "Tinjau: jangan login sebelum validasi.",
+                "Berisiko: hindari dan laporkan.",
+                "Public TI adalah sinyal tambahan.",
+            ],
+            "gold",
+        )
+
+    v19_section("Fitur utama", "Ringkas untuk user, tetap kuat untuk presentasi.")
+    v19_cards([
+        {"label": "URL Risk", "nilai": "Skor", "catatan": "Status, alasan, dan rekomendasi.", "warna": "gold"},
+        {"label": "File Check", "nilai": "Static", "catatan": "TXT, HTML, PDF, DOCX, ZIP, APK.", "warna": "green"},
+        {"label": "Public TI", "nilai": "Signal", "catatan": "PhishTank dan URLhaus.", "warna": "yellow"},
+        {"label": "Training", "nilai": "Game", "catatan": "Latihan membaca risiko.", "warna": "red"},
+    ])
+
+    v19_section("Alur kerja", "Kalimat pendek, makna tetap luas.")
+    v19_flow([
+        {"no": "01", "judul": "Input", "isi": "User memasukkan URL, CSV, atau file."},
+        {"no": "02", "judul": "Analyze", "isi": "Engine membaca model, domain, brand, dan Public TI."},
+        {"no": "03", "judul": "Evidence", "isi": "Sistem merangkum alasan yang bisa dijelaskan."},
+        {"no": "04", "judul": "Action", "isi": "User mendapat keputusan dan langkah aman."},
+    ])
+
+    if "v16_video_showcase" in globals():
+        v16_video_showcase()
+
+
+def halaman_periksa_url(engine):
+    v19_hero(
+        "URL Risk Analysis",
+        "Input Alamat Link",
+        "Masukkan URL bebas, daftar URL, atau CSV. Engine V5 memberi skor, alasan, dan tindakan defensif.",
+        ["URL Bebas", "Batch", "CSV", "Engine V5", "Download"],
+    )
+
+    tab_satu, tab_banyak, tab_csv = st.tabs(["Satu URL", "Banyak URL", "CSV"])
+
+    with tab_satu:
+        html('<div class="input-lab">')
+        url = st.text_input(
+            "Alamat web",
+            value="",
+            placeholder="Contoh: shopee.co.id atau https://baak.gunadarma.ac.id",
+            key="v19_url_satu",
+        )
+        tombol = st.button("Periksa URL", key="v19_periksa_satu_url")
+        html("</div>")
+
+        if tombol:
+            hasil = v19_analisis_url(engine, url)
+            if hasil:
+                tambah_riwayat_url(hasil)
+                st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+                tampilkan_status_url(hasil)
+            else:
+                st.warning("Masukkan URL terlebih dahulu.")
+
+    with tab_banyak:
+        teks = st.text_area(
+            "Tempel banyak URL",
+            value="\n".join(CONTOH_URL),
+            height=220,
+            key="v19_teks_banyak_url",
+        )
+        col_a, col_b = st.columns(2)
+        with col_a:
+            tambah_https = st.checkbox("Tambahkan https://", value=True, key="v19_tambah_https")
+        with col_b:
+            hapus_duplikat = st.checkbox("Hapus duplikat", value=True, key="v19_hapus_duplikat")
+
+        daftar = parse_url_bebas(teks, tambah_https=tambah_https, hapus_duplikat=hapus_duplikat)
+        panel("URL terdeteksi", f"{len(daftar)} alamat siap dianalisis.", "gold")
+        tabel_rapi(pd.DataFrame({"url": daftar}), max_rows=60)
+
+        if st.button("Periksa semua URL", key="v19_periksa_banyak_url"):
+            with st.spinner("Menganalisis banyak URL dengan Engine V5..."):
+                data = v19_analisis_banyak(engine, daftar)
+            for _, baris in data.iterrows():
+                tambah_riwayat_url(baris.to_dict())
+            st.session_state.hasil_url_terakhir = data
+            v19_ringkasan_url(data)
+            tampilkan_tabel_url(data)
+
+    with tab_csv:
+        file_csv = st.file_uploader("Unggah CSV URL", type=["csv"], key="v19_csv_url")
+        st.download_button(
+            "Unduh template CSV",
+            data=pd.DataFrame({"url": CONTOH_URL}).to_csv(index=False).encode("utf-8"),
+            file_name="template_url_engine_v5.csv",
+            mime="text/csv",
+            key=widget_key("download_template_csv_v19"),
+        )
+        if file_csv is not None:
+            data_csv = pd.read_csv(file_csv)
+            tabel_rapi(data_csv.head(20), max_rows=20)
+            kolom_url = st.selectbox("Pilih kolom URL", data_csv.columns.tolist(), key="v19_kolom_url_csv")
+            if st.button("Periksa CSV", key="v19_periksa_csv"):
+                daftar = data_csv[kolom_url].dropna().astype(str).str.strip().tolist()
+                with st.spinner("Menganalisis CSV dengan Engine V5..."):
+                    data = v19_analisis_banyak(engine, daftar)
+                for _, baris in data.iterrows():
+                    tambah_riwayat_url(baris.to_dict())
+                st.session_state.hasil_url_terakhir = data
+                v19_ringkasan_url(data)
+                tampilkan_tabel_url(data)
+
+
+def halaman_periksa_file(engine):
+    v19_hero(
+        "File Static Analyzer",
+        "Input File",
+        "Unggah file untuk membaca metadata, URL tertanam, kata mencurigakan, dan rekomendasi tanpa menjalankan file.",
+        ["Static", "URL Extract", "Engine V5", "CSV", "Safe Review"],
+    )
+
+    v19_cards([
+        {"label": "Metode", "nilai": "Static", "catatan": "File tidak dijalankan.", "warna": "green"},
+        {"label": "Format", "nilai": "6+", "catatan": "TXT, HTML, PDF, DOCX, ZIP, APK.", "warna": "gold"},
+        {"label": "Output", "nilai": "CSV", "catatan": "Hasil bisa diunduh.", "warna": "yellow"},
+        {"label": "URL", "nilai": "V5", "catatan": "Link dalam file ikut dianalisis.", "warna": "red"},
+    ])
+
+    with st.container(border=True):
+        daftar_file = st.file_uploader(
+            "Pilih file",
+            accept_multiple_files=True,
+            type=None,
+            help="File tidak dijalankan. Sistem hanya membaca sinyal statis.",
+            key="v19_uploader_file",
+        )
+
+        if daftar_file:
+            data_info = pd.DataFrame([
+                {"nama_file": file.name, "ukuran_kb": round(file.size / 1024, 2), "tipe_browser": file.type or "tidak_diketahui"}
+                for file in daftar_file
+            ])
+            tabel_rapi(data_info, max_rows=80)
+
+        tombol = st.button("Periksa file", key="v19_tombol_periksa_file")
+
+    if tombol:
+        if not daftar_file:
+            st.warning("Unggah minimal satu file terlebih dahulu.")
+            return
+
+        daftar_hasil_file = []
+        daftar_hasil_url = []
+
+        with st.spinner("Memeriksa file secara statis dengan Engine V5..."):
+            for file in daftar_file:
+                lokasi = simpan_file_upload(file)
+                df_file, df_url = v19_analisis_file(engine, lokasi)
+
+                if df_file.empty:
+                    df_file = pd.DataFrame([{"nama_file": file.name}])
+
+                df_file["nama_file"] = file.name
+                df_file["sha256_upload"] = hash_file(lokasi)
+                df_file = selaraskan_dataframe_file(df_file)
+                daftar_hasil_file.append(df_file)
+
+                for row in df_file.to_dict("records"):
+                    tambah_riwayat_file(row)
+
+                if not df_url.empty:
+                    df_url = selaraskan_dataframe_url(df_url)
+                    df_url["nama_file_sumber"] = file.name
+                    daftar_hasil_url.append(df_url)
+
+        data_file_final = pd.concat(daftar_hasil_file, ignore_index=True) if daftar_hasil_file else pd.DataFrame()
+        data_url_final = pd.concat(daftar_hasil_url, ignore_index=True) if daftar_hasil_url else pd.DataFrame()
+
+        st.session_state.hasil_file_terakhir = data_file_final
+        st.session_state.hasil_url_dalam_file_terakhir = data_url_final
+
+        tampilkan_ringkasan_file(data_file_final)
+        tampilkan_tabel_file(data_file_final, data_url_final)
+
+
+def halaman_sistem():
+    v19_hero(
+        "System Readiness",
+        "Informasi Sistem",
+        "Ringkasan komponen utama PhishRisk. Dibuat singkat agar mudah dijelaskan saat presentasi.",
+        ["Best Engine", "Patch FP", "Public TI", "Streamlit", "Ready"],
+    )
+
+    metadata_v5 = muat_metadata(LOKASI_METADATA_BEST_ENGINE)
+    status_v5 = {}
+    status_fp = {}
+
+    try:
+        if LOKASI_STATUS_ENGINE_V5.exists():
+            status_v5 = pd.read_csv(LOKASI_STATUS_ENGINE_V5).fillna("-").iloc[0].to_dict()
+    except Exception:
+        status_v5 = {}
+
+    try:
+        if LOKASI_STATUS_FP_V5.exists():
+            status_fp = pd.read_csv(LOKASI_STATUS_FP_V5).fillna("-").iloc[0].to_dict()
+    except Exception:
+        status_fp = {}
+
+    v19_cards([
+        {"label": "Best Engine", "nilai": "Best Engine", "catatan": "Model multi-dataset dan kalibrasi final.", "warna": "gold"},
+        {"label": "Status", "nilai": status_v5.get("status_engine_v5", "siap_uji_streamlit"), "catatan": "Validasi lanjutan.", "warna": "green"},
+        {"label": "FP Patch", "nilai": status_fp.get("status_fix", "fix_siap"), "catatan": "Trusted safe domain.", "warna": "yellow"},
+        {"label": "Mode", "nilai": "Defensive", "catatan": "Tidak membuat konten ofensif.", "warna": "red"},
+    ])
+
+    v19_section("File penting", "Komponen yang perlu tersedia di project.")
+    data_file = pd.DataFrame([
+        {"Komponen": "Best Engine", "Lokasi": "src/phishrisk_engine_v5.py", "Status": "wajib"},
+        {"Komponen": "CLI V5", "Lokasi": "src/run_phishrisk_v5.py", "Status": "wajib"},
+        {"Komponen": "Model V5", "Lokasi": "models/model_terbaik_multi_dataset_v5.pkl", "Status": "lokal"},
+        {"Komponen": "Trusted Domain", "Lokasi": "data/intelligence/trusted_safe_domains_global.csv", "Status": "aktif"},
+        {"Komponen": "Metadata", "Lokasi": "reports/outputs/metadata_step16_integrasi_engine_v5.json", "Status": "arsip"},
+    ])
+    tabel_rapi(data_file, max_rows=80)
+
+    with st.expander("Metadata Best Engine"):
+        if metadata_v5:
+            tabel_rapi(pd.DataFrame([metadata_v5]), max_rows=20)
+        else:
+            st.info("Metadata Best Engine belum ditemukan.")
+
+
+def main():
+    """Main final: Streamlit professional UI memakai PhishRisk Best Engine."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+        "pasang_css_v16_video_professional",
+        "pasang_css_v17_media_polish",
+        "v18_css_video_frame_fix",
+        "pasang_css_v19_engine_v5",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        v19_hero(
+            "Aplikasi gagal dimuat",
+            "Engine Belum Siap",
+            "Pastikan Best Engine, model, Public TI, dan daftar fitur tersedia.",
+            ["Cek src", "Cek models", "Cek reports/outputs"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
+
+APP_ENGINE_RINGKAS = "Best Engine"
+APP_ENGINE_DETAIL = "Model V5 + URL Intelligence + Public TI"
+APP_PITCH_RINGKAS = "Pemeriksaan URL, file, threat intelligence, laporan, dan training defensif dalam satu dashboard."
+
+
+def pasang_css_v20_professional_polish():
+    st.markdown(
+        """
+        <style>
+        .v18-media-status,
+        .v20-hide {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .v18-media-panel {
+            border-radius: 34px !important;
+            background:
+                radial-gradient(circle at 96% 0%, rgba(216,181,109,.12), transparent 30%),
+                linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+                rgba(18,20,15,.92) !important;
+            border: 1px solid rgba(255,255,255,.085) !important;
+            box-shadow: 0 24px 72px rgba(0,0,0,.36) !important;
+        }
+
+        .v18-media-panel-head {
+            border-bottom: 1px solid rgba(255,255,255,.07) !important;
+            padding-bottom: .75rem !important;
+            margin-bottom: .9rem !important;
+        }
+
+        .v18-media-panel-title {
+            color: #fff8e8 !important;
+            font-size: clamp(1.35rem,2vw,2.1rem) !important;
+            font-weight: 950 !important;
+            letter-spacing: -.055em !important;
+            line-height: 1.05 !important;
+        }
+
+        .v18-media-panel-note {
+            color: #c8bda9 !important;
+            font-size: .9rem !important;
+            line-height: 1.5 !important;
+            max-width: 760px !important;
+        }
+
+        .v16-video-card.v17-media-card.v18-video-card {
+            border-radius: 28px !important;
+            border: 1px solid rgba(255,255,255,.09) !important;
+            background:
+                linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.01)),
+                rgba(9,10,8,.96) !important;
+            box-shadow: 0 20px 58px rgba(0,0,0,.34) !important;
+            overflow: hidden !important;
+        }
+
+        .v16-video-card video {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            filter: saturate(.92) contrast(1.03) brightness(.82) !important;
+        }
+
+        .v16-video-meta.v17-media-meta.v18-video-meta {
+            left: 1.05rem !important;
+            right: 1.05rem !important;
+            bottom: 1.05rem !important;
+            border-radius: 22px !important;
+            background: rgba(5,7,5,.74) !important;
+            border: 1px solid rgba(255,255,255,.09) !important;
+            box-shadow: 0 18px 48px rgba(0,0,0,.32) !important;
+            backdrop-filter: blur(14px) !important;
+            -webkit-backdrop-filter: blur(14px) !important;
+        }
+
+        .v16-video-meta span,
+        .v17-media-meta span,
+        .v18-video-meta span {
+            display: inline-flex !important;
+            width: fit-content !important;
+            color: #ffe7ad !important;
+            background: rgba(216,181,109,.12) !important;
+            border: 1px solid rgba(216,181,109,.38) !important;
+            border-radius: 999px !important;
+            padding: .2rem .55rem !important;
+            font-size: .72rem !important;
+            font-weight: 900 !important;
+            margin-bottom: .46rem !important;
+        }
+
+        .v16-video-meta b,
+        .v17-media-meta b,
+        .v18-video-meta b {
+            color: #fff8e8 !important;
+            font-size: clamp(1.12rem,1.55vw,1.55rem) !important;
+            line-height: 1.05 !important;
+            letter-spacing: -.05em !important;
+        }
+
+        .v16-video-meta p,
+        .v17-media-meta p,
+        .v18-video-meta p {
+            color: #d7c7aa !important;
+            font-size: .88rem !important;
+            line-height: 1.45 !important;
+            margin-top: .42rem !important;
+        }
+
+        .v20-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0,1fr));
+            gap: .72rem;
+            margin: .85rem 0 1rem;
+        }
+
+        .v20-strip-card {
+            border: 1px solid rgba(255,255,255,.085);
+            border-radius: 22px;
+            padding: .92rem;
+            background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.012)), rgba(18,20,15,.88);
+            box-shadow: 0 16px 44px rgba(0,0,0,.24);
+        }
+
+        .v20-strip-card small {
+            display: block;
+            color: #9d927e;
+            font-size: .74rem !important;
+            font-weight: 850;
+            margin-bottom: .18rem;
+        }
+
+        .v20-strip-card b {
+            display: block;
+            color: #fff8e8;
+            font-size: 1.05rem !important;
+            letter-spacing: -.03em;
+            line-height: 1.12 !important;
+        }
+
+        .v20-strip-card span {
+            display: block;
+            color: #d7c7aa;
+            font-size: .82rem !important;
+            line-height: 1.42 !important;
+            margin-top: .28rem;
+        }
+
+        .v20-readiness {
+            border: 1px solid rgba(216,181,109,.30);
+            border-radius: 26px;
+            background: linear-gradient(145deg, rgba(216,181,109,.10), rgba(255,255,255,.012)), rgba(18,20,15,.90);
+            padding: 1rem;
+            margin: .85rem 0 1rem;
+            box-shadow: 0 18px 55px rgba(0,0,0,.28);
+        }
+
+        .v20-readiness-title {
+            color: #fff8e8;
+            font-size: 1.18rem !important;
+            font-weight: 950;
+            letter-spacing: -.04em;
+            margin-bottom: .22rem;
+        }
+
+        .v20-readiness-text {
+            color: #d7c7aa;
+            font-size: .9rem !important;
+            line-height: 1.52 !important;
+        }
+
+        .v20-micro-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: .62rem;
+            margin-top: .72rem;
+        }
+
+        .v20-micro-list div {
+            border: 1px solid rgba(255,255,255,.075);
+            border-radius: 18px;
+            background: rgba(255,255,255,.026);
+            padding: .76rem;
+            color: #d7c7aa;
+            font-size: .82rem !important;
+            line-height: 1.42 !important;
+        }
+
+        @media(max-width: 1024px) {
+            .v20-strip, .v20-micro-list {
+                grid-template-columns: repeat(2, minmax(0,1fr));
+            }
+        }
+
+        @media(max-width: 640px) {
+            .v20-strip, .v20-micro-list {
+                grid-template-columns: 1fr;
+            }
+            .v16-video-card.v17-media-card.v18-video-card {
+                border-radius: 22px !important;
+                min-height: 260px !important;
+            }
+            .v18-media-panel {
+                border-radius: 24px !important;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def v20_strip(items):
+    isi = []
+    for item in items:
+        isi.append(
+            f"""
+            <div class="v20-strip-card">
+                <small>{aman_teks(item.get("label", ""))}</small>
+                <b>{aman_teks(item.get("title", ""))}</b>
+                <span>{aman_teks(item.get("desc", ""))}</span>
+            </div>
+            """
+        )
+    html(f"<div class='v20-strip'>{''.join(isi)}</div>")
+
+
+def v20_readiness(title, text, items):
+    item_html = "".join([f"<div>{aman_teks(item)}</div>" for item in items])
+    html(
+        f"""
+        <section class="v20-readiness">
+            <div class="v20-readiness-title">{aman_teks(title)}</div>
+            <div class="v20-readiness-text">{aman_teks(text)}</div>
+            <div class="v20-micro-list">{item_html}</div>
+        </section>
+        """
+    )
+
+
+def v16_video_markup(nama_file, title, subtitle, label="Media", variant="card"):
+    """Video card final: tanpa badge ukuran MP4, lebih tenang, dan fokus ke konteks program."""
+    lokasi_video = v16_video_path(nama_file)
+    video_src = v16_video_data_uri(str(lokasi_video)) if lokasi_video.exists() else ""
+
+    kelas = "v16-video-card v17-media-card v18-video-card"
+    if variant == "hero":
+        kelas += " hero-video v17-hero-media v18-hero-media"
+    elif variant == "mini":
+        kelas += " mini-video v17-mini-media v18-mini-media"
+
+    if video_src:
+        return f"""
+        <div class="{kelas}">
+            <video autoplay muted loop playsinline preload="metadata">
+                <source src="{video_src}" type="video/mp4">
+            </video>
+            <div class="v16-video-shade v17-media-shade v18-video-shade"></div>
+            <div class="v16-video-meta v17-media-meta v18-video-meta">
+                <span>{aman_teks(label)}</span>
+                <b>{aman_teks(title)}</b>
+                <p>{aman_teks(subtitle)}</p>
+            </div>
+        </div>
+        """
+
+    return f"""
+    <div class="{kelas} v16-video-placeholder v18-video-placeholder">
+        <div class="v16-scan-grid"></div>
+        <div class="v16-orbit"></div>
+        <div class="v16-video-meta v17-media-meta v18-video-meta">
+            <span>{aman_teks(label)}</span>
+            <b>{aman_teks(title)}</b>
+            <p>{aman_teks(subtitle)}</p>
+            <p>Letakkan video di app/assets/videos/{aman_teks(nama_file)}</p>
+        </div>
+    </div>
+    """
+
+
+def v16_video_showcase():
+    """Section video final: tidak menampilkan ukuran MP4 dan memakai bahasa produk yang lebih kalem."""
+    html(
+        """
+        <section class="v18-media-panel">
+            <div class="v18-media-panel-head">
+                <div>
+                    <div class="eyebrow">Workflow</div>
+                </div>
+            </div>
+            <div class="v18-mini-grid">
+        """
+        + v16_video_markup(
+            "cara_kerja_engine.mp4",
+            "Best Engine",
+            "Best Engine + URL Intelligence + Public TI untuk pemeriksaan defensif yang cepat dan mudah dipresentasikan.",
+            "Core",
+            "mini",
+        )
+        + v16_video_markup(
+            "edukasi_phishing.mp4",
+            "Sinyal Risiko",
+            "Domain tiruan, kata mendesak, punycode, dan file mencurigakan.",
+            "Signal",
+            "mini",
+        )
+        + v16_video_markup(
+            "game_training.mp4",
+            "Training Lab",
+            "Latihan membaca risiko, memilih tindakan, dan memahami bukti.",
+            "Practice",
+            "mini",
+        )
+        + """
+            </div>
+        </section>
+        """
+    )
+
+
+def halaman_beranda(engine):
+    v19_hero(
+        "PhishRisk Intelligence System",
+        "Dashboard Pemeriksaan Phishing",
+        "Cek URL dan file dengan Best Engine. Hasilnya berupa skor, alasan singkat, Public TI, dan rekomendasi defensif yang mudah dipresentasikan.",
+        ["Best Engine", "Model V5 + URL Intelligence + Public TI", "File Analyzer", "Report Ready"],
+    )
+
+    v19_cards([
+        {"label": "Best Engine", "nilai": "Best Engine", "catatan": "Model Best Engine V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "Dataset", "nilai": "975K", "catatan": "PhiUSIIL, PhreshPhish, DeepURLBench, dan Tranco.", "warna": "green"},
+        {"label": "Input", "nilai": "URL/File", "catatan": "URL tunggal, batch, CSV, dan file statis.", "warna": "yellow"},
+        {"label": "Output", "nilai": "Skor + Aksi", "catatan": "Keputusan ringkas dan rekomendasi aman.", "warna": "red"},
+    ])
+
+    v20_readiness(
+        "Fokus sistem",
+        "PhishRisk dibuat untuk pemeriksaan defensif. Bukan alat membuat phishing, bukan alat menyerang, dan bukan pengganti keputusan manusia.",
+        [
+            "URL: skor risiko, domain, brand, keyword, dan Public TI.",
+            "File: metadata, URL tertanam, sinyal statis, dan rekomendasi.",
+            "Laporan: CSV, riwayat, dan ringkasan yang siap dijelaskan.",
+        ],
+    )
+
+    v19_section("Pemeriksaan cepat", "Satu URL, satu keputusan, satu rekomendasi.")
+    col1, col2 = st.columns([1.16, .84])
+    with col1:
+        html('<div class="input-lab">')
+        url = st.text_input(
+            "URL untuk diperiksa",
+            value="http://bca-login-update.test",
+            key="v20_home_url",
+        )
+        if st.button("Analisis dengan Best Engine", key="v20_home_check"):
+            with st.spinner("Menganalisis dengan Best Engine..."):
+                hasil = v19_analisis_url(engine, url)
+            if hasil:
+                tambah_riwayat_url(hasil)
+                st.session_state.hasil_url_terakhir = pd.DataFrame([hasil])
+                v19_result_card(hasil)
+        html("</div>")
+
+    with col2:
+        bullet_panel(
+            "Cara baca cepat",
+            [
+                "Terlihat Aman: rendah risiko, tetap cek sumber.",
+                "Perlu Tinjauan: validasi domain sebelum login.",
+                "Berisiko: jangan buka, jangan isi data.",
+                "Public TI membantu, tapi bukan satu-satunya dasar keputusan.",
+            ],
+            "gold",
+        )
+
+    v19_section("Fitur utama")
+    v20_strip([
+        {"label": "URL Risk", "title": "Pemeriksaan Link", "desc": "Membaca domain, pola, brand, keyword, skor model, dan Public TI."},
+        {"label": "File Check", "title": "Analisis Statis", "desc": "Membaca file tanpa menjalankannya. Cocok untuk TXT, HTML, PDF, DOCX, ZIP, dan APK."},
+        {"label": "Domain Watch", "title": "Pantau Domain", "desc": "Membantu melihat domain resmi, domain mirip, dan indikasi peniruan brand."},
+        {"label": "Training", "title": "Latihan Cepat", "desc": "Game defensif untuk melatih membaca risiko dan memilih tindakan aman."},
+    ])
+
+    v19_section("Alur kerja")
+    v19_flow([
+        {"no": "01", "judul": "Input", "isi": "Masukkan URL, CSV, atau file."},
+        {"no": "02", "judul": "Analisis", "isi": "Engine membaca model, domain, brand, keyword, dan Public TI."},
+        {"no": "03", "judul": "Bukti", "isi": "Sistem merangkum alasan dengan bahasa singkat."},
+        {"no": "04", "judul": "Tindakan", "isi": "User mendapat keputusan dan langkah aman."},
+    ])
+
+    v16_video_showcase()
+
+
+def halaman_sistem():
+    v19_hero(
+        "System Readiness",
+        "Informasi Sistem",
+        "Ringkasan kesiapan PhishRisk dalam bahasa produk. Detail teknis tetap tersedia, tapi tidak memenuhi layar seperti daftar tugas kampus yang tidak tahu kapan selesai.",
+        ["Best Engine", "Trusted Safe", "Public TI", "Streamlit Ready"],
+    )
+
+    metadata_v5 = muat_metadata(LOKASI_METADATA_BEST_ENGINE)
+    status_v5 = {}
+    status_fp = {}
+
+    try:
+        if LOKASI_STATUS_ENGINE_V5.exists():
+            status_v5 = pd.read_csv(LOKASI_STATUS_ENGINE_V5).fillna("-").iloc[0].to_dict()
+    except Exception:
+        status_v5 = {}
+
+    try:
+        if LOKASI_STATUS_FP_V5.exists():
+            status_fp = pd.read_csv(LOKASI_STATUS_FP_V5).fillna("-").iloc[0].to_dict()
+    except Exception:
+        status_fp = {}
+
+    v19_cards([
+        {"label": "Best Engine", "nilai": "Best Engine", "catatan": "Model Best Engine V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "Validasi", "nilai": status_v5.get("status_engine_v5", "siap_uji_streamlit"), "catatan": "Sudah diuji pada URL, file, CLI, dan batch.", "warna": "green"},
+        {"label": "Trusted Safe", "nilai": status_fp.get("status_fix", "fix_siap"), "catatan": "Mengurangi false positive domain tepercaya.", "warna": "yellow"},
+        {"label": "Mode", "nilai": "Defensive", "catatan": "Fokus deteksi, edukasi, dan laporan aman.", "warna": "red"},
+    ])
+
+    v20_readiness(
+        "Kesiapan website",
+        "Website memakai hasil program utama. Streamlit hanya menjadi tampilan, bukan step program baru.",
+        [
+            "Best Engine menjadi sumber keputusan utama.",
+            "Public TI dipakai sebagai sinyal tambahan.",
+            "Trusted Safe membantu menekan false positive domain tepercaya.",
+        ],
+    )
+
+    v19_section("Komponen inti", "Ditulis ringkas agar enak saat presentasi.")
+    data_file = pd.DataFrame([
+        {"Komponen": "Best Engine", "Fungsi": "Skor risiko final", "Keterangan": "Model V5 + URL Intelligence + Public TI"},
+        {"Komponen": "File Analyzer", "Fungsi": "Analisis statis", "Keterangan": "Membaca metadata, URL tertanam, dan sinyal file"},
+        {"Komponen": "Trusted Safe", "Fungsi": "Kontrol false positive", "Keterangan": "Domain tepercaya tetap dicek, bukan dibebaskan total"},
+        {"Komponen": "Report", "Fungsi": "Output", "Keterangan": "CSV, riwayat, dan ringkasan hasil"},
+    ])
+    tabel_rapi(data_file, max_rows=80)
+
+    with st.expander("Detail teknis Best Engine"):
+        if metadata_v5:
+            tabel_rapi(pd.DataFrame([metadata_v5]), max_rows=20)
+        else:
+            st.info("Metadata Best Engine belum ditemukan.")
+
+
+def main():
+    """Main final: UI professional memakai Best Engine, tanpa bahasa notebook/step di tampilan utama."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+        "pasang_css_v16_video_professional",
+        "pasang_css_v17_media_polish",
+        "v18_css_video_frame_fix",
+        "pasang_css_v19_engine_v5",
+        "pasang_css_v20_professional_polish",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        v19_hero(
+            "Aplikasi gagal dimuat",
+            "Engine Belum Siap",
+            "Pastikan Best Engine, model, Public TI, dan daftar fitur tersedia.",
+            ["Cek src", "Cek models", "Cek reports/outputs"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
 
 if __name__ == "__main__":
     main()

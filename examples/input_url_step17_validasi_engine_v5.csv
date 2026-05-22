@@ -1,0 +1,39 @@
+url,skenario,expected
+https://praktikum.gunadarma.ac.id,resmi,Terlihat Aman
+https://baak.gunadarma.ac.id,resmi,Terlihat Aman
+https://www.bca.co.id,resmi,Terlihat Aman
+https://www.shopee.co.id,resmi,Terlihat Aman
+https://www.microsoft.com,resmi,Terlihat Aman
+https://google.com,resmi,Terlihat Aman
+https://youtube.com,resmi,Terlihat Aman
+https://apple.com,resmi,Terlihat Aman
+https://cloudflare.com,resmi,Terlihat Aman
+https://github.com,resmi,Terlihat Aman
+https://openai.com,resmi,Terlihat Aman
+https://kompas.com,resmi,Terlihat Aman
+https://detik.com,resmi,Terlihat Aman
+https://tokopedia.com,resmi,Terlihat Aman
+https://bukalapak.com,resmi,Terlihat Aman
+http://rricrosoft.com,berisiko,Berisiko
+http://rnicrosoft.com,berisiko,Berisiko
+http://micros0ft-login-update.test,berisiko,Berisiko
+http://bca-login-update.test,berisiko,Berisiko
+http://paypal-verify-account.test,berisiko,Berisiko
+http://praktikum-gunadarma-login-update.test,berisiko,Berisiko
+https://xn--micrsoft-q4a.test,berisiko,Berisiko
+http://155.94.163.206/ai/?authenticated=true&account=login,berisiko,Berisiko
+http://shopee-claim-reward.test,berisiko,Berisiko
+http://google-security-update.test,berisiko,Berisiko
+http://m1crosoft-account-verify.test,berisiko,Berisiko
+http://bankbca-login-secure.test,berisiko,Berisiko
+http://ovo-login-update.test,berisiko,Berisiko
+http://dana-verify-account.test,berisiko,Berisiko
+http://whatsapp-web-login-update.test,berisiko,Berisiko
+https://example.com,netral,Tidak Dipaksa
+https://example.org/docs,netral,Tidak Dipaksa
+https://wikipedia.org,netral,Tidak Dipaksa
+https://python.org,netral,Tidak Dipaksa
+https://pandas.pydata.org,netral,Tidak Dipaksa
+https://scikit-learn.org,netral,Tidak Dipaksa
+https://huggingface.co,netral,Tidak Dipaksa
+https://kaggle.com,netral,Tidak Dipaksa

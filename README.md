@@ -516,7 +516,7 @@ Contoh output:
 
 ```text
 Hasil Engine V4
-============================================================
+---------------
 URL: http://bca-login-update.test
 Hasil V4: Berisiko
 Kategori V4: Sangat Tinggi

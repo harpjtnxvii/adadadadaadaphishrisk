@@ -1,0 +1,19 @@
+domain,kategori,catatan
+pydata.org,data_science_reference,Ekosistem PyData.
+pandas.pydata.org,data_science_reference,Dokumentasi pandas.
+python.org,developer_reference,Situs resmi Python.
+docs.python.org,developer_reference,Dokumentasi Python.
+scikit-learn.org,data_science_reference,Dokumentasi scikit-learn.
+numpy.org,data_science_reference,Dokumentasi NumPy.
+scipy.org,data_science_reference,Dokumentasi SciPy.
+matplotlib.org,data_science_reference,Dokumentasi Matplotlib.
+jupyter.org,developer_reference,Ekosistem Jupyter.
+anaconda.org,developer_reference,Ekosistem Anaconda.
+huggingface.co,ai_ml_reference,Platform AI/ML.
+kaggle.com,data_science_reference,Platform dataset data science.
+wikipedia.org,knowledge_reference,Referensi umum.
+github.com,developer_reference,Repository developer.
+github.io,developer_pages,"GitHub Pages, tetap cek path."
+readthedocs.io,developer_docs,Dokumentasi teknis.
+tensorflow.org,ai_ml_reference,Dokumentasi TensorFlow.
+pytorch.org,ai_ml_reference,Dokumentasi PyTorch.
