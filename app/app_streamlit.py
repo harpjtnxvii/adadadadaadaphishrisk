@@ -3,6 +3,7 @@ from datetime import datetime
 import hashlib
 import html as html_escape
 import json
+import os
 import re
 import sys
 
@@ -11,9 +12,12 @@ import streamlit as st
 
 
 st.set_page_config(
-    page_title="PhishRisk App",
+    page_title="PhishRisk Intelligence System | Cek Phishing URL dan File",
     layout="wide",
     initial_sidebar_state="collapsed",
+    menu_items={
+        "About": "PhishRisk Intelligence System adalah dashboard defensif untuk memeriksa risiko phishing pada URL dan file menggunakan Engine V5, URL Intelligence, Public Threat Intelligence, dan laporan ringkas."
+    },
 )
 
 APP_FILE = Path(__file__).resolve()
@@ -3954,7 +3958,7 @@ def main():
             "Aplikasi gagal dimuat",
             "Best Engine Belum Siap",
             "Pastikan file phishrisk_engine_v4.py, public_threat_intelligence.py, model_terbaik_intelligence_v2.pkl, dan daftar_fitur_intelligence_v2.json tersedia.",
-            ["Cek src", "Cek model", "Cek Best Engine"],
+            ["Cek src", "Cek model", "Cek output"],
         )
         st.exception(error)
         return
@@ -5012,7 +5016,7 @@ def main():
             "Aplikasi gagal dimuat",
             "Best Engine Belum Siap",
             "Pastikan file phishrisk_engine_v4.py, public_threat_intelligence.py, model_terbaik_intelligence_v2.pkl, dan daftar_fitur_intelligence_v2.json tersedia.",
-            ["Cek src", "Cek model", "Cek Best Engine"],
+            ["Cek src", "Cek model", "Cek output"],
         )
         st.exception(error)
         return
@@ -6160,12 +6164,12 @@ def render_dashboard_game_v14(engine):
                 "Masukkan URL bebas",
                 value="http://bca-login-update.test",
                 key="v14_game_quick_url",
-                help="Input bebas untuk menguji Best Engine langsung dari halaman game.",
+                help="Input bebas untuk menguji langsung dari halaman game.",
             )
         with col2:
             st.write("")
             st.write("")
-            cek = st.button("Cek Best Engine", key="v14_game_quick_button")
+            cek = st.button("Cek", key="v14_game_quick_button")
 
         if cek:
             hasil = _v14_engine_result(engine, url)
@@ -6323,7 +6327,7 @@ def render_domain_surgery_v14(engine):
             st.session_state.v14_domain_surgery_index = (st.session_state.v14_domain_surgery_index + 1) % len(kasus)
             st.rerun()
     with col3:
-        if st.button("Cek Best Engine", key="v14_domain_surgery_engine"):
+        if st.button("Cek", key="v14_domain_surgery_engine"):
             hasil = jalankan_uji_satu_url(engine, item["url"], sumber="game_v14_domain_surgery")
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -11768,6 +11772,417 @@ def main():
 
     footer_site()
 
+
+
+# ============================================================
+# SEO VALUE PATCH V22 - STREAMLIT WEB APP
+# Fokus:
+# 1. SEO title, description, Open Graph, Twitter Card, canonical opsional.
+# 2. Structured data JSON-LD untuk SoftwareApplication.
+# 3. Konten SEO ringkas di halaman Beranda tanpa mengubah logic engine.
+# 4. Footer lebih semantik dan aman untuk link eksternal.
+# 5. Tidak mengubah pemeriksaan URL, file, Public TI, game, report, atau engine.
+# ============================================================
+
+try:
+    import streamlit.components.v1 as components
+except Exception:
+    components = None
+
+
+SEO_TITLE_V22 = "PhishRisk Intelligence System | Cek Phishing URL dan File"
+SEO_DESCRIPTION_V22 = (
+    "PhishRisk adalah dashboard defensif untuk memeriksa risiko phishing pada URL dan file. "
+    "Sistem memakai Engine V5, URL Intelligence, Public Threat Intelligence, File Analyzer, "
+    "laporan CSV, riwayat, dan training keamanan siber."
+)
+SEO_KEYWORDS_V22 = (
+    "PhishRisk, phishing checker, pemeriksa phishing, cek URL phishing, deteksi phishing, "
+    "URL risk checker, file static analyzer, Public Threat Intelligence, cyber security defensif, "
+    "data science cyber security, machine learning phishing detection"
+)
+SEO_CANONICAL_URL_V22 = os.getenv("PHISHRISK_CANONICAL_URL", "").strip()
+
+
+def seo_json_dumps_v22(data):
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
+def pasang_seo_meta_v22(halaman="Beranda"):
+    page_label = str(halaman or "Beranda")
+    page_title = f"{page_label} | {SEO_TITLE_V22}" if page_label != "Beranda" else SEO_TITLE_V22
+
+    structured_data = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PhishRisk Intelligence System",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Web",
+        "description": SEO_DESCRIPTION_V22,
+        "creator": {
+            "@type": "Person",
+            "name": AUTHOR_INFO.get("Nama", "Harbangan Panjaitan"),
+            "url": AUTHOR_INFO.get("GitHub", ""),
+        },
+        "featureList": [
+            "URL phishing risk checking",
+            "Static file analysis",
+            "Public Threat Intelligence",
+            "Engine V5 scoring",
+            "Cyber security training",
+            "CSV report export",
+        ],
+        "keywords": SEO_KEYWORDS_V22,
+    }
+
+    canonical_js = ""
+    if SEO_CANONICAL_URL_V22:
+        canonical_js = f"""
+        upsertLink("canonical", {json.dumps(SEO_CANONICAL_URL_V22)});
+        """
+
+    script = f"""
+    <script>
+    (function() {{
+        const title = {json.dumps(page_title)};
+        const description = {json.dumps(SEO_DESCRIPTION_V22)};
+        const keywords = {json.dumps(SEO_KEYWORDS_V22)};
+        const appName = "PhishRisk Intelligence System";
+        const head = window.parent && window.parent.document ? window.parent.document.head : document.head;
+        const doc = window.parent && window.parent.document ? window.parent.document : document;
+
+        function upsertMeta(attr, key, content) {{
+            if (!content) return;
+            let selector = 'meta[' + attr + '="' + key + '"]';
+            let el = head.querySelector(selector);
+            if (!el) {{
+                el = doc.createElement("meta");
+                el.setAttribute(attr, key);
+                head.appendChild(el);
+            }}
+            el.setAttribute("content", content);
+        }}
+
+        function upsertLink(rel, href) {{
+            if (!href) return;
+            let el = head.querySelector('link[rel="' + rel + '"]');
+            if (!el) {{
+                el = doc.createElement("link");
+                el.setAttribute("rel", rel);
+                head.appendChild(el);
+            }}
+            el.setAttribute("href", href);
+        }}
+
+        function upsertJsonLd(id, payload) {{
+            let el = head.querySelector('script[data-phishrisk-seo="' + id + '"]');
+            if (!el) {{
+                el = doc.createElement("script");
+                el.type = "application/ld+json";
+                el.setAttribute("data-phishrisk-seo", id);
+                head.appendChild(el);
+            }}
+            el.textContent = JSON.stringify(payload);
+        }}
+
+        doc.title = title;
+        upsertMeta("name", "title", title);
+        upsertMeta("name", "description", description);
+        upsertMeta("name", "keywords", keywords);
+        upsertMeta("name", "author", "Harbangan Panjaitan");
+        upsertMeta("name", "robots", "index, follow, max-image-preview:large");
+        upsertMeta("name", "application-name", appName);
+        upsertMeta("property", "og:title", title);
+        upsertMeta("property", "og:description", description);
+        upsertMeta("property", "og:type", "website");
+        upsertMeta("property", "og:site_name", appName);
+        upsertMeta("property", "og:locale", "id_ID");
+        upsertMeta("name", "twitter:card", "summary_large_image");
+        upsertMeta("name", "twitter:title", title);
+        upsertMeta("name", "twitter:description", description);
+        {canonical_js}
+        upsertJsonLd("software-application", {seo_json_dumps_v22(structured_data)});
+    }})();
+    </script>
+    """
+
+    if components is not None:
+        components.html(script, height=0, width=0)
+    else:
+        st.markdown(script, unsafe_allow_html=True)
+
+
+def pasang_css_seo_v22():
+    st.markdown(
+        """
+        <style>
+        .v22-seo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: .76rem;
+            margin: .75rem 0 1rem;
+        }
+        .v22-seo-card {
+            border: 1px solid rgba(255,255,255,.085);
+            border-radius: 24px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.09), transparent 32%),
+                linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.012)),
+                rgba(18,19,16,.86);
+            box-shadow: 0 16px 46px rgba(0,0,0,.25);
+            padding: 1rem;
+            min-height: 146px;
+        }
+        .v22-seo-card small {
+            display: inline-flex;
+            width: fit-content;
+            color: #ffe4aa;
+            background: rgba(216,181,109,.10);
+            border: 1px solid rgba(216,181,109,.30);
+            border-radius: 999px;
+            padding: .22rem .55rem;
+            font-size: .72rem !important;
+            font-weight: 900;
+            margin-bottom: .5rem;
+        }
+        .v22-seo-card h2,
+        .v22-seo-card h3 {
+            margin: 0 0 .38rem 0 !important;
+            color: #fff9ec !important;
+            font-size: clamp(1.02rem, 1.2vw, 1.22rem) !important;
+            line-height: 1.15 !important;
+            letter-spacing: -.035em !important;
+        }
+        .v22-seo-card p {
+            margin: 0 !important;
+            color: #c8bda9 !important;
+            font-size: .86rem !important;
+            line-height: 1.52 !important;
+        }
+        .v22-seo-band {
+            border: 1px solid rgba(216,181,109,.28);
+            border-radius: 26px;
+            background:
+                linear-gradient(145deg, rgba(216,181,109,.10), rgba(255,255,255,.012)),
+                rgba(18,19,16,.88);
+            padding: 1rem;
+            margin: .85rem 0 1rem;
+            box-shadow: 0 18px 50px rgba(0,0,0,.25);
+        }
+        .v22-seo-band h2 {
+            margin: 0 0 .28rem 0 !important;
+            font-size: clamp(1.18rem, 1.65vw, 1.55rem) !important;
+            color: #fff9ec !important;
+            letter-spacing: -.045em !important;
+        }
+        .v22-seo-band p {
+            max-width: 940px;
+            color: #d7c7aa !important;
+            font-size: .9rem !important;
+            line-height: 1.55 !important;
+            margin: 0 !important;
+        }
+        .v22-seo-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .45rem;
+            margin-top: .75rem;
+        }
+        .v22-seo-links span {
+            border: 1px solid rgba(255,255,255,.08);
+            background: rgba(255,255,255,.026);
+            color: #d7c7aa;
+            border-radius: 999px;
+            padding: .28rem .62rem;
+            font-size: .76rem !important;
+            font-weight: 820;
+        }
+        .v22-seo-note {
+            color: #928879;
+            font-size: .78rem !important;
+            line-height: 1.45 !important;
+            margin-top: .42rem;
+        }
+        @media(max-width: 980px) {
+            .v22-seo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media(max-width: 620px) {
+            .v22-seo-grid { grid-template-columns: 1fr; }
+            .v22-seo-card, .v22-seo-band { border-radius: 20px; padding: .9rem; }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def seo_overview_v22():
+    html(
+        """
+        <section class="v22-seo-band">
+            <h2>Pemeriksa phishing defensif untuk URL dan file</h2>
+            <p>
+                PhishRisk membantu membaca risiko link dan lampiran secara ringkas. Sistem menampilkan skor,
+                status, alasan, Public TI, dan rekomendasi agar user bisa mengambil tindakan aman tanpa membaca
+                penjelasan teknis yang bertele-tele.
+            </p>
+            <div class="v22-seo-links">
+                <span>cek URL phishing</span>
+                <span>analisis file statis</span>
+                <span>Engine V5</span>
+                <span>Public Threat Intelligence</span>
+                <span>laporan CSV</span>
+                <span>training defensif</span>
+            </div>
+            <div class="v22-seo-note">
+                Fokus sistem: deteksi awal, edukasi, dan laporan defensif. Sistem tidak membuat phishing, tidak menjalankan file, dan tidak menggantikan audit keamanan penuh.
+            </div>
+        </section>
+        """
+    )
+
+    html(
+        """
+        <section class="v22-seo-grid" aria-label="Fitur utama PhishRisk">
+            <article class="v22-seo-card">
+                <small>URL Checker</small>
+                <h3>Cek risiko link</h3>
+                <p>Membaca domain, pola brand, kata mencurigakan, skor model, dan sinyal Public TI.</p>
+            </article>
+            <article class="v22-seo-card">
+                <small>File Analyzer</small>
+                <h3>Periksa lampiran</h3>
+                <p>Menganalisis file secara statis untuk melihat metadata, ekstensi, dan URL yang tertanam.</p>
+            </article>
+            <article class="v22-seo-card">
+                <small>Report Center</small>
+                <h3>Hasil siap dijelaskan</h3>
+                <p>Output dibuat ringkas dalam bentuk status, alasan, rekomendasi, riwayat, dan CSV.</p>
+            </article>
+        </section>
+        """
+    )
+
+
+_V22_HALAMAN_BERANDA_SEBELUMNYA = globals().get("halaman_beranda")
+def halaman_beranda(engine):
+    if callable(_V22_HALAMAN_BERANDA_SEBELUMNYA):
+        _V22_HALAMAN_BERANDA_SEBELUMNYA(engine)
+    seo_overview_v22()
+
+
+def footer_site():
+    html(
+        f"""
+        <footer class="site-footer" role="contentinfo">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-name">PhishRisk Intelligence System</div>
+                    <div class="footer-note">
+                        Dashboard defensif untuk cek phishing URL, analisis file statis, Public TI, laporan, dan training keamanan siber.
+                    </div>
+                </div>
+                <nav class="footer-links" aria-label="Profil dan kontak pembuat">
+                    <a class="footer-link" href="https://wa.me/628158883565" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <a class="footer-link" href="{aman_teks(AUTHOR_INFO.get('Instagram', '#'))}" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a class="footer-link" href="{aman_teks(AUTHOR_INFO.get('LinkedIn', '#'))}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="footer-link" href="{aman_teks(AUTHOR_INFO.get('GitHub', '#'))}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </nav>
+            </div>
+            <div class="footer-line">
+                Dibuat oleh Harbangan Panjaitan. Fokus project: Data Science, Machine Learning, Software Engineering, dan Cyber Security defensif.
+                PhishRisk membantu penilaian awal, bukan alat menyerang, bukan pembuat phishing, dan bukan pengganti audit keamanan penuh.
+            </div>
+        </footer>
+        """
+    )
+
+
+def main():
+    """Main final V22: SEO value patch tanpa mengubah logic engine dan fitur utama."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+        "pasang_css_v16_video_professional",
+        "pasang_css_v17_media_polish",
+        "v18_css_video_frame_fix",
+        "pasang_css_v19_engine_v5",
+        "pasang_css_v20_professional_polish",
+        "pasang_css_v21_system_polish",
+        "pasang_css_seo_v22",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        pasang_seo_meta_v22("Engine Belum Siap")
+        v19_hero(
+            "Aplikasi gagal dimuat",
+            "The Best Engine Belum Siap",
+            "Pastikan The Best Engine, model, Public TI, dan daftar fitur tersedia.",
+            ["Cek src", "Cek models", "Cek reports/outputs"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+    pasang_seo_meta_v22(halaman)
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
 
 if __name__ == "__main__":
     main()
