@@ -2486,7 +2486,7 @@ def halaman_batch_lab(engine):
                 st.subheader("Filter hasil")
                 daftar_status = sorted(data["hasil_akhir"].dropna().unique().tolist()) if "hasil_akhir" in data.columns else []
                 status = st.multiselect("Pilih hasil", daftar_status, default=daftar_status)
-                skor_min = st.slider("Skor minimum", 0, 100, 0)
+                skor_min = st.slider("Atur skor minimum nya", 0, 100, 0)
                 data_filter = data.copy()
                 if status:
                     data_filter = data_filter[data_filter["hasil_akhir"].isin(status)]
@@ -3547,7 +3547,7 @@ def halaman_batch_lab(engine):
             with st.container(border=True):
                 daftar_status = sorted(data["hasil_akhir"].dropna().unique().tolist()) if "hasil_akhir" in data.columns else []
                 status = st.multiselect("Pilih hasil", daftar_status, default=daftar_status, key="batch_status_v4")
-                skor_min = st.slider("Skor minimum", 0, 100, 0, key="batch_skor_v4")
+                skor_min = st.slider("Atur skor minimum nya", 0, 100, 0, key="batch_skor_v4")
                 public_only = st.checkbox("Tampilkan yang punya catatan Public TI saja", value=False, key="batch_public_only_v4")
 
                 data_filter = data.copy()
@@ -5486,7 +5486,7 @@ def halaman_checklist_v13(engine):
 
     bullet_panel("Langkah yang disarankan", data.get(skenario, []), "gold")
 
-    section_title("Generator ringkasan tindakan", "Bisa dipakai untuk laporan singkat.")
+    section_title("Generator ringkasan")
     hasil = "\n".join([f"- {item}" for item in data.get(skenario, [])])
     st.text_area("Ringkasan", value=hasil, height=180, key="v13_checklist_output")
     st.download_button(
@@ -5597,9 +5597,9 @@ Waktu laporan: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 Hasil ini adalah bantuan awal. Pemeriksaan penuh tetap membutuhkan validasi manual dan kebijakan keamanan organisasi.
 """
 
-    st.text_area("Preview laporan", value=isi_laporan, height=360, key="v13_report_preview")
+    st.text_area("Preview Laporan", value=isi_laporan, height=360, key="v13_report_preview")
     st.download_button(
-        "Unduh laporan Markdown",
+        "Unduh Laporan Markdown",
         data=isi_laporan.encode("utf-8"),
         file_name="laporan_singkat_phishrisk.md",
         mime="text/markdown",
@@ -6136,7 +6136,7 @@ def _v14_hasil_ringkas_box(hasil):
 
 
 def render_dashboard_game_v14(engine):
-    section_title("Pusat latihan", "Pilih latihan sesuai kebutuhan: membaca URL, mencari sinyal, memahami file, atau membuat laporan singkat.")
+    section_title("Pusat latihan", "Pilih latihan sesuai kebutuhan")
     html(
         """
         <div class="v14-grid">
@@ -6445,7 +6445,7 @@ def render_public_ti_drill_v14(engine):
 
 
 def render_report_mini_v14(engine):
-    section_title("Laporan mini", "Buat ringkasan singkat dari hasil Best Engine untuk disalin ke catatan, laporan, atau dokumentasi.")
+    section_title("Laporan mini", "Ringkasan singkat dari hasil untuk disalin ke catatan, laporan, atau dokumentasi.")
 
     url = st.text_input("URL laporan", value="http://bca-login-update.test", key="v14_report_url")
     if st.button("Buat laporan mini", key="v14_report_button"):
@@ -6509,7 +6509,7 @@ def halaman_game_cyber(engine):
     hero(
         "Quick PhishRisk Training",
         "Cyber Security Training Lab",
-        "Latihan interaktif untuk membaca URL, file, Public Threat Intelligence, dan tindakan aman. Semua mode tetap defensif dan selaras dengan Best Engine.",
+        "Latihan interaktif untuk membaca URL, file, Public Threat Intelligence, dan tindakan aman.",
         ["Best Engine", "Public TI", "Signal Hunt", "Incident Sprint", "Mini Report"],
     )
 
@@ -7253,7 +7253,7 @@ def buat_navigasi():
                         <div class="brand-sub">Made for your security need</div>
                     </div>
                 </div>
-                <div class="nav-badge">App is Ready</div>
+                <div class="nav-badge">App is Active</div>
             </div>
         """
     )
@@ -8865,7 +8865,7 @@ def halaman_panduan():
         video_key="workflow",
     )
 
-    section_title("Langkah utama", "Tidak perlu membaca terlalu panjang. Jalankan, baca hasil, ambil tindakan.")
+    section_title("Langkah utama")
     v17_flow([
         {"no": "01", "title": "Masukkan input", "note": "Isi URL, upload file, atau pakai batch CSV."},
         {"no": "02", "title": "Periksa", "note": "Engine membaca skor, sinyal, dan intelligence."},
@@ -8905,7 +8905,7 @@ def halaman_game_cyber(engine):
         video_key="training",
     )
 
-    section_title("Konteks latihan", "Mode latihan dibuat untuk membantu user memahami evidence.")
+    section_title("Konteks latihan")
     html(
         "<div class='v16-video-row'>"
         + v16_video_markup("game_training.mp4", "Risk Practice", "Latihan memilih status risiko dan memahami alasan sistem.", "Practice", "mini")
@@ -10560,7 +10560,7 @@ def halaman_beranda(engine):
         {"label": "Output", "nilai": "Action", "catatan": "Skor, alasan, dan tindakan aman.", "warna": "red"},
     ])
 
-    v19_section("Pemeriksaan cepat", "Satu URL, satu keputusan, satu rekomendasi.")
+    v19_section("Pemeriksaan cepat")
     col1, col2 = st.columns([1.16, .84])
     with col1:
         html('<div class="input-lab">')
@@ -11235,7 +11235,7 @@ def halaman_beranda(engine):
         ],
     )
 
-    v19_section("Pemeriksaan cepat", "Satu URL, satu keputusan, satu rekomendasi.")
+    v19_section("Pemeriksaan cepat")
     col1, col2 = st.columns([1.16, .84])
     with col1:
         html('<div class="input-lab">')
@@ -11636,7 +11636,7 @@ def halaman_sistem():
     ])
     tabel_rapi(data_file, max_rows=120, caption="Komponen inti yang dipakai dashboard.")
 
-    v19_section("Kesiapan Presentasi", "Kalimat pendek yang bisa langsung kamu jelaskan.")
+    v19_section("Kesiapan Presentasi")
     v21_feature_grid([
         {"label": "Inti", "judul": "Deteksi awal", "isi": "PhishRisk membantu user menilai risiko sebelum klik, login, unduh, atau membuka lampiran.", "warna": "gold"},
         {"label": "Batasan", "judul": "Bukan pengganti audit", "isi": "Sistem memberi sinyal awal. Keputusan penting tetap perlu verifikasi sumber resmi.", "warna": "yellow"},
@@ -11646,8 +11646,7 @@ def halaman_sistem():
     html(
         """
         <div class="v21-note">
-            <b>Catatan:</b> Streamlit tidak dihitung sebagai step program. Website ini hanya menampilkan hasil dari program utama:
-            The Best Engine, Model V5, URL Intelligence, Public TI, File Analyzer, Trusted Safe, dan laporan defensif.
+            <b>Catatan:</b> Streamlit tidak dihitung sebagai step program. Website ini hanya menampilkan hasil dari program utama
         </div>
         """
     )
