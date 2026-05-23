@@ -582,7 +582,7 @@ class PhishRiskEngineV5:
         hasil.setdefault("ekstensi", lokasi_file.suffix.lower())
         hasil = self._selaraskan_kolom_file_v5(hasil)
         hasil["engine_version"] = "V5"
-        hasil["catatan_v5"] = "Analisis file memakai static analyzer yang sudah ada. Engine V5 dipakai untuk kalibrasi URL secara terpisah."
+        hasil["catatan_v5"] = "Analisis file memakai static analyzer yang sudah ada. The Best Engine dipakai untuk kalibrasi URL secara terpisah."
 
         return hasil
 

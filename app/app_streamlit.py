@@ -2614,7 +2614,7 @@ def main():
     except Exception as error:
         hero(
             "Aplikasi gagal dimuat",
-            "Best Engine Belum Siap",
+            "Engine Belum Siap",
             "Pastikan STEP 10 sudah selesai dan file phishrisk_engine_v3.py, model_terbaik_intelligence_v2.pkl, serta daftar_fitur_intelligence_v2.json tersedia.",
             ["Cek folder", "Cek model", "Cek src"],
         )
@@ -5372,7 +5372,7 @@ def halaman_sistem():
         bullet_panel(
             "Komponen utama",
             [
-                "Best Engine membaca hasil model lokal dan Public Threat Intelligence.",
+                "Best Engine sedang membaca hasil model lokal dan Public Threat Intelligence.",
                 "PhishTank menjadi sinyal tambahan, bukan keputusan tunggal.",
                 "URLhaus siap aktif jika Auth-Key tersedia.",
                 "File .env tidak boleh ikut GitHub atau frontend.",
@@ -5388,7 +5388,7 @@ def halaman_sistem():
             html("".join([f'<span class="signal-token-v13">{aman_teks(item)}</span>' for item in api]))
 
     with tab_cli:
-        section_title("Metadata Best Engine", "Ringkasan CLI utility untuk menjalankan engine dari terminal.")
+        section_title("Metadata Best Engine", "Ringkasan CLI utility untuk menjalankan best engine dari terminal.")
         tabel_rapi(metadata_ringkas_v13(metadata_step10), max_rows=100)
 
     with tab_deploy:
@@ -7285,7 +7285,7 @@ def buat_sidebar():
 
 def halaman_beranda(engine):
     hero(
-        "PhishRisk Intelligence System",
+        "PhishRisk Web App",
         "Security Command Center",
         "Dashboard profesional untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan cyber security secara defensif.",
         ["The Best Engine", "Public TI", "Static Analyzer", "AI Fallback", "Report Ready", "Mobile Friendly"],
@@ -7307,8 +7307,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v15_home_url",
         )
-        if st.button("Analisis cepat dengan Best Engine", key="v15_home_check"):
-            with st.spinner("Menganalisis URL dengan Best Engine..."):
+        if st.button("Analisis cepat dengan The Best Engine", key="v15_home_check"):
+            with st.spinner("Menganalisis URL dengan The Best Engine..."):
                 hasil = v15_analisis_url(engine, url)
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -7355,7 +7355,7 @@ def halaman_periksa_url(engine):
         "URL Risk Analysis",
         "Periksa Alamat Link",
         "Masukkan URL bebas. Sistem akan membaca pola domain, skor model, Public TI, alasan, dan rekomendasi tindakan.",
-        ["Best Engine", "Risk Score", "Public TI", "Download CSV"],
+        ["The Best Engine", "Risk Score", "Public TI", "Download CSV"],
     )
 
     col1, col2 = st.columns([1.2, .8])
@@ -7378,7 +7378,7 @@ def halaman_periksa_url(engine):
         )
 
     if periksa:
-        with st.spinner("Memeriksa URL dengan Best Engine..."):
+        with st.spinner("Memeriksa URL dengan The Best Engine..."):
             hasil = v15_analisis_url(engine, url)
         if hasil:
             tambah_riwayat_url(hasil)
@@ -7466,7 +7466,7 @@ def main():
         hero(
             "Aplikasi gagal dimuat",
             "Engine Belum Siap",
-            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            "Pastikan file The Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
             ["Cek src", "Cek model", "Cek output", "Cek validasi", "Cek metadata"],
         )
         st.exception(error)
@@ -8051,7 +8051,7 @@ def v16_video_showcase():
 
 def halaman_beranda(engine):
     hero(
-        "PhishRisk Intelligence System",
+        "PhishRisk Web App",
         "Security Video Command Center",
         "Dashboard profesional untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan cyber security dengan visual video yang tetap ringan.",
         ["The Best Engine", "Public TI", "Static Analyzer", "AI Fallback", "Video Ready", "Mobile Friendly"],
@@ -8074,8 +8074,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v16_home_url",
         )
-        if st.button("Analisis cepat dengan Best Engine", key="v16_home_check"):
-            with st.spinner("Menganalisis URL dengan Best Engine..."):
+        if st.button("Analisis cepat dengan The Best Engine", key="v16_home_check"):
+            with st.spinner("Menganalisis URL dengan The Best Engine..."):
                 hasil = v15_analisis_url(engine, url) if "v15_analisis_url" in globals() else engine.analisis_url(url)
             if hasil:
                 try:
@@ -8261,7 +8261,7 @@ def main():
         hero(
             "Aplikasi gagal dimuat",
             "Engine Belum Siap",
-            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            "Pastikan file The Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
             ["Cek src", "Cek model", "Cek output", "Cek validasi"],
         )
         st.exception(error)
@@ -8696,7 +8696,7 @@ def hero(label, judul, deskripsi, badges=None, video_key=None):
     <section class="v16-hero-copy">
         <div class="hero-top">
             <div class="eyebrow">{aman_teks(label)}</div>
-            <div class="pill">Best Engine</div>
+            <div class="pill">The Best Engine</div>
         </div>
         <h1>{aman_teks(judul)}</h1>
         <p class="v16-hero-desc">{aman_teks(deskripsi)}</p>
@@ -8721,7 +8721,7 @@ def hero(label, judul, deskripsi, badges=None, video_key=None):
         <section class="hero">
             <div class="hero-top">
                 <div class="eyebrow">{aman_teks(label)}</div>
-                <div class="pill">Best Engine</div>
+                <div class="pill">The Best Engine</div>
             </div>
             <h1>{aman_teks(judul)}</h1>
             <p class="hero-desc">{aman_teks(deskripsi)}</p>
@@ -8779,7 +8779,7 @@ def v16_video_showcase():
 
 def halaman_beranda(engine):
     hero(
-        "PhishRisk Intelligence System",
+        "PhishRisk Web App",
         "PhishRisk Command Center",
         "Dashboard defensif untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan keamanan secara ringkas.",
         ["The Best Engine", "URL/File", "Public TI", "Static Analyzer", "Report", "Training"],
@@ -8923,7 +8923,7 @@ def halaman_game_cyber(engine):
 def halaman_tentang():
     hero(
         "Tentang Project",
-        "PhishRisk Intelligence System",
+        "PhishRisk Web App",
         "Project Data Science dan Cyber Security defensif untuk pemeriksaan phishing berbasis URL, file, intelligence, dan laporan.",
         ["Defensive", "Machine Learning", "Threat Intelligence", "Static Analyzer", "Report"],
         video_key="education",
@@ -8992,7 +8992,7 @@ def main():
         hero(
             "Aplikasi gagal dimuat",
             "Engine Belum Siap",
-            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            "Pastikan file The Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
             ["Cek src", "Cek model", "Cek output", "Cek validasi"],
         )
         st.exception(error)
@@ -9514,7 +9514,7 @@ def hero(label, judul, deskripsi, badges=None, video_key=None):
     <section class="v16-hero-copy">
         <div class="hero-top">
             <div class="eyebrow">{aman_teks(label)}</div>
-            <div class="pill">Best Engine</div>
+            <div class="pill">The Best Engine</div>
         </div>
         <h1>{aman_teks(judul)}</h1>
         <p class="v16-hero-desc">{aman_teks(deskripsi)}</p>
@@ -9539,7 +9539,7 @@ def hero(label, judul, deskripsi, badges=None, video_key=None):
         <section class="hero">
             <div class="hero-top">
                 <div class="eyebrow">{aman_teks(label)}</div>
-                <div class="pill">PhishRisk</div>
+                <div class="pill">PhishRisk Web App</div>
             </div>
             <h1>{aman_teks(judul)}</h1>
             <p class="hero-desc">{aman_teks(deskripsi)}</p>
@@ -9576,7 +9576,7 @@ def v16_video_showcase():
 
 def halaman_beranda(engine):
     hero(
-        "PhishRisk Intelligence System",
+        "PhishRisk Web App",
         "PhishRisk Command Center",
         "Dashboard defensif untuk memeriksa URL, file, Public Threat Intelligence, laporan, dan latihan keamanan secara ringkas.",
         ["The Best Engine", "URL/File", "Public TI", "Static Analyzer", "Report", "Training"],
@@ -9681,7 +9681,7 @@ def main():
         hero(
             "Aplikasi gagal dimuat",
             "Engine Belum Siap",
-            "Pastikan file Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
+            "Pastikan file The Best Engine, Public Threat Intelligence, model, dan daftar fitur tersedia.",
             ["Cek src", "Cek model", "Cek output"],
         )
         st.exception(error)
@@ -10047,11 +10047,11 @@ def v19_engine_label(engine=None):
         return "Engine"
     nama = engine.__class__.__name__
     if "V5" in nama:
-        return "Best Engine V5"
+        return "The Best Engine 5.0"
     if "V4" in nama:
-        return "Best Engine V4"
+        return "The Best Engine 4.0"
     if "V3" in nama:
-        return "Best Engine V3"
+        return "The Best Engine 3.0"
     return nama or "Engine"
 
 
@@ -10257,7 +10257,7 @@ def selaraskan_dataframe_file(data_file):
 
 @st.cache_resource
 def muat_engine():
-    """Memakai Engine V5 final. Fallback tetap tersedia agar app tidak mati mendadak seperti proyek minggu malam."""
+    """Memakai The Best Engine final. Fallback tetap tersedia agar app tidak mati mendadak seperti proyek minggu malam."""
     try:
         import phishrisk_engine_v5
         return phishrisk_engine_v5.PhishRiskEngineV5(
@@ -10341,7 +10341,7 @@ def v19_result_card(hasil):
         <section class="v19-result {kelas}">
             <div class="v19-result-top">
                 <div>
-                    <div class="v19-eyebrow">Engine V5 Result</div>
+                    <div class="v19-eyebrow">The Best Engine Result</div>
                     <div class="v19-status">{aman_teks(status)}</div>
                     <p class="v19-mini-copy">{aman_teks(rekomendasi)}</p>
                 </div>
@@ -10547,14 +10547,14 @@ def v19_analisis_file(engine, lokasi_file):
 
 def halaman_beranda(engine):
     v19_hero(
-        "PhishRisk Engine V5",
+        "PhishRisk Application",
         "Security Command Center",
         "Dashboard defensif untuk memeriksa URL, file, threat intelligence, dan laporan dengan bahasa singkat yang mudah dipresentasikan.",
-        ["Engine V5", "Multi Dataset", "Public TI", "Trusted Safe", "File Analyzer", "Report Ready"],
+        ["The Best Engine", "Multi Dataset", "Public TI", "Trusted Safe", "File Analyzer", "Report Ready"],
     )
 
     v19_cards([
-        {"label": "Engine", "nilai": v19_engine_label(engine), "catatan": "Model Best Engine V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "Engine", "nilai": v19_engine_label(engine), "catatan": "Model V5 + URL Intelligence + Public TI.", "warna": "gold"},
         {"label": "Data", "nilai": "975K", "catatan": "Multi-dataset training untuk generalisasi.", "warna": "green"},
         {"label": "Input", "nilai": "URL/File", "catatan": "Cek link, CSV, dan file statis.", "warna": "yellow"},
         {"label": "Output", "nilai": "Action", "catatan": "Skor, alasan, dan tindakan aman.", "warna": "red"},
@@ -10569,8 +10569,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v19_home_url",
         )
-        if st.button("Analisis dengan Engine V5", key="v19_home_check"):
-            with st.spinner("Menganalisis dengan Engine V5..."):
+        if st.button("Analisis dengan The Best Engine", key="v19_home_check"):
+            with st.spinner("Menganalisis dengan The Best Engine..."):
                 hasil = v19_analisis_url(engine, url)
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -10614,8 +10614,8 @@ def halaman_periksa_url(engine):
     v19_hero(
         "URL Risk Analysis",
         "Input Alamat Link",
-        "Masukkan URL bebas, daftar URL, atau CSV. Engine V5 memberi skor, alasan, dan tindakan defensif.",
-        ["URL Bebas", "Batch", "CSV", "Engine V5", "Download"],
+        "Masukkan URL bebas, daftar URL, atau CSV. The Best Engine memberi skor, alasan, dan tindakan defensif.",
+        ["URL Bebas", "Batch", "CSV", "The Best Engine", "Download"],
     )
 
     tab_satu, tab_banyak, tab_csv = st.tabs(["Satu URL", "Banyak URL", "CSV"])
@@ -10658,7 +10658,7 @@ def halaman_periksa_url(engine):
         tabel_rapi(pd.DataFrame({"url": daftar}), max_rows=60)
 
         if st.button("Periksa semua URL", key="v19_periksa_banyak_url"):
-            with st.spinner("Menganalisis banyak URL dengan Engine V5..."):
+            with st.spinner("Menganalisis banyak URL dengan The Best Engine..."):
                 data = v19_analisis_banyak(engine, daftar)
             for _, baris in data.iterrows():
                 tambah_riwayat_url(baris.to_dict())
@@ -10681,7 +10681,7 @@ def halaman_periksa_url(engine):
             kolom_url = st.selectbox("Pilih kolom URL", data_csv.columns.tolist(), key="v19_kolom_url_csv")
             if st.button("Periksa CSV", key="v19_periksa_csv"):
                 daftar = data_csv[kolom_url].dropna().astype(str).str.strip().tolist()
-                with st.spinner("Menganalisis CSV dengan Engine V5..."):
+                with st.spinner("Menganalisis CSV dengan The Best Engine..."):
                     data = v19_analisis_banyak(engine, daftar)
                 for _, baris in data.iterrows():
                     tambah_riwayat_url(baris.to_dict())
@@ -10695,7 +10695,7 @@ def halaman_periksa_file(engine):
         "File Static Analyzer",
         "Input File",
         "Unggah file untuk membaca metadata, URL tertanam, kata mencurigakan, dan rekomendasi tanpa menjalankan file.",
-        ["Static", "URL Extract", "Engine V5", "CSV", "Safe Review"],
+        ["Static", "URL Extract", "The Best Engine", "CSV", "Safe Review"],
     )
 
     v19_cards([
@@ -10731,7 +10731,7 @@ def halaman_periksa_file(engine):
         daftar_hasil_file = []
         daftar_hasil_url = []
 
-        with st.spinner("Memeriksa file secara statis dengan Engine V5..."):
+        with st.spinner("Memeriksa file secara statis dengan The Best Engine..."):
             for file in daftar_file:
                 lokasi = simpan_file_upload(file)
                 df_file, df_url = v19_analisis_file(engine, lokasi)
@@ -10767,7 +10767,7 @@ def halaman_sistem():
         "System Readiness",
         "Informasi Sistem",
         "Ringkasan komponen utama PhishRisk. Dibuat singkat agar mudah dijelaskan saat presentasi.",
-        ["Best Engine", "Patch FP", "Public TI", "Streamlit", "Ready"],
+        ["The Best Engine", "Patch FP", "Public TI", "Streamlit", "Ready"],
     )
 
     metadata_v5 = muat_metadata(LOKASI_METADATA_BEST_ENGINE)
@@ -10787,7 +10787,7 @@ def halaman_sistem():
         status_fp = {}
 
     v19_cards([
-        {"label": "Best Engine", "nilai": "Best Engine", "catatan": "Model multi-dataset dan kalibrasi final.", "warna": "gold"},
+        {"label": "The Best Engine", "nilai": "The Best Engine", "catatan": "Model multi-dataset dan kalibrasi final.", "warna": "gold"},
         {"label": "Status", "nilai": status_v5.get("status_engine_v5", "siap_uji_streamlit"), "catatan": "Validasi lanjutan.", "warna": "green"},
         {"label": "FP Patch", "nilai": status_fp.get("status_fix", "fix_siap"), "catatan": "Trusted safe domain.", "warna": "yellow"},
         {"label": "Mode", "nilai": "Defensive", "catatan": "Tidak membuat konten ofensif.", "warna": "red"},
@@ -10795,7 +10795,7 @@ def halaman_sistem():
 
     v19_section("File penting", "Komponen yang perlu tersedia di project.")
     data_file = pd.DataFrame([
-        {"Komponen": "Best Engine", "Lokasi": "src/phishrisk_engine_v5.py", "Status": "wajib"},
+        {"Komponen": "The Best Engine", "Lokasi": "src/phishrisk_engine_v5.py", "Status": "wajib"},
         {"Komponen": "CLI V5", "Lokasi": "src/run_phishrisk_v5.py", "Status": "wajib"},
         {"Komponen": "Model V5", "Lokasi": "models/model_terbaik_multi_dataset_v5.pkl", "Status": "lokal"},
         {"Komponen": "Trusted Domain", "Lokasi": "data/intelligence/trusted_safe_domains_global.csv", "Status": "aktif"},
@@ -10803,15 +10803,15 @@ def halaman_sistem():
     ])
     tabel_rapi(data_file, max_rows=80)
 
-    with st.expander("Metadata Best Engine"):
+    with st.expander("Metadata The Best Engine"):
         if metadata_v5:
             tabel_rapi(pd.DataFrame([metadata_v5]), max_rows=20)
         else:
-            st.info("Metadata Best Engine belum ditemukan.")
+            st.info("Metadata The Best Engine belum ditemukan.")
 
 
 def main():
-    """Main final: Streamlit professional UI memakai PhishRisk Best Engine."""
+    """Main final: Streamlit professional UI memakai PhishRisk The Best Engine."""
     for nama_css in [
         "pasang_css",
         "pasang_css_final_override",
@@ -10840,7 +10840,7 @@ def main():
         v19_hero(
             "Aplikasi gagal dimuat",
             "Engine Belum Siap",
-            "Pastikan Best Engine, model, Public TI, dan daftar fitur tersedia.",
+            "Pastikan The Best Engine, model, Public TI, dan daftar fitur tersedia.",
             ["Cek src", "Cek models", "Cek reports/outputs"],
         )
         st.exception(error)
@@ -10891,7 +10891,7 @@ def main():
 
     footer_site()
 
-APP_ENGINE_RINGKAS = "Best Engine"
+APP_ENGINE_RINGKAS = "The Best Engine"
 APP_ENGINE_DETAIL = "Model V5 + URL Intelligence + Public TI"
 APP_PITCH_RINGKAS = "Pemeriksaan URL, file, threat intelligence, laporan, dan training defensif dalam satu dashboard."
 
@@ -11184,8 +11184,8 @@ def v16_video_showcase():
         """
         + v16_video_markup(
             "cara_kerja_engine.mp4",
-            "Best Engine",
-            "Best Engine + URL Intelligence + Public TI untuk pemeriksaan defensif yang cepat dan mudah dipresentasikan.",
+            "The Best Engine",
+            "The Best Engine + URL Intelligence + Public TI untuk pemeriksaan defensif yang cepat dan mudah dipresentasikan.",
             "Core",
             "mini",
         )
@@ -11212,14 +11212,14 @@ def v16_video_showcase():
 
 def halaman_beranda(engine):
     v19_hero(
-        "PhishRisk Intelligence System",
+        "PhishRisk Web App",
         "Dashboard Pemeriksaan Phishing",
-        "Cek URL dan file dengan Best Engine. Hasilnya berupa skor, alasan singkat, Public TI, dan rekomendasi defensif yang mudah dipresentasikan.",
-        ["Best Engine", "Model V5 + URL Intelligence + Public TI", "File Analyzer", "Report Ready"],
+        "Cek URL dan file dengan The Best Engine. Hasilnya berupa skor, alasan singkat, Public TI, dan rekomendasi defensif yang mudah dipresentasikan.",
+        ["The Best Engine", "Model V5 + URL Intelligence + Public TI", "File Analyzer", "Report Ready"],
     )
 
     v19_cards([
-        {"label": "Best Engine", "nilai": "Best Engine", "catatan": "Model Best Engine V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "The Model Used", "nilai": "The Best Engine", "catatan": "Model V5 + URL Intelligence + Public TI.", "warna": "gold"},
         {"label": "Dataset", "nilai": "975K", "catatan": "PhiUSIIL, PhreshPhish, DeepURLBench, dan Tranco.", "warna": "green"},
         {"label": "Input", "nilai": "URL/File", "catatan": "URL tunggal, batch, CSV, dan file statis.", "warna": "yellow"},
         {"label": "Output", "nilai": "Skor + Aksi", "catatan": "Keputusan ringkas dan rekomendasi aman.", "warna": "red"},
@@ -11244,8 +11244,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v20_home_url",
         )
-        if st.button("Analisis dengan Best Engine", key="v20_home_check"):
-            with st.spinner("Menganalisis dengan Best Engine..."):
+        if st.button("Analisis dengan The Best Engine", key="v20_home_check"):
+            with st.spinner("Menganalisis dengan The Best Engine..."):
                 hasil = v19_analisis_url(engine, url)
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -11289,7 +11289,7 @@ def halaman_sistem():
         "System Readiness",
         "Informasi Sistem",
         "Ringkasan kesiapan PhishRisk dalam bahasa produk. Detail teknis tetap tersedia, tapi tidak memenuhi layar seperti daftar tugas kampus yang tidak tahu kapan selesai.",
-        ["Best Engine", "Trusted Safe", "Public TI", "Streamlit Ready"],
+        ["The Best Engine", "Trusted Safe", "Public TI", "Streamlit Ready"],
     )
 
     metadata_v5 = muat_metadata(LOKASI_METADATA_BEST_ENGINE)
@@ -11309,7 +11309,7 @@ def halaman_sistem():
         status_fp = {}
 
     v19_cards([
-        {"label": "Best Engine", "nilai": "Best Engine", "catatan": "Model Best Engine V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "Engine ", "nilai": "The Best Engine", "catatan": "Model V5 + URL Intelligence + Public TI.", "warna": "gold"},
         {"label": "Validasi", "nilai": status_v5.get("status_engine_v5", "siap_uji_streamlit"), "catatan": "Sudah diuji pada URL, file, CLI, dan batch.", "warna": "green"},
         {"label": "Trusted Safe", "nilai": status_fp.get("status_fix", "fix_siap"), "catatan": "Mengurangi false positive domain tepercaya.", "warna": "yellow"},
         {"label": "Mode", "nilai": "Defensive", "catatan": "Fokus deteksi, edukasi, dan laporan aman.", "warna": "red"},
@@ -11319,7 +11319,7 @@ def halaman_sistem():
         "Kesiapan website",
         "Website memakai hasil program utama. Streamlit hanya menjadi tampilan, bukan step program baru.",
         [
-            "Best Engine menjadi sumber keputusan utama.",
+            "The Best Engine menjadi sumber keputusan utama.",
             "Public TI dipakai sebagai sinyal tambahan.",
             "Trusted Safe membantu menekan false positive domain tepercaya.",
         ],
@@ -11327,22 +11327,22 @@ def halaman_sistem():
 
     v19_section("Komponen inti", "Ditulis ringkas agar enak saat presentasi.")
     data_file = pd.DataFrame([
-        {"Komponen": "Best Engine", "Fungsi": "Skor risiko final", "Keterangan": "Model V5 + URL Intelligence + Public TI"},
+        {"Komponen": "The Best Engine", "Fungsi": "Skor risiko final", "Keterangan": "Model V5 + URL Intelligence + Public TI"},
         {"Komponen": "File Analyzer", "Fungsi": "Analisis statis", "Keterangan": "Membaca metadata, URL tertanam, dan sinyal file"},
         {"Komponen": "Trusted Safe", "Fungsi": "Kontrol false positive", "Keterangan": "Domain tepercaya tetap dicek, bukan dibebaskan total"},
         {"Komponen": "Report", "Fungsi": "Output", "Keterangan": "CSV, riwayat, dan ringkasan hasil"},
     ])
     tabel_rapi(data_file, max_rows=80)
 
-    with st.expander("Detail teknis Best Engine"):
+    with st.expander("Detail teknis The Best Engine"):
         if metadata_v5:
             tabel_rapi(pd.DataFrame([metadata_v5]), max_rows=20)
         else:
-            st.info("Metadata Best Engine belum ditemukan.")
+            st.info("Metadata The Best Engine belum ditemukan.")
 
 
 def main():
-    """Main final: UI professional memakai Best Engine, tanpa bahasa notebook/step di tampilan utama."""
+    """Main final: UI professional memakai The Best Engine, tanpa bahasa notebook/step di tampilan utama."""
     for nama_css in [
         "pasang_css",
         "pasang_css_final_override",
@@ -11371,8 +11371,8 @@ def main():
     except Exception as error:
         v19_hero(
             "Aplikasi gagal dimuat",
-            "Engine Belum Siap",
-            "Pastikan Best Engine, model, Public TI, dan daftar fitur tersedia.",
+            "The Best Engine Belum Siap",
+            "Pastikan The Best Engine, model, Public TI, dan daftar fitur tersedia.",
             ["Cek src", "Cek models", "Cek reports/outputs"],
         )
         st.exception(error)
@@ -11422,6 +11422,353 @@ def main():
         halaman_sistem()
 
     footer_site()
+
+LOKASI_METADATA_BEST_ENGINE = globals().get(
+    "LOKASI_METADATA_BEST_ENGINE",
+    globals().get("LOKASI_METADATA_ENGINE_V5", DIREKTORI_OUTPUT / "metadata_step16_integrasi_engine_v5.json"),
+)
+LOKASI_METADATA_ENGINE_V5 = globals().get(
+    "LOKASI_METADATA_ENGINE_V5",
+    LOKASI_METADATA_BEST_ENGINE,
+)
+LOKASI_STATUS_ENGINE_V5 = globals().get(
+    "LOKASI_STATUS_ENGINE_V5",
+    DIREKTORI_OUTPUT / "status_kesiapan_engine_v5_step17.csv",
+)
+LOKASI_STATUS_FP_V5 = globals().get(
+    "LOKASI_STATUS_FP_V5",
+    DIREKTORI_OUTPUT / "status_fix_huggingface_false_positive_engine_v5_step17b.csv",
+)
+LOKASI_TRUSTED_SAFE = globals().get(
+    "LOKASI_TRUSTED_SAFE",
+    DIREKTORI_PROJECT / "data" / "intelligence" / "trusted_safe_domains_global.csv",
+)
+
+
+def pasang_css_v21_system_polish():
+    st.markdown(
+        """
+        <style>
+        .v21-system-shell{
+            border:1px solid rgba(255,255,255,.085);
+            border-radius:34px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(216,181,109,.14), transparent 30%),
+                linear-gradient(145deg, rgba(255,255,255,.044), rgba(255,255,255,.012)),
+                rgba(18,20,15,.94);
+            box-shadow:0 24px 78px rgba(0,0,0,.36);
+            padding:clamp(1rem,2vw,1.4rem);
+            margin:.9rem 0 1rem;
+        }
+        .v21-system-head{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem;align-items:stretch;margin-bottom:.9rem;}
+        .v21-system-title{color:#fff8e8;font-size:clamp(1.45rem,2.45vw,2.35rem)!important;line-height:1.05!important;letter-spacing:-.055em;font-weight:950;margin-bottom:.45rem;}
+        .v21-system-desc{color:#d7c7aa;font-size:.94rem!important;line-height:1.55!important;max-width:820px;}
+        .v21-mini-status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;}
+        .v21-status-card{border:1px solid rgba(255,255,255,.075);border-radius:22px;background:rgba(255,255,255,.026);padding:.85rem;min-height:104px;}
+        .v21-status-card small{display:block;color:#9d927e;font-size:.72rem!important;font-weight:850;margin-bottom:.18rem;}
+        .v21-status-card b{display:block;color:#fff8e8;font-size:1.08rem!important;line-height:1.08!important;letter-spacing:-.035em;overflow-wrap:anywhere;}
+        .v21-status-card span{display:block;color:#d7c7aa;font-size:.78rem!important;line-height:1.38!important;margin-top:.32rem;}
+        .v21-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.72rem;margin:.85rem 0 1rem;}
+        .v21-grid.three{grid-template-columns:repeat(3,minmax(0,1fr));}
+        .v21-feature{border:1px solid rgba(255,255,255,.075);border-radius:24px;background:linear-gradient(145deg, rgba(255,255,255,.038), rgba(255,255,255,.012));padding:.95rem;min-height:130px;box-shadow:0 16px 44px rgba(0,0,0,.20);}
+        .v21-feature.gold{border-color:rgba(216,181,109,.32);background:linear-gradient(145deg,rgba(216,181,109,.10),rgba(255,255,255,.012));}
+        .v21-feature.green{border-color:rgba(155,199,159,.30);background:linear-gradient(145deg,rgba(155,199,159,.09),rgba(255,255,255,.012));}
+        .v21-feature.yellow{border-color:rgba(214,189,118,.34);background:linear-gradient(145deg,rgba(214,189,118,.09),rgba(255,255,255,.012));}
+        .v21-feature.red{border-color:rgba(225,132,120,.34);background:linear-gradient(145deg,rgba(225,132,120,.09),rgba(255,255,255,.012));}
+        .v21-feature small{display:inline-flex;color:#ffe7ad;border:1px solid rgba(216,181,109,.30);background:rgba(216,181,109,.08);border-radius:999px;padding:.16rem .48rem;font-size:.68rem!important;font-weight:900;margin-bottom:.55rem;}
+        .v21-feature b{display:block;color:#fff8e8;font-size:1.05rem!important;letter-spacing:-.035em;line-height:1.12!important;margin-bottom:.32rem;}
+        .v21-feature p{color:#d7c7aa;font-size:.82rem!important;line-height:1.45!important;margin:0!important;}
+        .v21-path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.58rem;margin:.8rem 0 1rem;}
+        .v21-path-item{border:1px solid rgba(255,255,255,.07);border-radius:20px;background:rgba(255,255,255,.024);padding:.82rem;position:relative;}
+        .v21-path-item em{display:grid;place-items:center;width:32px;height:32px;border-radius:12px;background:rgba(216,181,109,.12);border:1px solid rgba(216,181,109,.32);color:#ffe7ad;font-style:normal;font-weight:950;font-size:.78rem!important;margin-bottom:.54rem;}
+        .v21-path-item b{display:block;color:#fff8e8;font-size:.92rem!important;line-height:1.18!important;}
+        .v21-path-item span{display:block;color:#d7c7aa;font-size:.76rem!important;line-height:1.38!important;margin-top:.25rem;}
+        .v21-note{border:1px solid rgba(216,181,109,.24);border-radius:24px;background:linear-gradient(145deg, rgba(216,181,109,.08), rgba(255,255,255,.012));padding:1rem;margin:.8rem 0 1rem;color:#d7c7aa;font-size:.88rem!important;line-height:1.55!important;}
+        .v21-badge-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.72rem;}
+        .v21-badge-row span{display:inline-flex;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:rgba(255,255,255,.03);color:#d7c7aa;padding:.28rem .62rem;font-size:.74rem!important;font-weight:850;}
+        @media(max-width:1100px){.v21-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.v21-path{grid-template-columns:repeat(3,minmax(0,1fr));}.v21-system-head{grid-template-columns:1fr;}}
+        @media(max-width:680px){.v21-grid,.v21-grid.three,.v21-mini-status,.v21-path{grid-template-columns:1fr;}.v21-system-shell{border-radius:24px;padding:.9rem;}.v21-feature,.v21-status-card,.v21-path-item{border-radius:18px;}}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def v21_baca_csv_pertama(lokasi):
+    lokasi = Path(lokasi)
+    if not lokasi.exists():
+        return {}
+    try:
+        data = pd.read_csv(lokasi).fillna("-")
+        if data.empty:
+            return {}
+        return data.iloc[0].to_dict()
+    except Exception:
+        return {}
+
+
+def v21_file_status(nama, lokasi, fungsi, status="Wajib"):
+    lokasi = Path(lokasi)
+    tersedia = lokasi.exists()
+    ukuran_mb = round(lokasi.stat().st_size / (1024 * 1024), 2) if tersedia else 0
+    return {
+        "Komponen": nama,
+        "Fungsi": fungsi,
+        "Status": "Siap" if tersedia else "Belum ada",
+        "Ukuran": f"{ukuran_mb} MB",
+        "Jenis": status,
+        "Lokasi": str(lokasi.relative_to(DIREKTORI_PROJECT)) if str(lokasi).startswith(str(DIREKTORI_PROJECT)) else str(lokasi),
+    }
+
+
+def v21_system_shell(status_v5, status_fp):
+    status_engine = status_v5.get("status_engine_v5", "siap_uji_streamlit")
+    status_fix = status_fp.get("status_fix", status_fp.get("status_patch_final", "fix_siap"))
+    cli_status = status_v5.get("cli_return_code", "0")
+
+    html(
+        f"""
+        <section class="v21-system-shell">
+            <div class="v21-system-head">
+                <div>
+                    <div class="v21-system-title">Kesiapan The Best Engine</div>
+                    <div class="v21-system-desc">
+                        Sistem memakai Model V5, URL Intelligence, Public TI, File Analyzer, dan Trusted Safe.
+                        Streamlit hanya menjadi dashboard untuk menjalankan hasil program utama.
+                    </div>
+                    <div class="v21-badge-row">
+                        <span>The Best Engine</span>
+                        <span>Model V5 + URL Intelligence + Public TI</span>
+                        <span>Trusted Safe</span>
+                        <span>File Analyzer</span>
+                    </div>
+                </div>
+                <div class="v21-mini-status">
+                    <div class="v21-status-card"><small>Validasi Engine</small><b>{aman_teks(status_engine)}</b><span>URL, file, batch, dan CLI sudah diuji.</span></div>
+                    <div class="v21-status-card"><small>False Positive Patch</small><b>{aman_teks(status_fix)}</b><span>Domain tepercaya tetap dicek, bukan dibebaskan total.</span></div>
+                    <div class="v21-status-card"><small>CLI</small><b>Return {aman_teks(cli_status)}</b><span>Program bisa dijalankan dari terminal.</span></div>
+                    <div class="v21-status-card"><small>Mode</small><b>Defensive</b><span>Deteksi, edukasi, laporan, dan rekomendasi aman.</span></div>
+                </div>
+            </div>
+        </section>
+        """
+    )
+
+
+def v21_feature_grid(items, kolom=4):
+    kelas = "v21-grid three" if kolom == 3 else "v21-grid"
+    isi = []
+    for item in items:
+        warna = item.get("warna", "")
+        isi.append(
+            f"""
+            <div class="v21-feature {aman_teks(warna)}">
+                <small>{aman_teks(item.get("label", ""))}</small>
+                <b>{aman_teks(item.get("judul", ""))}</b>
+                <p>{aman_teks(item.get("isi", ""))}</p>
+            </div>
+            """
+        )
+    html(f"<div class='{kelas}'>{''.join(isi)}</div>")
+
+
+def v21_path(items):
+    isi = []
+    for item in items:
+        isi.append(
+            f"""
+            <div class="v21-path-item">
+                <em>{aman_teks(item.get("no", ""))}</em>
+                <b>{aman_teks(item.get("judul", ""))}</b>
+                <span>{aman_teks(item.get("isi", ""))}</span>
+            </div>
+            """
+        )
+    html(f"<div class='v21-path'>{''.join(isi)}</div>")
+
+
+def halaman_sistem():
+    """Halaman sistem final: memperbaiki NameError dan membuat informasi lebih siap presentasi."""
+    pasang_css_v21_system_polish()
+
+    v19_hero(
+        "System Readiness",
+        "Informasi Sistem",
+        "Ringkasan kesiapan PhishRisk. Fokusnya sederhana: The Best Engine membaca URL dan file, lalu memberi skor, alasan, dan rekomendasi defensif.",
+        ["The Best Engine", "Model V5 + URL Intelligence + Public TI", "Trusted Safe", "Report Ready"],
+    )
+
+    metadata_v5 = muat_metadata(LOKASI_METADATA_BEST_ENGINE)
+    status_v5 = v21_baca_csv_pertama(LOKASI_STATUS_ENGINE_V5)
+    status_fp = v21_baca_csv_pertama(LOKASI_STATUS_FP_V5)
+
+    v21_system_shell(status_v5, status_fp)
+
+    v19_section("Ringkasan Produk", "Bahasa singkat untuk presentasi, tanpa istilah notebook yang bikin layar seperti catatan teknisi.")
+    v21_feature_grid([
+        {"label": "Core", "judul": "The Best Engine", "isi": "Model multi-dataset membaca pola URL, domain, brand, keyword, dan skor final.", "warna": "gold"},
+        {"label": "Signal", "judul": "Public TI", "isi": "PhishTank dan URLhaus menjadi sinyal tambahan, bukan satu-satunya keputusan.", "warna": "green"},
+        {"label": "Control", "judul": "Trusted Safe", "isi": "Mengurangi false positive pada domain tepercaya tanpa mematikan pemeriksaan risiko.", "warna": "yellow"},
+        {"label": "Output", "judul": "Laporan", "isi": "Hasil dapat dibaca sebagai skor, kategori, alasan, rekomendasi, dan CSV.", "warna": "red"},
+    ])
+
+    v19_section("Alur Sistem", "Dari input sampai rekomendasi dibuat pendek agar mudah dijelaskan.")
+    v21_path([
+        {"no": "01", "judul": "Input", "isi": "User memasukkan URL, batch CSV, atau file."},
+        {"no": "02", "judul": "Model", "isi": "Model V5 menghitung skor risiko awal."},
+        {"no": "03", "judul": "Intelligence", "isi": "Domain, brand, keyword, trusted safe, dan Public TI dicek."},
+        {"no": "04", "judul": "Kalibrasi", "isi": "Skor akhir disesuaikan agar lebih adil dan defensif."},
+        {"no": "05", "judul": "Aksi", "isi": "Sistem memberi keputusan dan rekomendasi aman."},
+    ])
+
+    v19_section("Komponen Project", "File yang perlu ada agar website berjalan stabil.")
+    data_file = pd.DataFrame([
+        v21_file_status("The Best Engine", DIREKTORI_SRC / "phishrisk_engine_v5.py", "Sumber keputusan risiko URL dan file.", "Wajib"),
+        v21_file_status("CLI V5", DIREKTORI_SRC / "run_phishrisk_v5.py", "Menjalankan The Best Engine dari terminal.", "Wajib"),
+        v21_file_status("Model V5", DIREKTORI_PROJECT / "models" / "model_terbaik_multi_dataset_v5.pkl", "Model utama hasil training multi-dataset.", "Lokal"),
+        v21_file_status("XGBoost V5", DIREKTORI_PROJECT / "models" / "model_xgb_multi_dataset_v5.pkl", "Model pembanding ringan.", "Lokal"),
+        v21_file_status("Daftar Fitur", DIREKTORI_OUTPUT / "daftar_fitur_multi_dataset_v5.json", "Kolom fitur yang harus cocok dengan model.", "Wajib"),
+        v21_file_status("Public TI", DIREKTORI_SRC / "public_threat_intelligence.py", "Sinyal tambahan dari sumber publik.", "Wajib"),
+        v21_file_status("File Analyzer", DIREKTORI_SRC / "file_static_analyzer.py", "Analisis statis file tanpa menjalankan file.", "Wajib"),
+        v21_file_status("Trusted Safe", LOKASI_TRUSTED_SAFE, "Daftar domain tepercaya untuk kontrol false positive.", "Pendukung"),
+        v21_file_status("Status Engine", LOKASI_STATUS_ENGINE_V5, "Ringkasan validasi lanjutan The Best Engine.", "Output"),
+        v21_file_status("Status FP Fix", LOKASI_STATUS_FP_V5, "Status patch false positive terakhir.", "Output"),
+    ])
+    tabel_rapi(data_file, max_rows=120, caption="Komponen inti yang dipakai dashboard.")
+
+    v19_section("Kesiapan Presentasi", "Kalimat pendek yang bisa langsung kamu jelaskan.")
+    v21_feature_grid([
+        {"label": "Inti", "judul": "Deteksi awal", "isi": "PhishRisk membantu user menilai risiko sebelum klik, login, unduh, atau membuka lampiran.", "warna": "gold"},
+        {"label": "Batasan", "judul": "Bukan pengganti audit", "isi": "Sistem memberi sinyal awal. Keputusan penting tetap perlu verifikasi sumber resmi.", "warna": "yellow"},
+        {"label": "Aman", "judul": "Defensive only", "isi": "Fokus sistem adalah deteksi, edukasi, laporan, dan pencegahan. Bukan membuat serangan.", "warna": "green"},
+    ], kolom=3)
+
+    html(
+        """
+        <div class="v21-note">
+            <b>Catatan:</b> Streamlit tidak dihitung sebagai step program. Website ini hanya menampilkan hasil dari program utama:
+            The Best Engine, Model V5, URL Intelligence, Public TI, File Analyzer, Trusted Safe, dan laporan defensif.
+        </div>
+        """
+    )
+
+    tab_status, tab_metadata, tab_output = st.tabs(["Status", "Metadata", "Output"])
+
+    with tab_status:
+        data_status = pd.DataFrame([
+            {"Bagian": "The Best Engine", "Status": status_v5.get("status_engine_v5", "siap_uji_streamlit"), "Catatan": "Validasi lanjutan URL, file, CLI, dan batch."},
+            {"Bagian": "False Positive Fix", "Status": status_fp.get("status_fix", status_fp.get("status_patch_final", "fix_siap")), "Catatan": "HuggingFace dan pandas.pydata.org aman sebagai trusted domain."},
+            {"Bagian": "CLI", "Status": status_v5.get("cli_return_code", "0"), "Catatan": "Return code 0 berarti CLI berjalan."},
+            {"Bagian": "Website", "Status": "ready_to_test", "Catatan": "Siap diuji secara visual di browser."},
+        ])
+        tabel_rapi(data_status, max_rows=80, caption="Status ringkas sistem.")
+
+    with tab_metadata:
+        if metadata_v5:
+            tampil_metadata = pd.DataFrame([
+                {"Informasi": "Proses", "Nilai": metadata_v5.get("nama_notebook", metadata_v5.get("nama_tahap", "-"))},
+                {"Informasi": "Status", "Nilai": metadata_v5.get("status", "-")},
+                {"Informasi": "Tanggal", "Nilai": metadata_v5.get("tanggal_selesai", "-")},
+                {"Informasi": "Catatan", "Nilai": "; ".join(metadata_v5.get("catatan", [])) if isinstance(metadata_v5.get("catatan", []), list) else metadata_v5.get("catatan", "-")},
+            ])
+            tabel_rapi(tampil_metadata, max_rows=80, caption="Metadata penting dibuat ringkas.")
+        else:
+            panel("Metadata belum ditemukan", "Dashboard tetap bisa berjalan. Metadata hanya dipakai sebagai informasi pendukung.", "yellow")
+
+    with tab_output:
+        daftar_output = pd.DataFrame([
+            v21_file_status("Hasil URL V5", DIREKTORI_OUTPUT / "hasil_uji_engine_v5_url.csv", "Output uji URL The Best Engine.", "Output"),
+            v21_file_status("Hasil File V5", DIREKTORI_OUTPUT / "hasil_uji_engine_v5_file.csv", "Output uji file The Best Engine.", "Output"),
+            v21_file_status("Validasi URL", DIREKTORI_OUTPUT / "hasil_validasi_url_engine_v5_best_step17.csv", "Validasi URL lanjutan.", "Output"),
+            v21_file_status("Validasi File", DIREKTORI_OUTPUT / "hasil_validasi_file_engine_v5_step17.csv", "Validasi file lanjutan.", "Output"),
+            v21_file_status("Fix HuggingFace", DIREKTORI_OUTPUT / "hasil_fix_huggingface_false_positive_engine_v5_step17b.csv", "Hasil patch trusted safe domain.", "Output"),
+        ])
+        tabel_rapi(daftar_output, max_rows=80, caption="Output validasi yang mendukung dashboard.")
+
+
+def main():
+    """Main final V21: Streamlit profesional memakai The Best Engine dan System Page hotfix."""
+    for nama_css in [
+        "pasang_css",
+        "pasang_css_final_override",
+        "pasang_css_v8_polish",
+        "pasang_css_engine_v4",
+        "pasang_css_game_v12",
+        "pasang_css_v13_polish",
+        "pasang_css_v14_game_fix",
+        "pasang_css_v15_professional",
+        "pasang_css_v16_video_professional",
+        "pasang_css_v17_media_polish",
+        "v18_css_video_frame_fix",
+        "pasang_css_v19_engine_v5",
+        "pasang_css_v20_professional_polish",
+        "pasang_css_v21_system_polish",
+    ]:
+        fungsi = globals().get(nama_css)
+        if callable(fungsi):
+            fungsi()
+
+    siapkan_state()
+    if callable(globals().get("game_init_v12")):
+        game_init_v12()
+
+    try:
+        engine = muat_engine()
+    except Exception as error:
+        v19_hero(
+            "Aplikasi gagal dimuat",
+            "The Best Engine Belum Siap",
+            "Pastikan The Best Engine, model, Public TI, dan daftar fitur tersedia.",
+            ["Cek src", "Cek models", "Cek reports/outputs"],
+        )
+        st.exception(error)
+        return
+
+    halaman = buat_sidebar()
+
+    if halaman == "Beranda":
+        halaman_beranda(engine)
+    elif halaman == "Input Alamat Link":
+        halaman_periksa_url(engine)
+    elif halaman == "Input File":
+        halaman_periksa_file(engine)
+    elif halaman == "Public Threat Intelligence":
+        halaman_threat_intel(engine)
+    elif halaman == "Engine Lab":
+        halaman_batch_lab(engine)
+    elif halaman == "Domain Watch":
+        halaman_domain_watch_v13(engine)
+    elif halaman == "Lab Eksperimen":
+        halaman_lab_eksperimen_v12(engine)
+    elif halaman == "Insight":
+        halaman_insight_v12(engine)
+    elif halaman == "Report Center":
+        halaman_report_center_v13(engine)
+    elif halaman == "Checklist Aman":
+        halaman_checklist_v13(engine)
+    elif halaman == "AI dan Laporan":
+        halaman_ai_laporan(engine)
+    elif halaman == "Playbook":
+        halaman_playbook_v12(engine)
+    elif halaman == "Rekomendasi dan Antisipasi":
+        halaman_rekomendasi()
+    elif halaman == "Ciri-Ciri":
+        halaman_ciri()
+    elif halaman == "Panduan":
+        halaman_panduan()
+    elif halaman == "Quick PhishRisk Training":
+        halaman_game_cyber(engine)
+    elif halaman == "Beta dan Salah Deteksi":
+        halaman_beta()
+    elif halaman == "Riwayat":
+        halaman_riwayat()
+    elif halaman == "Tentang Project":
+        halaman_tentang()
+    else:
+        halaman_sistem()
+
+    footer_site()
+
 
 if __name__ == "__main__":
     main()

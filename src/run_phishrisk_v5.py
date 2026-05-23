@@ -48,7 +48,7 @@ def baca_url_dari_input(input_value, url_column="url"):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="PhishRisk Engine V5 CLI")
+    parser = argparse.ArgumentParser(description="PhishRisk The Best Engine CLI")
     parser.add_argument("--mode", choices=["url", "urls", "file", "folder"], required=True)
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", default="")
@@ -77,7 +77,7 @@ def main():
     lokasi_output = Path(args.output) if args.output else output_default
     simpan_output(hasil, lokasi_output)
 
-    print("PhishRisk Engine V5 selesai.")
+    print("PhishRisk with The Best Engine selesai.")
     print("Mode:", args.mode)
     print("Output:", lokasi_output)
 
