@@ -3415,7 +3415,7 @@ def halaman_threat_intel(engine):
     hero(
         "Public Threat Intelligence",
         "PhishTank dan URLhaus",
-        "Halaman ini menunjukkan cara Best Engine memakai sumber eksternal sebagai sinyal tambahan, bukan sebagai hakim tunggal yang dramatis.",
+        "Halaman ini menunjukkan cara Best Engine memakai sumber eksternal sebagai sinyal tambahan.",
         ["PhishTank", "URLhaus", "Sinyal tambahan", "Auth optional"],
     )
 
@@ -3532,7 +3532,7 @@ def halaman_batch_lab(engine):
     hero(
         "Engine Lab",
         "Analisis Banyak Data",
-        "Bandingkan banyak URL atau file terakhir dengan filter sederhana, ringkasan, dan export CSV.",
+        "Membandingkan banyak URL atau file terakhir dengan filter sederhana, ringkasan, dan export CSV.",
         ["Filter", "Prioritas", "CSV", "Best Engine"],
     )
 
@@ -3604,7 +3604,7 @@ def halaman_ciri():
     hero(
         "Ciri-Ciri",
         "Pola URL dan File Berisiko",
-        "Panduan cepat untuk membaca pola phishing tanpa istilah yang bikin kepala ingin restart.",
+        "Panduan cepat untuk membaca pola phishing yang umum ditemui, terutama untuk domain tiruan dan file berisiko.",
         ["Domain", "Brand", "Kata", "File"],
     )
 
@@ -4281,7 +4281,7 @@ def render_game_score_v12():
         <div class="rank-box">
             <div class="card-title">Akurasi latihan: {akurasi}%</div>
             <div class="rank-bar"><div class="rank-fill" style="width:{akurasi}%;"></div></div>
-            <div class="small">Game ini tidak mengubah model. Fungsinya untuk melatih cara membaca URL, file, Public TI, dan tindakan aman.</div>
+            <div class="small">Fungsinya untuk melatih cara membaca URL, file, Public TI, dan tindakan aman.</div>
         </div>
         """
     )
@@ -4694,8 +4694,8 @@ Tindakan:
 def halaman_lab_eksperimen_v12(engine):
     hero(
         "Lab Eksperimen",
-        "Uji Banyak Pola Sekaligus",
-        "Ruang eksperimen untuk membandingkan website resmi, domain tiruan, kata mendesak, dan hasil Public Threat Intelligence.",
+        "Menguji Banyak Pola Sekaligus",
+        "Ruang eksperimen untuk membandingkan website resmi, domain tiruan, kata mendesak, dan hasil.",
         ["Preset", "Custom", "Ringkasan", "Export"],
     )
 
@@ -5430,7 +5430,7 @@ def halaman_checklist_v13(engine):
     hero(
         "Checklist Aman",
         "Pandu User Mengambil Keputusan",
-        "Halaman ini membantu user memilih tindakan setelah mendapat link atau file. Singkat, praktis, dan tidak berubah menjadi ceramah keamanan siber 12 jilid.",
+        "Halaman ini membantu user memilih tindakan setelah mendapat link atau file.",
         ["Checklist", "User Action", "Defensif", "Ringkas"],
     )
 
@@ -5502,7 +5502,7 @@ def halaman_domain_watch_v13(engine):
     hero(
         "Domain Watch",
         "Pantau Daftar Link",
-        "Masukkan beberapa domain atau URL untuk melihat prioritas risiko. Cocok untuk daftar link dari chat, email, catatan, atau laporan user.",
+        "Masukkan beberapa domain atau URL untuk melihat prioritas risiko. Seperti link dari chat, email, atau catatan.",
         ["URL Watch", "Batch", "Prioritas", "Best Engine"],
     )
 
@@ -5543,7 +5543,7 @@ def halaman_report_center_v13(engine):
     hero(
         "Report Center",
         "Ringkasan Siap Pakai",
-        "Buat ringkasan pemeriksaan dari hasil terakhir. Tidak perlu menampilkan JSON mentah yang membuat halaman seperti terminal tersesat.",
+        "Buat ringkasan pemeriksaan dari hasil terakhir.",
         ["Report", "CSV", "Ringkas", "Defensif"],
     )
 
@@ -8860,7 +8860,7 @@ def halaman_panduan():
     hero(
         "Panduan Penggunaan",
         "Cara Memakai PhishRisk",
-        "Ikuti alur singkat untuk memeriksa URL, file, batch, Public TI, dan membaca hasil dengan benar.",
+        "Ikuti alur nyata dengan benar.",
         ["URL", "File", "Batch", "Public TI", "Report", "Checklist"],
         video_key="workflow",
     )
@@ -8900,7 +8900,7 @@ def halaman_game_cyber(engine):
     hero(
         "Quick PhishRisk Training",
         "Security Training Lab",
-        "Latihan membaca URL, file, Public TI, dan tindakan insiden dengan alur yang selaras dengan The Best Engine.",
+        "Latihan membaca URL, file, Public TI, tindakan dengan alur yang jelas yang menghasilkan feedback",
         ["Tebak Risiko", "Cari Sinyal", "Domain Surgery", "File Triage", "Public TI", "Badge"],
         video_key="training",
     )
@@ -8924,7 +8924,7 @@ def halaman_tentang():
     hero(
         "Tentang Project",
         "PhishRisk Web App",
-        "Project Data Science dan Cyber Security defensif untuk pemeriksaan phishing berbasis URL, file dan laporan.",
+        "Project Data Science x Cyber Security defensif.",
         ["Defensive", "Machine Learning", "Threat Intelligence", "Static Analyzer", "Report"],
         video_key="education",
     )
@@ -11185,7 +11185,7 @@ def v16_video_showcase():
         + v16_video_markup(
             "cara_kerja_engine.mp4",
             "The Best Engine",
-            "The Best Engine + URL Intelligence + Public TI untuk pemeriksaan defensif yang cepat dan mudah dipresentasikan.",
+            "The Best Model + URL Intelligence + Public TI untuk pemeriksaan defensif yang cepat.",
             "Core",
             "mini",
         )
@@ -11646,7 +11646,7 @@ def halaman_sistem():
     html(
         """
         <div class="v21-note">
-            <b>Catatan:</b> Streamlit tidak dihitung sebagai step program. Website ini hanya menampilkan hasil dari program utama
+            <b>Catatan:</b> Streamlit tidak dihitung sebagai step program. Website ini hanya menampilkan hasil dari program utama.
         </div>
         """
     )
