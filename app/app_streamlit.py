@@ -3429,7 +3429,7 @@ def halaman_threat_intel(engine):
 
     with tab_uji:
         url = st.text_input("URL untuk diuji", value="https://www.google.com", key="public_ti_url_test")
-        if st.button("Cek dengan Best Engine", key="public_ti_test_button"):
+        if st.button("Cek", key="public_ti_test_button"):
             hasil = jalankan_uji_satu_url(engine, url)
             if hasil:
                 data_public = pd.DataFrame([
@@ -4328,7 +4328,7 @@ def render_tebak_risiko_v12(engine):
             st.session_state.game_v12_index = (st.session_state.game_v12_index + 1) % len(GAME_URL_BANK)
             st.rerun()
     with col3:
-        if st.button("Cek dengan Best Engine", key="v12_engine_tebak"):
+        if st.button("Cek", key="v12_engine_tebak"):
             jalankan_uji_satu_url(engine, soal["url"], sumber="game_v12_tebak")
 
     bullet_panel("Sinyal utama soal ini", soal["sinyal"], "gold")
@@ -6246,7 +6246,7 @@ def render_cari_sinyal_v12(engine=None):
             st.rerun()
 
     with col3:
-        if engine is not None and st.button("Cek dengan Best Engine", key="v14_engine_sinyal"):
+        if engine is not None and st.button("Cek", key="v14_engine_sinyal"):
             hasil = jalankan_uji_satu_url(engine, soal["url"], sumber="game_v14_sinyal")
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -6426,7 +6426,7 @@ def render_public_ti_drill_v14(engine):
         "gold",
     )
 
-    if st.button("Cek Public TI + Best Engine", key="v14_public_ti_check"):
+    if st.button("Cek", key="v14_public_ti_check"):
         hasil = _v14_engine_result(engine, custom)
         _v14_hasil_ringkas_box(hasil)
         if hasil:
@@ -6518,7 +6518,7 @@ def halaman_game_cyber(engine):
     html(
         """
         <div class="v14-grid">
-            <div class="v14-card"><strong>Core Training</strong><span>Tebak hasil URL dan cek dengan Best Engine.</span></div>
+            <div class="v14-card"><strong>Core Training</strong><span>Tebak hasil URL dan cek.</span></div>
             <div class="v14-card"><strong>Signal Training</strong><span>Cari sinyal phishing seperti brand palsu, punycode, login, update, verify, dan account.</span></div>
             <div class="v14-card"><strong>Response Training</strong><span>Latihan tindakan aman saat user menerima link atau file mencurigakan.</span></div>
             <div class="v14-card"><strong>Report Training</strong><span>Buat laporan mini agar hasil bisa terdokumentasi rapi.</span></div>
@@ -7250,10 +7250,10 @@ def buat_navigasi():
                     <div class="brand-mark">PR</div>
                     <div>
                         <div class="brand-title">PhishRisk</div>
-                        <div class="brand-sub">Made for your security needs</div>
+                        <div class="brand-sub">Made for your security need</div>
                     </div>
                 </div>
-                <div class="nav-badge">The Best Engine is Ready</div>
+                <div class="nav-badge">App is Ready</div>
             </div>
         """
     )
@@ -7308,7 +7308,7 @@ def halaman_beranda(engine):
             key="v15_home_url",
         )
         if st.button("Analisis cepat dengan The Best Engine", key="v15_home_check"):
-            with st.spinner("Menganalisis URL dengan The Best Engine..."):
+            with st.spinner("Sedang Menganalisis"):
                 hasil = v15_analisis_url(engine, url)
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -8075,7 +8075,7 @@ def halaman_beranda(engine):
             key="v16_home_url",
         )
         if st.button("Analisis cepat dengan The Best Engine", key="v16_home_check"):
-            with st.spinner("Menganalisis URL dengan The Best Engine..."):
+            with st.spinner("Sedang Menganalisis"):
                 hasil = v15_analisis_url(engine, url) if "v15_analisis_url" in globals() else engine.analisis_url(url)
             if hasil:
                 try:
@@ -8113,7 +8113,7 @@ def halaman_beranda(engine):
 
     v16_video_showcase()
 
-    section_title("Alur kerja", "Ringkas, rapi, dan mudah dijelaskan.")
+    section_title("Alur kerja")
     c1, c2, c3, c4 = st.columns(4)
     with c1:
         step_card("01", "Input", "Masukkan URL, banyak URL, CSV, atau file.")
@@ -8206,7 +8206,7 @@ def halaman_tentang():
         {"judul": "Batasan", "isi": "Sistem tidak menggantikan audit keamanan penuh dan tidak membuktikan kepemilikan domain secara mutlak.", "tag": "Limit"},
     ])
 
-    section_title("Author", "Informasi pembuat program dan website.")
+    section_title("Author")
     col1, col2 = st.columns([.9, 1.1])
     with col1:
         panel("Harbangan Panjaitan", "Data Science, Machine Learning, Software Engineering, dan Cyber Security defensif.", "gold")
@@ -8802,8 +8802,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v17_home_url",
         )
-        if st.button("Analisis dengan The Best Engine", key="v17_home_check"):
-            with st.spinner("Menganalisis URL dengan The Best Engine..."):
+        if st.button("Analisis", key="v17_home_check"):
+            with st.spinner("Sedang Menganalisis"):
                 hasil = v15_analisis_url(engine, url) if "v15_analisis_url" in globals() else engine.analisis_url(url)
             if hasil:
                 try:
@@ -8847,7 +8847,7 @@ def halaman_beranda(engine):
 
     v16_video_showcase()
 
-    section_title("Alur kerja", "Empat langkah utama yang mudah dijelaskan.")
+    section_title("Alur kerja")
     v17_flow([
         {"no": "01", "title": "Input", "note": "URL, CSV, atau file dimasukkan oleh user."},
         {"no": "02", "title": "Engine", "note": "Model dan intelligence membaca pola risiko."},
@@ -8905,7 +8905,7 @@ def halaman_game_cyber(engine):
         video_key="training",
     )
 
-    section_title("Konteks latihan", "Mode latihan dibuat untuk membantu user memahami evidence, bukan sekadar tebak-tebakan.")
+    section_title("Konteks latihan", "Mode latihan dibuat untuk membantu user memahami evidence.")
     html(
         "<div class='v16-video-row'>"
         + v16_video_markup("game_training.mp4", "Risk Practice", "Latihan memilih status risiko dan memahami alasan sistem.", "Practice", "mini")
@@ -8924,19 +8924,19 @@ def halaman_tentang():
     hero(
         "Tentang Project",
         "PhishRisk Web App",
-        "Project Data Science dan Cyber Security defensif untuk pemeriksaan phishing berbasis URL, file, intelligence, dan laporan.",
+        "Project Data Science dan Cyber Security defensif untuk pemeriksaan phishing berbasis URL, file dan laporan.",
         ["Defensive", "Machine Learning", "Threat Intelligence", "Static Analyzer", "Report"],
         video_key="education",
     )
 
-    section_title("Ringkasan project", "Fokus pada manfaat, komponen, dan batasan sistem.")
+    section_title("Ringkasan project")
     v15_feature_grid([
         {"judul": "Tujuan", "isi": "Membantu user menilai risiko awal dari URL dan file sebelum login, mengunduh, atau memasukkan data pribadi.", "tag": "Purpose"},
         {"judul": "Engine", "isi": "Memakai The Best Engine, URL Intelligence, File Static Analyzer, Public TI, dan AI fallback lokal.", "tag": "System"},
         {"judul": "Batasan", "isi": "Sistem tidak menggantikan audit keamanan penuh dan tidak membuktikan kepemilikan domain secara mutlak.", "tag": "Limit"},
     ])
 
-    section_title("Author", "Informasi pembuat program dan website.")
+    section_title("Author")
     col1, col2 = st.columns([.9, 1.1])
     with col1:
         panel("Harbangan Panjaitan", "Data Science, Machine Learning, Software Engineering, dan Cyber Security defensif.", "gold")
@@ -9599,8 +9599,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v18_home_url",
         )
-        if st.button("Analisis dengan The Best Engine", key="v18_home_check"):
-            with st.spinner("Menganalisis URL dengan The Best Engine..."):
+        if st.button("Analisis", key="v18_home_check"):
+            with st.spinner("Sedang Menganalisis"):
                 hasil = v15_analisis_url(engine, url) if "v15_analisis_url" in globals() else engine.analisis_url(url)
             if hasil:
                 try:
@@ -9643,7 +9643,7 @@ def halaman_beranda(engine):
 
     v16_video_showcase()
 
-    section_title("Alur kerja", "Ringkas, rapi, dan mudah dijelaskan.")
+    section_title("Alur kerja")
     v17_flow([
         {"no": "01", "title": "Input", "note": "Masukkan URL, batch URL, CSV, atau file."},
         {"no": "02", "title": "Engine", "note": "Model dan intelligence membaca sinyal risiko."},
@@ -10389,7 +10389,7 @@ def tampilkan_status_url(hasil):
         tabel_rapi(data, max_rows=80)
 
     with tab_alasan:
-        panel("Alasan singkat", hasil.get("alasan_v5", hasil.get("intelligence_reason", "-")), "gold")
+        panel("Alasan", hasil.get("alasan_v5", hasil.get("intelligence_reason", "-")), "gold")
         data_alasan = pd.DataFrame([
             {"Sinyal": "Intelligence", "Nilai": hasil.get("intelligence_status", "-")},
             {"Sinyal": "Brand", "Nilai": hasil.get("brand_detected_v5", hasil.get("brand_detected", "-")) or "-"},
@@ -10549,12 +10549,12 @@ def halaman_beranda(engine):
     v19_hero(
         "PhishRisk Application",
         "Security Command Center",
-        "Dashboard defensif untuk memeriksa URL, file, threat intelligence, dan laporan dengan bahasa singkat yang mudah dipresentasikan.",
+        "Dashboard defensif untuk memeriksa URL, file, threat intelligence, dan laporan dengan bahasa singkat.",
         ["The Best Engine", "Multi Dataset", "Public TI", "Trusted Safe", "File Analyzer", "Report Ready"],
     )
 
     v19_cards([
-        {"label": "Engine", "nilai": v19_engine_label(engine), "catatan": "Model V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "Engine", "nilai": v19_engine_label(engine), "catatan": "Updated Model.", "warna": "gold"},
         {"label": "Data", "nilai": "975K", "catatan": "Multi-dataset training untuk generalisasi.", "warna": "green"},
         {"label": "Input", "nilai": "URL/File", "catatan": "Cek link, CSV, dan file statis.", "warna": "yellow"},
         {"label": "Output", "nilai": "Action", "catatan": "Skor, alasan, dan tindakan aman.", "warna": "red"},
@@ -10569,8 +10569,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v19_home_url",
         )
-        if st.button("Analisis dengan The Best Engine", key="v19_home_check"):
-            with st.spinner("Menganalisis dengan The Best Engine..."):
+        if st.button("Analisis", key="v19_home_check"):
+            with st.spinner("Sedang Menganalisis"):
                 hasil = v19_analisis_url(engine, url)
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -10658,7 +10658,7 @@ def halaman_periksa_url(engine):
         tabel_rapi(pd.DataFrame({"url": daftar}), max_rows=60)
 
         if st.button("Periksa semua URL", key="v19_periksa_banyak_url"):
-            with st.spinner("Menganalisis banyak URL dengan The Best Engine..."):
+            with st.spinner("Sedang Menganalisis"):
                 data = v19_analisis_banyak(engine, daftar)
             for _, baris in data.iterrows():
                 tambah_riwayat_url(baris.to_dict())
@@ -10681,7 +10681,7 @@ def halaman_periksa_url(engine):
             kolom_url = st.selectbox("Pilih kolom URL", data_csv.columns.tolist(), key="v19_kolom_url_csv")
             if st.button("Periksa CSV", key="v19_periksa_csv"):
                 daftar = data_csv[kolom_url].dropna().astype(str).str.strip().tolist()
-                with st.spinner("Menganalisis CSV dengan The Best Engine..."):
+                with st.spinner("Sedang Menganalisis"):
                     data = v19_analisis_banyak(engine, daftar)
                 for _, baris in data.iterrows():
                     tambah_riwayat_url(baris.to_dict())
@@ -10766,7 +10766,7 @@ def halaman_sistem():
     v19_hero(
         "System Readiness",
         "Informasi Sistem",
-        "Ringkasan komponen utama PhishRisk. Dibuat singkat agar mudah dijelaskan saat presentasi.",
+        "Ringkasan komponen utama PhishRisk untuk memastikan semua bagian siap dipakai",
         ["The Best Engine", "Patch FP", "Public TI", "Streamlit", "Ready"],
     )
 
@@ -10892,7 +10892,7 @@ def main():
     footer_site()
 
 APP_ENGINE_RINGKAS = "The Best Engine"
-APP_ENGINE_DETAIL = "Model V5 + URL Intelligence + Public TI"
+APP_ENGINE_DETAIL = "Updated Model + URL Intelligence + Public TI"
 APP_PITCH_RINGKAS = "Pemeriksaan URL, file, threat intelligence, laporan, dan training defensif dalam satu dashboard."
 
 
@@ -11214,12 +11214,12 @@ def halaman_beranda(engine):
     v19_hero(
         "PhishRisk Web App",
         "Dashboard Pemeriksaan Phishing",
-        "Cek URL dan file dengan The Best Engine. Hasilnya berupa skor, alasan singkat, Public TI, dan rekomendasi defensif yang mudah dipresentasikan.",
-        ["The Best Engine", "Model V5 + URL Intelligence + Public TI", "File Analyzer", "Report Ready"],
+        "Cek URL dan file dengan The Best Engine. Hasilnya berupa skor, alasan, Public TI, dan rekomendasi defensif.",
+        ["The Best Engine", "Updated Model + URL Intelligence + Public TI", "File Analyzer", "Report Ready"],
     )
 
     v19_cards([
-        {"label": "The Model Used", "nilai": "The Best Engine", "catatan": "Model V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "The Model Used", "nilai": "The Best Engine", "catatan": "Updated Model + URL Intelligence + Public TI.", "warna": "gold"},
         {"label": "Dataset", "nilai": "975K", "catatan": "PhiUSIIL, PhreshPhish, DeepURLBench, dan Tranco.", "warna": "green"},
         {"label": "Input", "nilai": "URL/File", "catatan": "URL tunggal, batch, CSV, dan file statis.", "warna": "yellow"},
         {"label": "Output", "nilai": "Skor + Aksi", "catatan": "Keputusan ringkas dan rekomendasi aman.", "warna": "red"},
@@ -11244,8 +11244,8 @@ def halaman_beranda(engine):
             value="http://bca-login-update.test",
             key="v20_home_url",
         )
-        if st.button("Analisis dengan The Best Engine", key="v20_home_check"):
-            with st.spinner("Menganalisis dengan The Best Engine..."):
+        if st.button("Analisis", key="v20_home_check"):
+            with st.spinner("Sedang Menganalisis"):
                 hasil = v19_analisis_url(engine, url)
             if hasil:
                 tambah_riwayat_url(hasil)
@@ -11309,7 +11309,7 @@ def halaman_sistem():
         status_fp = {}
 
     v19_cards([
-        {"label": "Engine ", "nilai": "The Best Engine", "catatan": "Model V5 + URL Intelligence + Public TI.", "warna": "gold"},
+        {"label": "Engine ", "nilai": "The Best Engine", "catatan": "Updated Model + URL Intelligence + Public TI.", "warna": "gold"},
         {"label": "Validasi", "nilai": status_v5.get("status_engine_v5", "siap_uji_streamlit"), "catatan": "Sudah diuji pada URL, file, CLI, dan batch.", "warna": "green"},
         {"label": "Trusted Safe", "nilai": status_fp.get("status_fix", "fix_siap"), "catatan": "Mengurangi false positive domain tepercaya.", "warna": "yellow"},
         {"label": "Mode", "nilai": "Defensive", "catatan": "Fokus deteksi, edukasi, dan laporan aman.", "warna": "red"},
@@ -11327,7 +11327,7 @@ def halaman_sistem():
 
     v19_section("Komponen inti", "Ditulis ringkas agar enak saat presentasi.")
     data_file = pd.DataFrame([
-        {"Komponen": "The Best Engine", "Fungsi": "Skor risiko final", "Keterangan": "Model V5 + URL Intelligence + Public TI"},
+        {"Komponen": "The Best Engine", "Fungsi": "Skor risiko final", "Keterangan": "Updated Model + URL Intelligence + Public TI"},
         {"Komponen": "File Analyzer", "Fungsi": "Analisis statis", "Keterangan": "Membaca metadata, URL tertanam, dan sinyal file"},
         {"Komponen": "Trusted Safe", "Fungsi": "Kontrol false positive", "Keterangan": "Domain tepercaya tetap dicek, bukan dibebaskan total"},
         {"Komponen": "Report", "Fungsi": "Output", "Keterangan": "CSV, riwayat, dan ringkasan hasil"},
@@ -11531,14 +11531,14 @@ def v21_system_shell(status_v5, status_fp):
         <section class="v21-system-shell">
             <div class="v21-system-head">
                 <div>
-                    <div class="v21-system-title">Kesiapan The Best Engine</div>
+                    <div class="v21-system-title">Kesiapan PhishRisk Web App</div>
                     <div class="v21-system-desc">
-                        Sistem memakai Model V5, URL Intelligence, Public TI, File Analyzer, dan Trusted Safe.
+                        Sistem memakai updated model, URL Intelligence, Public TI, File Analyzer, dan Trusted Safe.
                         Streamlit hanya menjadi dashboard untuk menjalankan hasil program utama.
                     </div>
                     <div class="v21-badge-row">
                         <span>The Best Engine</span>
-                        <span>Model V5 + URL Intelligence + Public TI</span>
+                        <span>Updated Model + URL Intelligence + Public TI</span>
                         <span>Trusted Safe</span>
                         <span>File Analyzer</span>
                     </div>
@@ -11595,7 +11595,7 @@ def halaman_sistem():
         "System Readiness",
         "Informasi Sistem",
         "Ringkasan kesiapan PhishRisk. Fokusnya sederhana: The Best Engine membaca URL dan file, lalu memberi skor, alasan, dan rekomendasi defensif.",
-        ["The Best Engine", "Model V5 + URL Intelligence + Public TI", "Trusted Safe", "Report Ready"],
+        ["The Best Engine", "Updated Model + URL Intelligence + Public TI", "Trusted Safe", "Report Ready"],
     )
 
     metadata_v5 = muat_metadata(LOKASI_METADATA_BEST_ENGINE)
@@ -11604,7 +11604,7 @@ def halaman_sistem():
 
     v21_system_shell(status_v5, status_fp)
 
-    v19_section("Ringkasan Produk", "Bahasa singkat untuk presentasi, tanpa istilah notebook yang bikin layar seperti catatan teknisi.")
+    v19_section("Ringkasan Produk")
     v21_feature_grid([
         {"label": "Core", "judul": "The Best Engine", "isi": "Model multi-dataset membaca pola URL, domain, brand, keyword, dan skor final.", "warna": "gold"},
         {"label": "Signal", "judul": "Public TI", "isi": "PhishTank dan URLhaus menjadi sinyal tambahan, bukan satu-satunya keputusan.", "warna": "green"},
@@ -11612,7 +11612,7 @@ def halaman_sistem():
         {"label": "Output", "judul": "Laporan", "isi": "Hasil dapat dibaca sebagai skor, kategori, alasan, rekomendasi, dan CSV.", "warna": "red"},
     ])
 
-    v19_section("Alur Sistem", "Dari input sampai rekomendasi dibuat pendek agar mudah dijelaskan.")
+    v19_section("Alur Sistem")
     v21_path([
         {"no": "01", "judul": "Input", "isi": "User memasukkan URL, batch CSV, atau file."},
         {"no": "02", "judul": "Model", "isi": "Model V5 menghitung skor risiko awal."},
